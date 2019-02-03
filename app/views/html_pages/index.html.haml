@@ -1,0 +1,27 @@
+%h1 Listing html_pages
+
+%table
+  %thead
+    %tr
+      %th Title
+      %th Content
+      %th Active
+      %th Slug
+      %th
+      %th
+      %th
+
+  %tbody
+    - @html_pages.each do |html_page|
+      %tr
+        %td= html_page.title
+        %td= html_page.content
+        %td= html_page.active
+        %td= html_page.slug
+        %td= link_to 'Show', html_page
+        %td= link_to 'Edit', edit_html_page_path(html_page)
+        %td= link_to 'Destroy', html_page, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Html page', new_html_page_path

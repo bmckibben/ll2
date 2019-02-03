@@ -20,11 +20,18 @@ gem 'uglifier'
 gem 'coffee-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'jquery-validation-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder'
+
+# Markup and design related libraries
+gem 'bootstrap-sass'
+gem 'bootstrap-select-rails'
+gem 'font-awesome-sass'
 
 # stuff I intend to use
 gem 'redis'
@@ -35,10 +42,9 @@ gem 'friendly_id'
 gem 'haml'
 gem 'haml-rails'
 gem 'activeadmin'
+gem 'browser-timezone-rails'
+gem 'request_store'
 gem 'kaminari'
-gem 'bootstrap-sass'
-gem 'font-awesome-sass'
-gem 'bootstrap-select-rails'
 gem 'tinymce-rails'
 
 # per heroku
@@ -46,16 +52,13 @@ gem 'rails_12factor'
 
 
 group :development do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  # Use mysql as the database for Active Record
-  gem 'web-console', '>= 3.3.0'
-  gem 'listen', '>= 3.0.5', '< 3.2'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'better_errors'
+  gem "binding_of_caller" 
+  gem "annotate"
+  # javascript runtine is required for Windows Subsystem for Linux/Ubuntu
+  gem 'therubyracer', platforms: :ruby  
+  # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+  gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]   
+  gem 'listen'
 end
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

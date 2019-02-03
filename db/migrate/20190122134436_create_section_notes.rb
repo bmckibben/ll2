@@ -1,4 +1,4 @@
-class CreateSectionNotes < ActiveRecord::Migration
+class CreateSectionNotes < ActiveRecord::Migration[5.2]
   def change
     create_table :section_notes do |t|
       t.text :note

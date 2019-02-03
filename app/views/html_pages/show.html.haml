@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @html_page.title
+%p
+  %b Content:
+  = @html_page.content
+%p
+  %b Active:
+  = @html_page.active
+%p
+  %b Slug:
+  = @html_page.slug
+
+= link_to 'Edit', edit_html_page_path(@html_page)
+\|
+= link_to 'Back', html_pages_path
