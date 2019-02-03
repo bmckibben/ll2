@@ -2,15 +2,21 @@
 %html
   %head
     %title "LiteralLignt"
-    -#= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track": "reload"
-    -#= javascript_include_tag "application". "data-turbolinks-track": "reload"
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track": "reload"
+    = javascript_include_tag "application", "data-turbolinks-track": "reload"
     = csrf_meta_tags
   %body
-    = yield
-    %h2
-      home layout
-    -#style notice and alert like snackbar
-    %p.notice
-      = notice
-    %p.alert
-      = alert
+    = render 'layouts/public_navigation'
+    %main
+      .container-fluid
+        .clearfix
+          = yield
+          %h2
+            home layout
+          -#style notice and alert like snackbar
+          %p.notice
+            = notice
+          %p.alert
+            = alert
+    %footer
+      = render 'layouts/public_footer'
