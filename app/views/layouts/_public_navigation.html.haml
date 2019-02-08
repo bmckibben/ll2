@@ -9,7 +9,7 @@
 
       =link_to image_tag("literallight_txt.png"), root_path, class: "navbar-brand" 
     
-    .collapse.navbar-collapse{id:"navbar-collapse-1"}
+    .collapse.navbar-collapse.navbar-right.navbar-main-collapse{id:"navbar-collapse-1"}
       -if user_signed_in?
         %ul.nav.navbar-nav
           %li.active
@@ -51,7 +51,7 @@
                 =link_to 'Hugo/Nebula Awards', html_pages_path(slug:"hugo_nebula")
               %li
                 =link_to 'Glossary', html_pages_path(slug:"glassary")
-      %ul.nab.navbar-nav-navbar-right
+      %ul.nav.navbar-nav
         -if user_signed_in?
           %li
             =link_to 'Sign out', destroy_user_session_path, method: :delete 
