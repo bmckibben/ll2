@@ -6,11 +6,10 @@
     = javascript_include_tag "application". "data-turbolinks-track": "reload"
     = csrf_meta_tags
   %body
-    = yield
-    %h2 
-        application layout
-    -#style notice and alert like snackbar
-    %p.notice
-    	= notice
-    %p.alert
-    	= alert
+    .container
+      = yield
+      -#style notice and alert like snackbar
+      %p.notice
+        = notice
+      %p.alert
+        = alert

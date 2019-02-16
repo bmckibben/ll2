@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_02_212339) do
+ActiveRecord::Schema.define(version: 2019_02_16_010331) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "histories", force: :cascade do |t|
+    t.datetime "date"
+    t.integer "ball_1"
+    t.integer "ball_2"
+    t.integer "ball_3"
+    t.integer "ball_4"
+    t.integer "ball_5"
+    t.integer "powerball"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "html_pages", force: :cascade do |t|
     t.string "title"

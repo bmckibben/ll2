@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b Date:
+  = @history.date
+%p
+  %b Ball 1:
+  = @history.ball_1
+%p
+  %b Ball 2:
+  = @history.ball_2
+%p
+  %b Ball 3:
+  = @history.ball_3
+%p
+  %b Ball 4:
+  = @history.ball_4
+%p
+  %b Ball 5:
+  = @history.ball_5
+%p
+  %b Powerball:
+  = @history.powerball
+
+= link_to 'Edit', edit_history_path(@history)
+\|
+= link_to 'Back', histories_path

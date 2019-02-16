@@ -1,0 +1,15 @@
+// Place all the styles related to the histories controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.field, .actions {
+  margin: 1rem;
+}
+
+.jumbotron {
+  th {
+	padding: 2px 5px;
+  }
+  td {
+	padding: 2px 5px;
+  }  
+}

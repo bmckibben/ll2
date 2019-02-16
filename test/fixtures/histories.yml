@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2019-02-15 20:03:32
+  ball_1: 1
+  ball_2: 1
+  ball_3: 1
+  ball_4: 1
+  ball_5: 1
+  powerball: 1
+
+two:
+  date: 2019-02-15 20:03:32
+  ball_1: 1
+  ball_2: 1
+  ball_3: 1
+  ball_4: 1
+  ball_5: 1
+  powerball: 1
