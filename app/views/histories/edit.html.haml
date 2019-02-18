@@ -1,7 +1,10 @@
-%h1 Editing history
+.container-fluid#histories
+  .row
+    .col-md-3
+    .col-md-6 
+      %h1 Editing history
+      = render 'form'
 
-= render 'form'
-
-= link_to 'Show', @history
-\|
-= link_to 'Back', histories_path
+      = link_to 'Show', @history, class: "btn btn-primary"
+      = " "
+      = link_to 'Back', histories_path, class: "btn btn-primary"

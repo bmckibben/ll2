@@ -2,6 +2,10 @@ html, body {
   height: 100%;
 }
 
+body {
+  overflow: auto;
+}
+
 main {
   // @extend .container;
   padding-bottom: 80px;
@@ -366,7 +370,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0000ff', end
 
 /* Pages with gradient background */
 .gradient-main {
-  background-image: linear-gradient(to bottom, black 0%, #000099 100%);
+  background: linear-gradient(to bottom, black 0%, #000099 100%) no-repeat center center fixed;
 }
 
 .gradient-body {

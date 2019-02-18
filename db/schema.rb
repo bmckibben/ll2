@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_16_010331) do
+ActiveRecord::Schema.define(version: 2019_02_18_090100) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,12 @@ ActiveRecord::Schema.define(version: 2019_02_16_010331) do
     t.integer "powerball"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "predicted_1"
+    t.integer "predicted_2"
+    t.integer "predicted_3"
+    t.integer "predicted_4"
+    t.integer "predicted_5"
+    t.integer "predicted_powerball"
   end
 
   create_table "html_pages", force: :cascade do |t|

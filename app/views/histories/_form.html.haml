@@ -1,16 +1,22 @@
 -# frozen_string_literal: true
-= simple_form_for(@history) do |f|
+= simple_form_for(@history, html: {class: 'form-horizontal'}) do |f|
   = f.error_notification
   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 
   .form-inputs
     = f.input :date
     = f.input :ball_1
+    = f.input :predicted_1
     = f.input :ball_2
+    = f.input :predicted_2
     = f.input :ball_3
+    = f.input :predicted_3
     = f.input :ball_4
+    = f.input :predicted_4
     = f.input :ball_5
+    = f.input :predicted_5
     = f.input :powerball
+    = f.input :predicted_powerball
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, class: "btn btn-primary"

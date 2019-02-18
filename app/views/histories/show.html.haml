@@ -1,27 +1,69 @@
-%p#notice= notice
+.container-fluid#histories
+  .row
+    .col-md-3
+    .col-md-6.col-sm-12
+      .card
+        %p#notice= notice
 
-%p
-  %b Date:
-  = @history.date
-%p
-  %b Ball 1:
-  = @history.ball_1
-%p
-  %b Ball 2:
-  = @history.ball_2
-%p
-  %b Ball 3:
-  = @history.ball_3
-%p
-  %b Ball 4:
-  = @history.ball_4
-%p
-  %b Ball 5:
-  = @history.ball_5
-%p
-  %b Powerball:
-  = @history.powerball
+        %table
+          %tr
+            %th
+              
+            %th
+              Actual
+            %th
+              Predicted
+              %br
+              Weight
+          %tr
+            %td
+              Date:
+            %td
+              = @history.date.strftime("%d-%b-%Y")   
+            %td
+          %tr
+            %td
+              Ball 1
+            %td
+              = @history.ball_1     
+            %td
+              = @history.predicted_1
+          %tr
+            %td
+              Ball 2
+            %td
+              = @history.ball_2     
+            %td
+              = @history.predicted_2
+          %tr
+            %td
+              Ball 3
+            %td
+              = @history.ball_3     
+            %td
+              = @history.predicted_3
+          %tr
+            %td
+              Ball 4
+            %td
+              = @history.ball_4     
+            %td
+              = @history.predicted_4
+          %tr
+            %td
+              Ball 5
+            %td
+              = @history.ball_5     
+            %td
+              = @history.predicted_5
+          %tr
+            %td
+              Powerball
+            %td
+              = @history.powerball    
+            %td
+              = @history.predicted_powerball
 
-= link_to 'Edit', edit_history_path(@history)
-\|
-= link_to 'Back', histories_path
+        = link_to 'Edit', edit_history_path(@history), class: "btn btn-primary"
+        = " "
+        = link_to 'Back', histories_path, class: "btn btn-primary"
