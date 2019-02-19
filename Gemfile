@@ -45,7 +45,7 @@ gem 'activeadmin'
 gem 'browser-timezone-rails'
 gem 'request_store'
 gem 'kaminari'
-gem 'tinymce-rails'
+gem 'ckeditor'
 
 # per heroku
 gem 'rails_12factor'
