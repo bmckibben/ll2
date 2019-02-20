@@ -4,7 +4,7 @@
   .form-inputs
     .row
       .col-xs-12
-        = f.input :title, html:
+        = f.input :title 
     .row
       .col-md-2.attributes    
         = f.input :sequence
@@ -23,8 +23,7 @@
             = f.input :conflict
         .card.section-notes
           .card-title
-            %label
-              =link_to "notes", edit_note_modal_path(section_id: @section.id), remote: true
+            =link_to "notes", edit_note_modal_path(section_id: @section.id), remote: true
           %ul.list-group.list-group-flush        
             - @section.section_notes.each do |note|
               %li.list-group-item

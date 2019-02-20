@@ -1,7 +1,7 @@
 #= require active_admin/base
 #= require ckeditor/init
 
-$(document).on 'page:load ready', ->
+$(document).ready ->
   if $('textarea#section_body').length > 0
     data = $('textarea#section_body')
     $.each data, (i) ->
