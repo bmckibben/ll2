@@ -1,0 +1,17 @@
+-# frozen_string_literal: true
+= simple_form_for(@wiki) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    = f.input :title
+    = f.input :user_id
+    = f.input :body
+    = f.input :parent
+    = f.input :version
+    = f.input :deleted
+    = f.input :default_sort
+    = f.input :last_revision
+
+  .form-actions
+    = f.button :submit

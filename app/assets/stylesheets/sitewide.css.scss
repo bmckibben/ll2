@@ -1,3 +1,15 @@
 $font-family-heading:     'Arvo', Georgia, 'Times New Roman', Times, serif !default;
 $font-family-body:        'Arimo', Helvetica, Arial, sans-serif !default;
 $font-family-content:     'Rokkitt', Georgia, 'Times New Roman', Times, serif !default;
+
+h1, h2, h3, h4, h5 {
+	font-family: $font-family-heading
+}
+
+input, select, textarea {
+	font-family: $font-family-content
+}
+
+body {
+	font-family: $font-family-body
+}

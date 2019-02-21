@@ -1,0 +1,22 @@
+// Place all the styles related to the wikis controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#wikis{
+	.form-control-label {
+	color: #fff !important;
+	}
+	.field, .actions {
+	margin: 1rem;
+	}
+	.card {
+	color: #000;
+	background-color: #fff;
+	  th {
+		  padding: 2px 5px;
+	  }
+	  td {
+		  padding: 2px 5px;
+	  }  
+	}
+}
