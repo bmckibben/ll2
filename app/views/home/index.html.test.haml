@@ -139,7 +139,7 @@
           %li
             %ol.type
               %li
-                =link_to "All", "#", data: {filter:"*"}, class: "active"
+                 =link_to "All", "#", data: {filter:"*"}, class: "active"
                   
                 =link_to "Steam", "#", data: {filter:".lorem*"}, class: "active"
                   
@@ -277,7 +277,7 @@
               Shokunin
         .col-sm-6.col-md-3
           .thumbnail
-            =image_tag("team/02.png",  class: "img-thumbnail team-img", alt: "...")
+            =image_tag("team/02.jpg",  class: "img-thumbnail team-img", alt: "...")
             .caption
               %h3
                 Code Monkey
@@ -366,6 +366,17 @@
       .col-md-8.col-md-offset-2
         %h3
           Leave us a message
+
+          = simple_form_for @contact_message, url: contact_path, remote: true, html: { role: 'form' } do |f|
+            = f.error_notification
+            - if flash.key?(:recaptcha_error)  
+              .alert.alert-danger= flash[:recaptcha_error]
+            = f.input :name, required: true
+            = f.input :email, required: true
+            = f.input :description, as: :text, required: true, label: "Your Message"
+            .centered
+              = recaptcha_tags                
+            = f.button :submit, 'Submit', class: 'btn btn-primary'
 
       .social
         %h3
