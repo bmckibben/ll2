@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require tether
+//= bootstrap-sprockets
 //= require activestorage
 //= require turbolinks
 //= require_tree .

@@ -1,9 +1,7 @@
 %body{id:"page-top", data:{spy:"scroll", target:".navbar-fixed-top"}}
   #preloader
     #status
-      = image_tag("preloader.gif", size: "64", alt: "")
-
-
+      = image_tag("preloader.gif")
   / Header
   #intro
     .intro-body
@@ -77,7 +75,7 @@
             %h3
               CSS
             %p
-              Twitter Bootstrap is rules!
+              Twitter Bootstrap rules!
         .col-md-3.col-sm-6
           .service
             %i.fa.fa-diamond
@@ -366,7 +364,11 @@
       .col-md-8.col-md-offset-2
         %h3
           Leave us a message
-
+        = simple_form_for :contact, url: home_contact_path, remote: true do |f|
+          = f.input :name, required: true
+          = f.input :email, required: true
+          = f.input :description, as: :text, required: true, label: "Your Message"
+          = f.button :submit, 'Submit', class: 'btn btn-primary'        
       .social
         %h3
           Follow me

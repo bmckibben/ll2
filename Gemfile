@@ -32,6 +32,7 @@ gem 'jbuilder'
 gem 'bootstrap-sass'
 gem 'bootstrap-select-rails'
 gem 'font-awesome-sass'
+gem 'rails-assets-tether'
 
 # stuff I intend to use
 gem 'redis'
@@ -46,6 +47,7 @@ gem 'browser-timezone-rails'
 gem 'request_store'
 gem 'kaminari'
 gem 'ckeditor'
+gem "nokogiri"
 
 # per heroku
 gem 'rails_12factor'

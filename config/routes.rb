@@ -8,10 +8,7 @@ Rails.application.routes.draw do
 
   match "histories/recommended", to: "histories#recommended", as: :recommended, via: [:get, :post]
   get "sections/edit_note_modal", to: "sections#edit_note_modal", as: :edit_note_modal 
-
-  resource  :contact, only: [:new, :create], path_names: { new: '' } do
-    get :thank_you
-  end
+  post "home/contact", to: "home#contact", as: :home_contact
 
   resources :histories  
   resources :html_pages

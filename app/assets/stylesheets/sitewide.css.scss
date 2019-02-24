@@ -3,13 +3,42 @@ $font-family-body:        'Arimo', Helvetica, Arial, sans-serif !default;
 $font-family-content:     'Rokkitt', Georgia, 'Times New Roman', Times, serif !default;
 
 h1, h2, h3, h4, h5 {
-	font-family: $font-family-heading
+	font-family: $font-family-heading;
 }
 
 input, select, textarea {
-	font-family: $font-family-content
+	font-family: $font-family-content;
 }
 
 body {
-	font-family: $font-family-body
+	font-family: $font-family-body;
+  #snackbar {
+    display: none; 
+    min-width: 400px; 
+    height: 4rem;
+    margin-left: -200px; 
+    background-color: #000;
+    color: #d8d2c4;
+    text-align: left; 
+    border-radius: 3px; 
+    padding: 1rem 2rem; 
+    position: fixed; 
+    z-index: 1; 
+    left: 50%; 
+    bottom: 100px; 
+    box-shadow: 5px 10px 18px #a8a59f;
+    & > a {
+      float: right;
+      color: #d8d2c4;
+    }
+    & > a:hover {
+      color: #a8a59f;
+    }    
+  }
+}
+
+@media (max-width: $screen-md-min) {
+  #snackbar {
+    bottom: 50px;
+  }  
 }
