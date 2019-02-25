@@ -1,4 +1,5 @@
 %body{id:"page-top", data:{spy:"scroll", target:".navbar-fixed-top"}}
+  = render 'layouts/public_navigation'
   #preloader
     #status
       = image_tag("preloader.gif")
@@ -15,7 +16,7 @@
               The professional website of Ben McKibben
               %br
               = DateTime.now.in_time_zone('Indiana (East)').to_formatted_s(:stardate)
-              = link_to "Learn More, "#", class: "btn btn-primary page-scroll"
+            = link_to "Learn More", "#", class: "btn btn-primary page-scroll"
                 
 
   / About Section
@@ -385,3 +386,7 @@
           %li
             =link_to "https://www.linkedin.com/in/ben-mckibben-7781252b" do
               %i.fa.fa-linkedin
+
+  #snackbar
+  %footer
+    = render 'layouts/public_footer'
