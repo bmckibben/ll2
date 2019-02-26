@@ -286,10 +286,12 @@ hr {
 .space {
 	margin-top: 40px;
 }
-#services i.fa {
-	font-size: 36px;
-	color: #26B4E7;
-	transition: all 0.5s;	
+#services{
+	i.fa, i.fab, i.fas  {
+		font-size: 36px;
+		color: #26B4E7;
+		transition: all 0.5s;	
+	}	
 }
 /* Gallery Section */
 #works {

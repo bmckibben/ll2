@@ -16,7 +16,7 @@
               The professional website of Ben McKibben
               %br
               = DateTime.now.in_time_zone('Indiana (East)').to_formatted_s(:stardate)
-            = link_to "Learn More", "#", class: "btn btn-primary page-scroll"
+            = link_to "Learn More", "#about", class: "btn btn-primary page-scroll"
                 
 
   / About Section
@@ -57,7 +57,7 @@
       .row
         .col-md-3.col-sm-6
           .service
-            %i.fa.fa-html5
+            %i.fab.fa-html5
             %h3
               HTML
             %p
@@ -72,14 +72,15 @@
 
         .col-md-3.col-sm-6
           .service
-            %i.fa.fa-css3"
+            %i.fab.fa-css3-alt
             %h3
               CSS
             %p
               Twitter Bootstrap rules!
+
         .col-md-3.col-sm-6
           .service
-            %i.fa.fa-diamond
+            %i.fas.fa-gem
             %h3
               Ruby On Rails
             %p

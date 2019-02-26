@@ -1,0 +1,29 @@
+.navbar-custom.nav.navbar.navbar-inverse.navbar-fixed-top{role: "navigation"}
+  .container-fluid
+    .navbar-header	
+      %button.navbar-toggle.collapse-1{type: "button",  aria:{expanded:"false"}, data:{toggle: "collapse", target: "#navbar-collapse-1"}}
+        %span.sr-only Toggle navigation
+        %i.fa.fabars
+
+      =link_to image_tag("literallight_txt.png"), "#page-top", class: "navbar-brand page-scroll" 
+    
+    .collapse.navbar-collapse.navbar-right.navbar-main-collapse{id:"navbar-collapse-1"}
+      %ul.nav.navbar-nav
+        %li
+          =link_to 'About', '#about', class: "page-scroll"
+        %li
+          =link_to 'Expertise', '#services', class: "page-scroll"
+        %li
+          =link_to 'Portfolio', '#works', class: "page-scroll" 
+        %li
+          =link_to 'Team', '#team', class: "page-scroll"
+        %li
+          =link_to 'Testimonials', '#testimonials', class: "page-scroll"
+        %li
+          =link_to 'Contact', '#contact', class: "page-scroll"                                       
+        -if user_signed_in?
+          %li
+            =link_to 'Sign out', destroy_user_session_path, method: :delete 
+        -else
+          %li
+            =link_to 'Login', new_user_session_path
