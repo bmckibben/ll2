@@ -1,5 +1,5 @@
 .navbar-custom.nav.navbar.navbar-inverse.navbar-fixed-top{role: "navigation"}
-  .container-fluid
+  .container
     .navbar-header	
       %button.navbar-toggle.collapse-1{type: "button",  aria:{expanded:"false"}, data:{toggle: "collapse", target: "#navbar-collapse-1"}}
         %span.sr-only Toggle navigation
@@ -7,7 +7,7 @@
         %span.icon-bar
         %span.icon-bar
 
-      =link_to image_tag("literallight_txt.png"), root_path, class: "navbar-brand" 
+      =link_to image_tag("literallight_txt.png"), "#page-top", class: "navbar-brand" 
     
     .collapse.navbar-collapse.navbar-right.navbar-main-collapse{id:"navbar-collapse-1"}
       -if user_signed_in?
