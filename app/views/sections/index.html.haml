@@ -1,24 +1,31 @@
 .container-fluid#sections
-  .row
-    .col-md-2
-    .col-md-8.col-sm-12
-      .card
+.row
+  .col-md-3.scroller-container
+    -@sections.each do |item|
+      %a{href: "#chapter-#{item.id}", class: "scrollLink"}
+        =item.name
+      %br
+  .col-md-8.scroller-container
+    -@sections.each do |page| 
+      .row.section-page{id: "chapter-#{page.id}", data:{page: page.id}}
+        %h3
+          =page.name
 
-        %h1 Sections
 
-        %table{style: "width:100%"}
-          %tr
-            %th Sequence
-            %th Title    
-            %th Summary
-            %th 
-              = link_to 'New Section', new_section_path, class:"btn btn-primary"
-          - @sections.each do |section|
-            %tr
-              %td= section.sequence
-              %td= link_to section.title, edit_section_path(section)
-              %td= section.summary
-              %td
-        %br
+    $( "a.scrollLink" ).click ->
+        event.preventDefault();
+        $(".scroller-container").animate({ scrollTop: $($(this).attr("href")).offset().top }, 100)
+
+.section-page {
+  width: 100%;
+  min-height:100%;
+  border-bottom: 2px solid #000;
+}
+
+.scroller-container{
+  overflow-y: scroll;
+  min-height:100%;
+  height:800px;
+}
 
 
