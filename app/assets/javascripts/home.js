@@ -100,6 +100,7 @@ function main() {
     $('#testimonials').parallax("100%", 0.1);
 
   }
+
   initParallax();
 
   	// Pretty Photo
@@ -107,11 +108,9 @@ function main() {
 		social_tools: false
 	});	
 
-}());
-
-
-};
+})()};
 
 $(document).ready(function() {
+  alert("No Got Main")
   main();
 });
