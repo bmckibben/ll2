@@ -11,6 +11,10 @@ class SectionsController < InheritedResources::Base
   	render 'edit_note_modal.js.erb'
   end
 
+  def index
+    @sections = Section.all.order(sequence: :asc)
+  end
+
   private
 
     def section_params

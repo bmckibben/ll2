@@ -8,4 +8,7 @@ $(document).ready ->
     $.each data, (i) ->
       CKEDITOR.replace data[i].id
       return
-  return
+
+  $( "a.scrollLink" ).click ->
+    event.preventDefault();
+    $(".scroller-container").animate({ scrollTop: $($(this).attr("href")).offset().top }, 200)
