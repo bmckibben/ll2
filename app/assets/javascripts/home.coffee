@@ -14,30 +14,32 @@ $(document).ready ->
   # use a smmoth scroll when menu item selected
   $('a.page-scroll').click ->
     if location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname
-      var target = $(this.hash)
+      target = $(this.hash)
       target = target.length ? target : $('[name=' + this.hash.slice(1) +']')
-        if target.length
-          $('html,body').animate({scrollTop: target.offset().top - 40}, 900)
-          return false
+      if target.length
+        $('html,body').animate({scrollTop: target.offset().top - 40}, 900)
+        alert("21")
+        return false
 
+  alert("24")
   #init parallax
   $('#intro').parallax("100%", 0.3)
   $('#services').parallax("100%", 0.3)
   $('#aboutimg').parallax("100%", 0.3)
   $('#testimonials').parallax("100%", 0.1)
-
+  alert("30")
   #init Pretty Photo
-    $("a[rel^='prettyPhoto']").prettyPhoto({social_tools: false})
+  $("a[rel^='prettyPhoto']").prettyPhoto({social_tools: false})
 
 
-$(window).on "load" ->
+$(window).load ->
   # will first fade out th eloading animation
   $("#status").fadeOut("slow")
   # will fade out the whole div that covers the website
   $("#preloader").delay(500).fadeOut("slow").remove();
 
   #Portfolio Isotope Filter
-  var $container = $(".portfolio-items")
+  $container = $(".portfolio-items")
   $container.isotope({
       filter: '*',
       animationOptions: {
@@ -49,13 +51,13 @@ $(window).on "load" ->
   $(".cat a").click ->
       $(".cat .active").removeClass("active")
       $(this).adClass("active")
-      var selector = $(this).attr("data-filter")
+      selector = $(this).attr("data-filter")
       $container.isotope({
-          filter: selector,
-          animationOptions: {
-            duration: 750,
-            easing: "linear",
-            queue: false
+        filter: selector,
+        animationOptions: {
+          duration: 750,
+          easing: "linear",
+          queue: false
+        }
+      })
       return false
-          }
-        })
