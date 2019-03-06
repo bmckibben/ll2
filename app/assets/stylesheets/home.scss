@@ -158,13 +158,9 @@ hr {
 	padding: 100px 0;
 	text-align: center;
 	color: #fff;
-	background: url(asset_path("36.jpg")) no-repeat center center fixed;
-	background-color: #000;
-	background-position: 50% 0px;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	background-size: cover;
-	-o-background-size: cover;
+	//background: url(asset_path("36.jpg")) no-repeat center center fixed;
+	background: transparent;
+	min-height: 800px;
 }
 #intro .intro-body {
 	display: table-cell;
