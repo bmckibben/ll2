@@ -159,12 +159,7 @@ hr {
 	text-align: center;
 	color: #fff;
 	background: url(asset_path("36.jpg")) no-repeat center center fixed;
-	background-color: #000;
-	background-position: 50% 0px;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	background-size: cover;
-	-o-background-size: cover;
+	background-color: transparent;
 }
 #intro .intro-body {
 	display: table-cell;
