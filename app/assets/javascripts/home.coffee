@@ -23,7 +23,7 @@ $(document).ready ->
 
   alert("24")
   #init parallax
-  $('#intro').parallax("100%", 0.3)
+  $('#intro').parallax({imageSrc: '<%= asset_path('36.jpg') %>'})
   $('#services').parallax("100%", 0.3)
   $('#aboutimg').parallax("100%", 0.3)
   $('#testimonials').parallax("100%", 0.1)
