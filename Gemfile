@@ -29,7 +29,7 @@ gem 'jquery-validation-rails'
 gem 'jbuilder'
 
 # Markup and design related libraries
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', ">= 3.4.1"
 gem 'bootstrap-select-rails'
 gem 'font-awesome-sass'
 gem 'rails-assets-tether'
