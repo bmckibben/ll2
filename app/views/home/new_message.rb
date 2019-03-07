@@ -1,13 +1,15 @@
 %ul
   %li
     %strong From:&nbsp;
-    = @feedback.user.full_name
+    = @contact_message.name
   %li
     %strong Email:&nbsp;
-    = @feedback.user.email
+    = @contact_message.email
   %li
-    %strong Resource:&nbsp;
-    = link_to @feedback.resource.name, "#{@website_url}/resources/#{@feedback.resource.slug}"
+    %strong Congregation:&nbsp;
+    = @contact_message.congregation
   %li
-    %strong Feedback:&nbsp;
-    %p= simple_format(@feedback.comment)
+    %strong City, State:&nbsp;
+    = @contact_message.city_state
+
+= simple_format(@contact_message.description)
