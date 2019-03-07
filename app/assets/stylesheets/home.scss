@@ -158,8 +158,8 @@ hr {
 	padding: 100px 0;
 	text-align: center;
 	color: #fff;
-	background: url(asset_path("36.jpg")) no-repeat center center fixed;
-	background-color: transparent;
+	background: transparent;
+	min-height: 800px;
 }
 #intro .intro-body {
 	display: table-cell;
@@ -614,10 +614,7 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 	}
 }
 
-.page-scroll {
-    width: 400px;
-}
-
 .navbar-brand {
 	margin-left: 30px;
+	padding-left: 30px;
 }

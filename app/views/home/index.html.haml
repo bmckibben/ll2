@@ -1,10 +1,10 @@
 %body{id:"page-top", data:{spy:"scroll", target:".navbar-fixed-top"}}
-  = render 'layouts/public_navigation'
+  = render 'layouts/public_navigation2'
   #preloader
     #status
       = image_tag("preloader.gif")
   / Header
-  #intro
+  #intro{class: "parallax-window", data:{parallax: "scroll", image:{src: image_path('36.jpg')}}}
     .intro-body
       .container
         .row

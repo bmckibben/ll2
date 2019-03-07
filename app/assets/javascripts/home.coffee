@@ -21,15 +21,6 @@ $(document).ready ->
         alert("21")
         return false
 
-  alert("24")
-  #init parallax
-  $('#intro').parallax({imageSrc: asset_path("36.jpg")})
-  $('#services').parallax("100%", 0.3)
-  $('#aboutimg').parallax("100%", 0.3)
-  $('#testimonials').parallax("100%", 0.1)
-  alert("30")
-  #init Pretty Photo
-  $("a[rel^='prettyPhoto']").prettyPhoto({social_tools: false})
 
 
 $(window).load ->
@@ -61,3 +52,13 @@ $(window).load ->
         }
       })
       return false
+
+  alert("24")
+  #init parallax
+  # $('#intro').parallax({imageSrc: '<%= asset_path 'rails.png' %>'})
+  # $('#services').parallax("100%", 0.3)
+  # $('#aboutimg').parallax("100%", 0.3)
+  # $('#testimonials').parallax("100%", 0.1)
+  alert("30")
+  #init Pretty Photo
+  $("a[rel^='prettyPhoto']").prettyPhoto({social_tools: false})
