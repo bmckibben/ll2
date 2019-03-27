@@ -250,10 +250,14 @@ hr {
 }
 /* Services Section */
 #services {
-	padding: 140px 0;
-	background: url(asset_path("31.jpg"));
-	background-size: cover;
-	background-attachment: fixed;
+	display: table;
+	width: 100%;
+	height: auto;
+	padding: 100px 0;
+	text-align: center;
+	color: #fff;
+	background: transparent;
+	min-height: 800px;
 }
 #services .service {
 	padding: 20px 10px;
@@ -358,7 +362,7 @@ ol.type li a:hover {
 	margin-bottom: 30px;
 }
 .portfolio-item .hover-bg {
-	max-height: 190px;
+	//max-height: 190px;
 	overflow: hidden;
 	position: relative;
 }
@@ -441,11 +445,14 @@ img.img-thumbnail.team-img {
 }
 /* Testimonials Section */
 #testimonials {
-	background: url(asset_path("43.jpg"));
-	background-size: cover;
-	background-attachment: fixed;
-	color: #ddd;
-	padding: 140px 0;
+	display: table;
+	width: 100%;
+	height: auto;
+	padding: 100px 0;
+	text-align: center;
+	color: #fff;
+	background: transparent;
+	min-height: 800px;
 }
 #testimonials h2 {
 	color: #fff;
