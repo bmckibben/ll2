@@ -1,4 +1,4 @@
-class ContactsController < SupportController
+class ContactsController < InheritedResources::Base
   skip_before_action :verify_authenticity_token
   prepend_before_action :check_captcha, only: [:create]
   
