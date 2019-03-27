@@ -30,7 +30,7 @@ $(window).load ->
   $("#preloader").delay(500).fadeOut("slow").remove();
 
   #Portfolio Isotope Filter
-  $("#portfolio-items").isotope({
+  $portfolio-items = $(".portfolio-items").isotope({
       filter: '*',
       animationOptions: {
         duration: 750,
@@ -53,12 +53,5 @@ $(window).load ->
       })
       return false
 
-  alert("24")
-  #init parallax
-  # $('#intro').parallax({imageSrc: '<%= asset_path 'rails.png' %>'})
-  # $('#services').parallax("100%", 0.3)
-  # $('#aboutimg').parallax("100%", 0.3)
-  # $('#testimonials').parallax("100%", 0.1)
-  alert("30")
   #init Pretty Photo
   $("a[rel^='prettyPhoto']").prettyPhoto({social_tools: false})
