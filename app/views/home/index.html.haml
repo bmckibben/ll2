@@ -124,7 +124,7 @@
             %p
               The standard for transfer of clinical and administrative data between software applications used by healthcare providers.
 
-  / Portfolio Section 
+/ Portfolio Section 
   #works
     .container
       .section-title.text-center.center
@@ -148,107 +148,98 @@
                 =link_to "Diesel", "#", data: {filter:".diesel"}, class: "active"
                 
       .clearfix
-      .row
-        #portfolio-items.portfolio-items
-          .col-xs-6.col-sm-6.col-md-3.col-lg-3.diesel
-            .portfolio-item.diesel
-              .hover-bg
-                =link_to path_to_image('portfolio/15.jpg'), title:"The Union Pacific Railroad&apos;s M-10000, delivered to the railroad on February 12, 1934, at a cost of $230,997, was the first internal combustion engine, lightweight streamlined express passenger train built in the United States.", rel: "prettyPhoto" do
-                  .hover-text
-                    %h4
-                      M-1000
-                    %p
-                      Diesel
-                  = image_tag("portfolio/15.jpg",  class: "img-responsive", alt: "M-1000") 
+      .grid
+        .portfolio-item.diesel
+          .hover-bg
+            =link_to path_to_image('portfolio/15.jpg'), title:"The Union Pacific Railroad&apos;s M-10000, delivered to the railroad on February 12, 1934, at a cost of $230,997, was the first internal combustion engine, lightweight streamlined express passenger train built in the United States.", rel: "prettyPhoto" do
+              .hover-text
+                %h4
+                  M-1000
+                %p
+                  Diesel
+              = image_tag("portfolio/15.jpg",  class: "img-responsive", alt: "M-1000") 
+          .portfolio-item.steam
+            .hover-bg
+              =link_to path_to_image('portfolio/02.jpg'), title:"The Pennsylvania Railroad&apos;s T1 class duplex-drive 4-4-4-4 steam locomotives, introduced in 1942, were ambitious, technologically sophisticated, powerful, fast, and distinctively streamlined by Raymond Loewy.", rel:"prettyPhoto" do
+                .hover-text
+                  %h4
+                    T1
+                  %p
+                    Steam
+                =image_tag("portfolio/02.jpg",  class: "img-responsive", alt: "T1")
 
-          .col-xs-6.col-sm-6.col-md-3.col-lg-3.steam
-            .portfolio-item.steam
-              .hover-bg
-                =link_to path_to_image('portfolio/02.jpg'), title:"The Pennsylvania Railroad&apos;s T1 class duplex-drive 4-4-4-4 steam locomotives, introduced in 1942, were ambitious, technologically sophisticated, powerful, fast, and distinctively streamlined by Raymond Loewy.", rel:"prettyPhoto" do
-                  .hover-text
-                    %h4
-                      T1
-                    %p
-                      Steam
-                  =image_tag("portfolio/02.jpg",  class: "img-responsive", alt: "T1")
+          .portfolio-item.diesel
+            .hover-bg
+              =link_to path_to_image('portfolio/03.jpg'), title:"The Comet was a diesel-electric streamliner built in 1935 for the New York, New Haven and Hartford Railroad by the Goodyear-Zeppelin Company. Smaller than the other streamliners, it was a three-car, double-ended train.", rel:"prettyPhoto" do
+                .hover-text
+                  %h4
+                    Comet
+                  %p
+                    Diesel Electric
+                =image_tag("portfolio/03.jpg",  class: "img-responsive", alt: "Comet")
 
-          .col-xs-6.col-sm-6.col-md-3.col-lg-3.diesel
-            .portfolio-item.diesel
-              .hover-bg
-                =link_to path_to_image('portfolio/03.jpg'), title:"The Comet was a diesel-electric streamliner built in 1935 for the New York, New Haven and Hartford Railroad by the Goodyear-Zeppelin Company. Smaller than the other streamliners, it was a three-car, double-ended train.", rel:"prettyPhoto" do
-                  .hover-text
-                    %h4
-                      Comet
-                    %p
-                      Diesel Electric
-                  =image_tag("portfolio/03.jpg",  class: "img-responsive", alt: "Comet")
+          .portfolio-item.steam
+            .hover-bg
+              =link_to path_to_image('portfolio/04.jpg'), title: "In 1937 Union Pacific applied streamlining to the UP 2906 steam locomotive. The Forty-Niner carried the only examples of full shrouding used on a UP steam locomotive, beautifully executed and adorned in the railroad's classic passenger livery.", rel:"prettyPhoto" do
+                .hover-text
+                  %h4>
+                    Forty-Niner
+                  %p
+                    Steam
+                =image_tag("portfolio/04.jpg",  class: "img-responsive", alt: "Forty-Niner")
 
-          .col-xs-6.col-sm-6.col-md-3.col-lg-3.steam
-            .portfolio-item.steam
-              .hover-bg
-                =link_to path_to_image('portfolio/04.jpg'), title: "In 1937 Union Pacific applied streamlining to the UP 2906 steam locomotive. The Forty-Niner carried the only examples of full shrouding used on a UP steam locomotive, beautifully executed and adorned in the railroad's classic passenger livery.", rel:"prettyPhoto" do
-                  .hover-text
-                    %h4>
-                      Forty-Niner
-                    %p
-                      Steam
-                  =image_tag("portfolio/04.jpg",  class: "img-responsive", alt: "Forty-Niner")
+          .portfolio-item.diesel
+            .hover-bg
+              =link_to path_to_image('portfolio/12.jpg'), title:"The Champion was a streamlined passenger train operated by the Atlantic Coast Line Railroad and Florida East Coast Railway between New York City and Miami or St. Petersburg, Florida beginning in 1939.", rel:"prettyPhoto" do
+                .hover-text
+                  %h4
+                    Champion
+                  %p
+                    Diesel
+                =image_tag("portfolio/12.jpg",  class: "img-responsive", alt: "Champion")
 
-          .col-xs-6.col-sm-6.col-md-3.col-lg-3.diesel
-            .portfolio-item.diesel
-              .hover-bg
-                =link_to path_to_image('portfolio/12.jpg'), title:"The Champion was a streamlined passenger train operated by the Atlantic Coast Line Railroad and Florida East Coast Railway between New York City and Miami or St. Petersburg, Florida beginning in 1939.", rel:"prettyPhoto" do
-                  .hover-text
-                    %h4
-                      Champion
-                    %p
-                      Diesel
-                  =image_tag("portfolio/12.jpg",  class: "img-responsive", alt: "Champion")
+          .portfolio-item.steam
+            .hover-bg
+              =link_to path_to_image('portfolio/10.jpg'), title:"The Firefly was a streamlined locomotive operated by the St. Louis – San Francisco Railway (the &ldquo;Frisco&rdquo;). It operated from 1939 to 1960 and was the Frisco&aposs first streamliner.", rel:"prettyPhoto" do
+                .hover-text
+                  %h4
+                    Firefly
+                  %p
+                    Steam
+                =image_tag("portfolio/10.jpg",  class: "img-responsive", alt: "Firefly")
 
-          .col-xs-6.col-sm-6.col-md-3.col-lg-3.steam
-            .portfolio-item.steam
-              .hover-bg
-                =link_to path_to_image('portfolio/10.jpg'), title:"The Firefly was a streamlined locomotive operated by the St. Louis – San Francisco Railway (the &ldquo;Frisco&rdquo;). It operated from 1939 to 1960 and was the Frisco&aposs first streamliner.", rel:"prettyPhoto" do
-                  .hover-text
-                    %h4
-                      Firefly
-                    %p
-                      Steam
-                  =image_tag("portfolio/10.jpg",  class: "img-responsive", alt: "Firefly")
+          .portfolio-item.turbine
+            .hover-bg
+              =link_to path_to_image('portfolio/11.jpg'), title:"In 1947 the Baldwin Locomotive Works and the Chesapeake and Ohio Railway introduced the Chesapeake and Ohio class M-1 steam turbine locomotive.", rel:"prettyPhoto" do
+                .hover-text
+                  %h4
+                    M-1
+                  %p
+                    Steam Turbine Electric
+                = image_tag("portfolio/11.jpg",  class: "img-responsive", alt: "M-1")
 
-          .col-xs-6.col-sm-6.col-md-3.col-lg-3.turbine
-            .portfolio-item.turbine
-              .hover-bg
-                =link_to path_to_image('portfolio/11.jpg'), title:"In 1947 the Baldwin Locomotive Works and the Chesapeake and Ohio Railway introduced the Chesapeake and Ohio class M-1 steam turbine locomotive.", rel:"prettyPhoto" do
-                  .hover-text
-                    %h4
-                      M-1
-                    %p
-                      Steam Turbine Electric
-                  = image_tag("portfolio/11.jpg",  class: "img-responsive", alt: "M-1")
+          .portfolio-item.steam
+            .hover-bg
+              =link_to path_to_image('portfolio/14.jpg'), title:"Pennsylvania Railroad Locomotive 3768 was clad in a shroud designed by famed industrial designer Raymond Loewy in February 1936. This was a very concealing, enveloping streamlined casing which hid most of the functionality of the steam locomotive, leading to its nickname of &ldquo;The Torpedo&rdquo; by train crews.", rel:"prettyPhoto" do
+                .hover-text
+                  %h4
+                    K4
+                  %p
+                    Steam
+                =image_tag("portfolio/14.jpg",  class: "img-responsive", alt: "K4")
 
-          .col-xs-6.col-sm-6.col-md-3.col-lg-3.steam
-            .portfolio-item.steam
-              .hover-bg
-                =link_to path_to_image('portfolio/14.jpg'), title:"Pennsylvania Railroad Locomotive 3768 was clad in a shroud designed by famed industrial designer Raymond Loewy in February 1936. This was a very concealing, enveloping streamlined casing which hid most of the functionality of the steam locomotive, leading to its nickname of &ldquo;The Torpedo&rdquo; by train crews.", rel:"prettyPhoto" do
-                  .hover-text
-                    %h4
-                      K4
-                    %p
-                      Steam
-                  =image_tag("portfolio/14.jpg",  class: "img-responsive", alt: "K4")
+          .portfolio-item.steam
+            .hover-bg
+              =link_to path_to_image('portfolio/13.jpg'), title:"In 1934, the New York Central System produced their first streamlined locomotive, named after the founder of the railroad, Commodore Vanderbilt. The design was the creation of Carl F. Kantola.", rel:"prettyPhoto" do
+                .hover-text
+                  %h4
+                    Commodore Vanderbilt
+                  %p
+                    Steam                    
+                =image_tag("portfolio/13.jpg",  class: "img-responsive", alt: "Commodore Vanderbilt")
 
-          .col-xs-6.col-sm-6.col-md-3.col-lg-3.steam
-            .portfolio-item.steam
-              .hover-bg
-                =link_to path_to_image('portfolio/13.jpg'), title:"In 1934, the New York Central System produced their first streamlined locomotive, named after the founder of the railroad, Commodore Vanderbilt. The design was the creation of Carl F. Kantola.", rel:"prettyPhoto" do
-                  .hover-text
-                    %h4
-                      Commodore Vanderbilt
-                    %p
-                      Steam                    
-                  =image_tag("portfolio/13.jpg",  class: "img-responsive", alt: "Commodore Vanderbilt")
 
+ 
 
 
   /Team Section 
