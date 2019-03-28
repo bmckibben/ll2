@@ -30,15 +30,12 @@ $(window).load ->
   $("#preloader").delay(500).fadeOut("slow").remove();
 
   #Portfolio Isotope Filter
-  $portfolio-items = $(".portfolio-items").isotope({
-      filter: '*',
-      animationOptions: {
-        duration: 750,
-        easing: 'linear',
-        queue: false
-      }
-    })
-  
+  // init Isotope
+  $grid = $('.grid').isotope({
+    itemSelector: '.portfolio-item',
+    layoutMode: 'fitRows'
+  })
+
   $(".cat a").click ->
       $(".cat .active").removeClass("active")
       $(this).adClass("active")
