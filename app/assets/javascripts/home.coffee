@@ -30,7 +30,7 @@ $(window).load ->
   $("#preloader").delay(500).fadeOut("slow").remove();
 
   #Portfolio Isotope Filter
-  // init Isotope
+  #init Isotope
   $grid = $('.grid').isotope({
     itemSelector: '.portfolio-item',
     layoutMode: 'fitRows'
