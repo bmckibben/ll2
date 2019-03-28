@@ -15,7 +15,8 @@ $(document).ready ->
   $('a.page-scroll').click ->
     if location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname
       target = $(this.hash)
-      target = target.length ? target : $('[name=' + this.hash.slice(1) +']')
+      # coffee doesn't like this next line. Wants to replace target with target.length
+      # target = target.length ? target : $('[name=' + this.hash.slice(1) +']')
       if target.length
         $('html,body').animate({scrollTop: target.offset().top - 40}, 900)
         alert("21")
