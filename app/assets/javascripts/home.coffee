@@ -29,26 +29,16 @@ $(window).load ->
   # will fade out the whole div that covers the website
   $("#preloader").delay(500).fadeOut("slow").remove();
 
-  #Portfolio Isotope Filter
   #init Isotope
-  $grid = $('.grid').isotope({
-    itemSelector: '.portfolio-item',
-    layoutMode: 'fitRows'
-  })
+  $('.grid').isotope({itemSelector: '.grid-item', layoutMode: 'fitRows'})
 
-  $(".cat a").click ->
-      $(".cat .active").removeClass("active")
-      $(this).adClass("active")
-      selector = $(this).attr("data-filter")
-      $container.isotope({
-        filter: selector,
-        animationOptions: {
-          duration: 750,
-          easing: "linear",
-          queue: false
-        }
-      })
-      return false
+  #bind filter button click
+  $('#filters').click ->
+    filterValue = $( this ).attr('data-filter')
+    #use filterFn if matches value
+    filterValue = filterFns[ filterValue ] || filterValue
+    $grid.isotope({ filter: filterValue })
+
 
   #init Pretty Photo
   $("a[rel^='prettyPhoto']").prettyPhoto({social_tools: false})
