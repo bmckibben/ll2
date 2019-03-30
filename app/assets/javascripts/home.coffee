@@ -20,25 +20,26 @@ $(document).ready ->
       if target.length
         $('html,body').animate({scrollTop: target.offset().top - 40}, 900)
         return false
-
+  
 
 
 $(window).load ->
-  # will first fade out th eloading animation
+  # will first fade out the loading animation
   $("#status").fadeOut("slow")
   # will fade out the whole div that covers the website
   $("#preloader").delay(500).fadeOut("slow").remove();
 
-  #init Isotope
-  $('.grid').isotope({itemSelector: '.grid-item', layoutMode: 'fitRows'})
+#init Isotope
+  $grid = $('.grid').isotope({itemSelector: '.grid-item', layoutMode: 'fitRows'})
 
   #bind filter button click
-  $('#filters').click ->
+  $('#filters').on 'click', 'button', ->
     filterValue = $( this ).attr('data-filter')
     #use filterFn if matches value
-    filterValue = filterFns[ filterValue ] || filterValue
+    #ilterValue = filterFns[ filterValue ] || filterValue
     $grid.isotope({ filter: filterValue })
 
-
   #init Pretty Photo
-  $("a[rel^='prettyPhoto']").prettyPhoto({social_tools: false})
+  #$("a[rel^='prettyPhoto']").prettyPhoto({social_tools: false})
+
+
