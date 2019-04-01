@@ -20,7 +20,8 @@ $(document).ready ->
       if target.length
         $('html,body').animate({scrollTop: target.offset().top - 40}, 900)
         return false
-  
+  #init Pretty Photo
+  $("a[rel^='prettyPhoto']").prettyPhoto({social_tools: false})  
 
 
 $(window).load ->
@@ -29,17 +30,6 @@ $(window).load ->
   # will fade out the whole div that covers the website
   $("#preloader").delay(500).fadeOut("slow").remove();
 
-#init Isotope
-  $grid = $('.grid').isotope({itemSelector: '.grid-item', layoutMode: 'fitRows'})
-
-  #bind filter button click
-  $('#filters').on 'click', 'button', ->
-    filterValue = $( this ).attr('data-filter')
-    #use filterFn if matches value
-    #ilterValue = filterFns[ filterValue ] || filterValue
-    $grid.isotope({ filter: filterValue })
-
   #init Pretty Photo
   #$("a[rel^='prettyPhoto']").prettyPhoto({social_tools: false})
-
 
