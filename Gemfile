@@ -36,7 +36,7 @@ gem 'rails-assets-tether'
 
 # stuff I intend to use
 gem 'redis'
-gem 'devise'
+gem "devise", ">= 4.6.0"
 gem 'devise_invitable'
 gem 'simple_form'
 gem 'friendly_id'
