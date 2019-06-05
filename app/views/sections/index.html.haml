@@ -11,7 +11,7 @@
         .row.section-page{id: "chapter-#{page.id}", data:{page: page.id}}
           %h3
             =page.title
-          =page.body
+          =page.body.html_safe
 
 
 
