@@ -13,7 +13,13 @@
   .field, .actions {
     margin: 1rem;
   }
-	.card {
+  .action-icon {
+    a {
+      margin-top:15px;
+      font-size: 30px;
+    }
+  }	  
+  .card {
     color: #000;
     background-color: #fff;
 	  th {
