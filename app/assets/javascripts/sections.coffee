@@ -12,3 +12,6 @@ $(document).ready ->
   $( "a.scrollLink" ).click ->
     event.preventDefault();
     $(".scroller-container").animate({ scrollTop: $($(this).attr("href")).offset().top }, 200)
+    
+  $(".click-to-edit).click ->
+    window.location.href = "/section/edit/" + data["page"] 
