@@ -14,7 +14,7 @@
               =page.title
           .col-md-1
             - if user_signed_in? and current_user.role_cd > 0
-              =link_to section_edit_path(id: page.id) do
+              =link_to section_edit_path(page) do
                 %i.fa.fa-edit
         .row
           .col-md-12
