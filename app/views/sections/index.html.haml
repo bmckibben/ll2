@@ -12,9 +12,9 @@
           .col-md-11
             %h3
               =page.title
-          .col-md-1
+          .col-md-1.action-icon
             - if user_signed_in? and current_user.role_cd > 0
-              =link_to section_path(page) do
+              =link_to edit_section_path(page) do
                 %i.fa.fa-edit
         .row
           .col-md-12
