@@ -9,7 +9,7 @@
     .col-md-8.scroller-container
       -@sections.each do |page| 
         .row.section-page{id: "chapter-#{page.id}", data:{page: page.id}}
-          - if user.logged-in and user.role_code > 0
+          - if user_signed_in? and user.role_code > 0
             %h3.click-to-edit{data:{page: page.id}}
           - else
             %h3
