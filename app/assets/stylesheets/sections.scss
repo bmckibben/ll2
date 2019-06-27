@@ -16,7 +16,20 @@
   .action-icon {
     a {
       margin-top:15px;
-      font-size: 30px;
+      font-size: 22px;
+    }
+  }
+  form {
+    height: 800px;
+    .cke_editor_section_body {
+      height: 600px;
+      .cke_contents {
+        height:500px;
+      }
+    }
+    #section_title {
+      font-size: 18px;
+      font-weight: bold;
     }
   }	  
   .card {

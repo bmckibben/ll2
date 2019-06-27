@@ -129,7 +129,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7db9e8', end
   /*background: asset-url("linebk.gif", image) repeat left top;*/
   background-color: #999;
   }
-
+.navbar-header {
+  img {
+    max-height: 100%;
+    width: auto;
+  }
+}
 .nav > li > a {
     color: #66CCFF;
     float: none;
