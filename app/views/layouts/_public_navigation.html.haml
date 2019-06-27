@@ -1,18 +1,17 @@
-.navbar-custom.nav.navbar.navbar-inverse.navbar-fixed-top{role: "navigation"}
+.navbar.navbar-inverse.navbar-fixed-top
   .container
-    .navbar-header	
-      %button.navbar-toggle.collapse-1{type: "button",  aria:{expanded:"false"}, data:{toggle: "collapse", target: "#navbar-collapse-1"}}
+    .navbar-header  
+      %button.navbar-toggle.collapse-1{type: "button",  aria:{expanded:"false", controls: "navbar"}, data:{toggle: "collapse", target: "#navbar"}}
         %span.sr-only Toggle navigation
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-
       =link_to image_tag("literallight_txt.png"), url: "#page-top", class: "navbar-brand" 
     
-    .collapse.navbar-collapse.navbar-right.navbar-main-collapse{id:"navbar-collapse-1"}
+    #navbar.collapse.navbar-collapse.navbar-right
       -if user_signed_in?
         %ul.nav.navbar-nav
-          %li.active
+          %li
             =link_to 'Home', internal_home_path
           %li.dropdown
             %a.dropdown-toggle{data: {toggle:"dropdown"}, role:"button", href:"#", aria:{expanded:"false"}}
