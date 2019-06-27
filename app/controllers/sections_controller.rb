@@ -1,5 +1,7 @@
 class SectionsController < InheritedResources::Base
 
+  before_action :authenticate_user!, except: [:index]
+  
   def edit_note_modal
   	@section = Section.find(params[:section_id])
 
