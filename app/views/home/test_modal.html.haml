@@ -1,0 +1,21 @@
+.modal.fade{ role: "dialog", id: "notes_modal_container" }
+  .modal-dialog.notes-modal
+    .modal-content
+      %button.close{"aria-label" => "Close", "data-dismiss" => "modal", type: :button, class: "btn-dialog-close" }
+        &times;
+      .modal-header
+        %h4.name-box-title 
+          = "Modal Header"
+      .modal-body
+        = "Modal Body "
+
+
+%button#open-modal.btn.btn-primary{:type => "button"} Show Modal
+
+:javascript
+
+  $(document).ready(function(){
+    $("#open-modal").on("click", function(){
+      $("#notes_modal_container").modal("show");
+    });
+  })  
