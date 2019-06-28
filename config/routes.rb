@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get "sections/edit_note_modal", to: "sections#edit_note_modal", as: :edit_note_modal 
   post "home/contact", to: "home#contact", as: :home_contact
   get "home/index", to: "home#index", as: :internal_home
+  get "test_modal", to: "home#test_modal", as: :home_test_modal
   
   resources :histories  
   resources :html_pages
