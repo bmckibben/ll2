@@ -17,4 +17,16 @@
 //= bootstrap-sprockets
 //= require activestorage
 //= require turbolinks
-//= require_tree .
+//= require cable
+//= require histories
+//= require home
+//= require html_pages
+//= require isotope
+//= require jqBootstrapValidation
+//= require parallax.min
+//= require sections
+//= require SmoothScroll
+//= require stories
+//= require wiki_tags
+//= require z.isotope
+//= require z.prettyPhoto
