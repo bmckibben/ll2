@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery-ui
 //= require jquery_ujs
+//= require bootstrap
 //= require tether
 //= bootstrap-sprockets
 //= require activestorage
