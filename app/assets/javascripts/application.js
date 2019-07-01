@@ -10,24 +10,22 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require rails-ujs
+//= require activestorage
 //= require jquery
 //= require jquery-ui
-//= require jquery_ujs
-//= require bootstrap
-//= require tether
-//= bootstrap-sprockets
-//= require activestorage
-//= require turbolinks
+//= require bootstrap-sprockets
 //= require cable
-//= require histories
-//= require home
-//= require html_pages
+//= require tether
 //= require isotope
 //= require jqBootstrapValidation
 //= require parallax.min
-//= require sections
 //= require SmoothScroll
-//= require stories
-//= require wiki_tags
 //= require z.isotope
 //= require z.prettyPhoto
+//= require histories
+//= require home
+//= require html_pages
+//= require stories
+//= require sections
+//= require wiki_tags

@@ -1,4 +1,3 @@
-#= require active_admin/base
 #= require ckeditor/init
 
 $(document).ready ->
@@ -8,10 +7,3 @@ $(document).ready ->
     $.each data, (i) ->
       CKEDITOR.replace data[i].id
       return
-
-  $( "a.scrollLink" ).click ->
-    event.preventDefault();
-    $(".scroller-container").animate({ scrollTop: $($(this).attr("href")).offset().top }, 200)
-    
-  $(".click-to-edit").click ->
-    window.location.href = "/section/edit/" + data["page"] 

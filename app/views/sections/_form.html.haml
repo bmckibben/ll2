@@ -23,7 +23,7 @@
             = f.input :conflict
         .card.section-notes
           .card-title
-            =link_to "notes", edit_note_modal_path(section_id: @section.id), remote: true
+            =link_to "notes", edit_note_modal_path(section_id: @section.id), remote: true, class: "btn btn-primary"
           %ul.list-group.list-group-flush        
             - @section.section_notes.each do |note|
               %li.list-group-item
@@ -37,5 +37,14 @@
           =footnote.footnote
           %br
       .col-md-2
+        -#%button#open-modal.btn.btn-primary Footnotes
+
+:javascript
+  $( document ).ready(function() {
+    $("#open-modal").click(function(){
+      $("#edit_footnote_modal_box").modal("show")
+      alert("46")
+    })
+  })
 
 

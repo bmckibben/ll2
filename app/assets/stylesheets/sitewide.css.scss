@@ -42,3 +42,16 @@ body {
     bottom: 50px;
   }  
 }
+
+.modal {
+  .modal-dialog {
+    .modal-content {
+      .btn-dialog-close {
+        margin-top: -20px;
+        color: #ffffff;
+        opacity: 1;
+        margin-right: -20px;
+      }
+    }
+  }
+}
