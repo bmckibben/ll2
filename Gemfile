@@ -46,7 +46,7 @@ gem 'activeadmin'
 gem 'browser-timezone-rails'
 gem 'request_store'
 gem 'kaminari'
-gem 'ckeditor'
+gem 'tinymce-rails'
 gem "nokogiri"
 
 # per heroku
