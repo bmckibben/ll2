@@ -2,6 +2,9 @@
   .row
     .col-md-1
     .col-md-2.scroller-container
+      =link_to new_section_path do
+        %i.fas.fa-plus
+      %hr  
       -@sections.each do |item|
         %a{href: "#chapter-#{item.id}", class: "scrollLink"}
           =item.title
