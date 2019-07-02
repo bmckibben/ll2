@@ -23,6 +23,7 @@
 //= require SmoothScroll
 //= require z.isotope
 //= require z.prettyPhoto
+//= require tinymce-jquery
 //= require histories
 //= require home
 //= require html_pages
