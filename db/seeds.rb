@@ -48,3 +48,4 @@ chapters.each do |sequence, title|
   Section.create(sequence: sequence,title: title)
 end
 
+User.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

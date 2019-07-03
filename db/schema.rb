@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_18_090100) do
+ActiveRecord::Schema.define(version: 2019_07_03_010033) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "active_admin_comments", force: :cascade do |t|
+    t.string "namespace"
+    t.text "body"
+    t.string "resource_type"
+    t.bigint "resource_id"
+    t.string "author_type"
+    t.bigint "author_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
+    t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
+    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+  end
 
   create_table "histories", force: :cascade do |t|
     t.datetime "date"
@@ -25,12 +39,12 @@ ActiveRecord::Schema.define(version: 2019_02_18_090100) do
     t.integer "powerball"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "predicted_1"
-    t.integer "predicted_2"
-    t.integer "predicted_3"
-    t.integer "predicted_4"
-    t.integer "predicted_5"
-    t.integer "predicted_powerball"
+    t.decimal "predicted_1"
+    t.decimal "predicted_2"
+    t.decimal "predicted_3"
+    t.decimal "predicted_4"
+    t.decimal "predicted_5"
+    t.decimal "predicted_powerball"
   end
 
   create_table "html_pages", force: :cascade do |t|

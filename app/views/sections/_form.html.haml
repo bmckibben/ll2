@@ -13,7 +13,7 @@
           = f.button :submit, "Save", class: "btn btn-primary"
       .col-md-8.editor  
         = f.input :summary
-        = f.input :body
+        = f.input :body, class: "section-body"
       .col-md-2.attributes
         .card
           .card-body
@@ -37,14 +37,21 @@
           =footnote.footnote
           %br
       .col-md-2
-        -#%button#open-modal.btn.btn-primary Footnotes
+        %button#open-modal.btn.btn-primary Footnotes
+
+
 
 :javascript
   $( document ).ready(function() {
     $("#open-modal").click(function(){
+      alert("47")
       $("#edit_footnote_modal_box").modal("show")
-      alert("46")
     })
+
+    tinyMCE.init({
+      selector: '#section_body'
+    });
+
   })
 
 

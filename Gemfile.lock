@@ -88,10 +88,6 @@ GEM
       jstz-rails3-plus
       rails (>= 3.1)
     builder (3.2.3)
-    ckeditor (4.3.0)
-      orm_adapter (~> 0.5.0)
-      terrapin
-    climate_control (0.2.0)
     coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -285,14 +281,14 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     temple (0.8.0)
-    terrapin (0.6.0)
-      climate_control (>= 0.0.3, < 1.0)
     therubyracer (0.12.3)
       libv8 (~> 3.16.14.15)
       ref
     thor (0.20.3)
     thread_safe (0.3.6)
     tilt (2.0.9)
+    tinymce-rails (5.0.9)
+      railties (>= 3.1.1)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     uglifier (4.1.20)
@@ -314,7 +310,6 @@ DEPENDENCIES
   bootstrap-sass
   bootstrap-select-rails
   browser-timezone-rails
-  ckeditor
   coffee-rails
   devise (>= 4.6.0)
   devise_invitable
@@ -338,6 +333,7 @@ DEPENDENCIES
   sassc-rails
   simple_form
   therubyracer
+  tinymce-rails
   twitter-bootstrap-rails!
   tzinfo-data
   uglifier
