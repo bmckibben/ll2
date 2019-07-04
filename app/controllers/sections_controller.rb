@@ -13,6 +13,17 @@ class SectionsController < InheritedResources::Base
   	render 'edit_note_modal.js.erb'
   end
 
+  def edit_footnote_modal
+    @section = Section.find(params[:section_id])
+
+    if !params[:footnote_id].nil?
+      @footnote = @section.section_footnotes.find(params[:footnote_id])
+    else
+      @footnote = @section.section_footnotes.build()
+    end   
+    render 'edit_footnote_modal.js.erb'
+  end
+
   def index
     @sections = Section.all.order(sequence: :asc)
   end

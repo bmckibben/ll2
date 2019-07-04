@@ -6,30 +6,35 @@
       .col-xs-12
         = f.input :title 
     .row
-      .col-md-2.attributes    
+      .col-md-2.attributes
+        = f.label :sequence    
         = f.input :sequence
+        = f.label :throughline
         = f.input :throughline, as: :select, collection: ["Main","Impact", "Objective", "Relationship"], include_blank: true, allow_blank: true
-        .form-actions
-          = f.button :submit, "Save", class: "btn btn-primary"
+        
       .col-md-8.editor  
+        = f.label :summary 
         = f.input :summary
-        = f.input :body, class: "section-body"
+        = f.input :body, class: "section-body", label: false
       .col-md-2.attributes
         .card
           .card-body
-            = f.input :resolution
+            = f.label :resolution 
+            = f.input :resolution, label: true
         .card
-          .card-body    
-            = f.input :conflict
+          .card-body  
+            = f.label :conflict   
+            = f.input :conflict, label: "Conflict"
         .card.section-notes
           .card-title
-            =link_to "notes", edit_note_modal_path(section_id: @section.id), remote: true, class: "btn btn-primary"
+            
           %ul.list-group.list-group-flush        
             - @section.section_notes.each do |note|
               %li.list-group-item
                 =note.note
     .row
       .col-md-2
+   
       .col-md-8.footnotes
         - @section.section_footnotes.each do |footnote|
           %sup
@@ -37,19 +42,26 @@
           =footnote.footnote
           %br
       .col-md-2
-        %button#open-modal.btn.btn-primary Footnotes
+        .form-actions.control-panel
+          =link_to "Notes", edit_note_modal_path(section_id: @section.id), remote: true, class: "btn btn-primary"
+          =link_to "Footnotes", edit_footnote_modal_path(section_id: @section.id), remote: true, class: "btn btn-primary"
+          = f.button :submit, "Save", class: "btn btn-primary"  
+          =link_to "Chapters", sections_path, class: "btn btn-primary"         
 
 
 
 :javascript
   $( document ).ready(function() {
     $("#open-modal").click(function(){
-      alert("47")
       $("#edit_footnote_modal_box").modal("show")
     })
 
     tinyMCE.init({
-      selector: '#section_body'
+      selector: '#section_body',
+      height: 500,
+      menubar: "",
+      plugins: "image link charmap advlist fullscreen code",
+      toolbar: "fullscreen | undo redo | styleselect | bold italic backcolor  | alignleft aligncenter alignright alignjustify | bullist outdent indent | removeformat | image | link | charmap | code | help"
     });
 
   })

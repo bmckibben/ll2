@@ -1,7 +1,7 @@
 .container-fluid#sections
   .row
     .col-md-1
-    .col-md-2.scroller-container
+    .col-md-2.scroller-container.rounded-left
       =link_to new_section_path do
         %i.fas.fa-plus
       %hr  
@@ -9,7 +9,7 @@
         %a{href: "#chapter-#{item.id}", class: "scrollLink"}
           =item.title
         %br
-    .col-md-8.scroller-container
+    .col-md-8.scroller-container.rounded-right
       -@sections.each do |page| 
         .row.section-page{id: "chapter-#{page.id}", data:{page: page.id}}
           .col-md-11
