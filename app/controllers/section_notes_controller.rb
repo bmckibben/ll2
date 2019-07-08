@@ -1,5 +1,10 @@
 class SectionNotesController < InheritedResources::Base
 
+	def new
+		@section_options = Section.all.order(:sequence)
+		@section_note = SectionNote.new
+	end
+		
   private
 
     def section_note_params
