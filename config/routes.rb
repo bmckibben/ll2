@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :section_footnotes
+  resources :section_notes
   devise_for :admin_users, {class_name: 'User'}.merge(ActiveAdmin::Devise.config)
   ActiveAdmin.routes(self)
   devise_for :users
@@ -22,7 +24,8 @@ Rails.application.routes.draw do
   get "sections/edit_note_modal", to: "sections#edit_note_modal", as: :edit_note_modal 
   get "sections/edit_footnote_modal", to: "sections#edit_footnote_modal", as: :edit_footnote_modal   
   resources :sections
-
+  
+  get "stories/manuscript", to: "stories#manuscript", as: :story_manuscript
   resources :stories
   resources :wikis
   resources :wiki_tags 

@@ -1,0 +1,23 @@
+%h1 Listing section_footnotes
+
+%table
+  %thead
+    %tr
+      %th Text
+      %th Integer
+      %th
+      %th
+      %th
+
+  %tbody
+    - @section_footnotes.each do |section_footnote|
+      %tr
+        %td= section_footnote.text
+        %td= section_footnote.integer
+        %td= link_to 'Show', section_footnote
+        %td= link_to 'Edit', edit_section_footnote_path(section_footnote)
+        %td= link_to 'Destroy', section_footnote, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Section footnote', new_section_footnote_path

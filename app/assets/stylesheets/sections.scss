@@ -40,8 +40,10 @@
       font-weight: bold;
     }
     .control-panel {
+      text-align: right;
       .btn {
         width: 100%;
+        max-width: 200px;
         line-height:1;
       }
     }

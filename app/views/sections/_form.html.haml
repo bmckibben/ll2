@@ -6,11 +6,11 @@
       .col-xs-12
         = f.input :title 
     .row
-      .col-md-8.editor  
+      .col-md-9.editor  
         = f.label :summary 
         = f.input :summary
         = f.input :body, class: "section-body", label: false
-      .col-md-4.attributes
+      .col-md-3.attributes
         = f.label :sequence    
         = f.input :sequence
         = f.label :throughline
@@ -31,13 +31,13 @@
               %li.list-group-item
                 =note.note
     .row   
-      .col-md-8.footnotes
+      .col-md-9.footnotes
         - @section.section_footnotes.each do |footnote|
           %sup
             =footnote.a_number 
           =footnote.footnote
           %br
-      .col-md-4
+      .col-md-3
         .form-actions.control-panel
           =link_to "Notes", edit_note_modal_path(section_id: @section.id), remote: true, class: "btn btn-primary"
           =link_to "Footnotes", edit_footnote_modal_path(section_id: @section.id), remote: true, class: "btn btn-primary"

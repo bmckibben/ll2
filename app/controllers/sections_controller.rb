@@ -9,7 +9,7 @@ class SectionsController < InheritedResources::Base
   		@note = @section.section_notes.find(params[:note_id])
   	else
   		@note = @section.section_notes.build()
-  	end		
+  	end
   	render 'edit_note_modal.js.erb'
   end
 
@@ -25,7 +25,7 @@ class SectionsController < InheritedResources::Base
   end
 
   def index
-    @sections = Section.all.order(sequence: :asc)
+    @sections = Section.where(story_id: params[:story_id]).order(sequence: :asc)
   end
 
   private

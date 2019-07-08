@@ -1,0 +1,2 @@
+module SectionFootnotesHelper
+end
