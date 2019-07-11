@@ -39,7 +39,18 @@ footer {
   border-top: 1px solid #666;
   width: 100%;
 } 
-
+#footer-home {
+//   position: absolute;
+//   bottom: 0;
+  height: 60px;
+  clear:both;
+  color: #666;
+  //padding-left: 2em;
+  background: transparent;
+  border-top: 1px solid #666;
+  width: 100%;
+  padding: 0 5%;
+}
 .top10 { margin-top: 10px; }
 .top20 { margin-top: 20px; }
 .top30 { margin-top: 30px; }
