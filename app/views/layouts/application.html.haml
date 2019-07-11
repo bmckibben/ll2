@@ -6,10 +6,11 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body.gradient-main
-    = render 'layouts/public_navigation'
-    %main
-      .container-fluid
-        .clearfix
-          = yield
-    %footer
-      = render 'layouts/public_footer'
+    #page-container
+      = render 'layouts/public_navigation'
+      %main
+        .container-fluid
+          .clearfix
+            = yield
+      %footer
+        = render 'layouts/public_footer'
