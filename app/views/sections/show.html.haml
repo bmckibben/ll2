@@ -27,8 +27,5 @@
         %b Conflict:
         = @section.conflict
 
-      = link_to 'Edit', edit_section_path(@section)
-      \|
-      = link_to 'Back', sections_path
-
+      =link_to "Chapters", sections_path(story_id: @section.story_id), class: "btn btn-primary" 
 
