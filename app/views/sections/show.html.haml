@@ -4,8 +4,7 @@
     .col-md-8.col-sm-12.card
       %p#notice= notice
 
-      %p
-        %b Title:
+      %h1
         = @section.title
       %p
         %b Sequence:
@@ -14,7 +13,6 @@
         %b Summary:
         = @section.summary
       %p
-        %b Body:
         .section-show-body
           = @section.body.html_safe
       %p

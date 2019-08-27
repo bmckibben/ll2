@@ -1,5 +1,6 @@
--@sections.each do |page| 
-  %h1
-    ="Chapter #{page.sequence.to_s}"
-  %p  
-    =page.body.to_s.html_safe
+#manuscript
+  -@sections.each do |page| 
+    %h1
+      ="Chapter #{page.sequence.to_s}"
+    %p  
+      =page.body.to_s.html_safe
