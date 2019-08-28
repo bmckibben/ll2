@@ -60,9 +60,7 @@
       menubar: "",
       plugins: "image link charmap advlist fullscreen code",
       toolbar: "fullscreen | undo redo | styleselect | bold italic backcolor  | alignleft aligncenter alignright alignjustify | bullist outdent indent | removeformat | image | link | charmap | code | help",
-      formats: {
-        p: { block: 'p', classes: 'editor-content' }
-      }
+      content_css: "#{ asset_path('tinymce_override.css')}"
     });
 
   })
