@@ -2,5 +2,5 @@
   -@sections.each do |page| 
     %h1
       ="Chapter #{page.sequence.to_s}"
-    %p.section-body  
+    .section-body  
       =page.body.to_s.html_safe
