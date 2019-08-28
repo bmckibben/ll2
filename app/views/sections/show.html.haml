@@ -12,9 +12,7 @@
       %p
         %b Summary:
         = @section.summary
-      %p
-        .section-show-body
-          = @section.body.html_safe
+      %p.section-body= @section.body.html_safe
       %p
         %b Throughline:
         = @section.throughline
