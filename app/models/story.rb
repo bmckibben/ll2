@@ -15,4 +15,14 @@
 
 class Story < ActiveRecord::Base
 	has_many :sections
+
+	def wordcount
+		count = 0
+		words = self.sections.pluck(:body)
+		words.each do |text|
+			count += text.split.size unless text.nil?
+		end	
+		return count
+	end
+
 end

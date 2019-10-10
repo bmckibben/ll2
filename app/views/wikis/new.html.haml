@@ -1,10 +1,4 @@
-.container-fluid#wikis
-  .row
-    .col-md-3
-    .col-md-6
-      .card
-        %h1 New wiki
-
-        = render 'form'
-
-        = link_to 'Back', wikis_path
+.row{style: "margin-top:40px;"}
+  .col-md-4.col-md-offset-4.col-xs-12.white-scroller
+    %h1 New Wiki
+    = render 'form'

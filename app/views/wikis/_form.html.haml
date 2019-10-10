@@ -1,17 +1,36 @@
--# frozen_string_literal: true
-= simple_form_for(@wiki) do |f|
-  = f.error_notification
-  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
-
-  .form-inputs
-    = f.input :title
-    = f.input :user_id
-    = f.input :body
-    = f.input :parent
-    = f.input :version
-    = f.input :deleted
-    = f.input :default_sort
-    = f.input :last_revision
-
-  .form-actions
-    = f.button :submit
+= tinymce_assets
+= form_for(@wiki) do |f|
+  - if @wiki.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@wiki.errors.count, "error")
+        prohibited this wiki from being saved:
+      %ul
+        - @wiki.errors.full_messages.each do |message|
+          %li= message
+  .panel-heading
+    %h3.panel-title
+      = f.label :title
+      = f.text_field :title
+  .panel-body
+    .row.border-bottom
+      .col-md-6.wiki-tags
+        = f.label :parent
+        = f.text_field :parent
+      .col-md-6.wiki-tags
+        = f.label :default_sort
+        = f.text_field :default_sort
+      .col-md-6.wiki-tags
+        = f.label :deleted
+        = f.check_box :deleted
+      .col-md-6.wiki-actions.right
+        %button.btn-transparent{name: "commit", type: "submit"}
+          %i.fa.fa-check-square-o.action-icon{"aria-hidden" => "false"}
+        = link_to @wiki, method: :delete, data: { confirm: 'Are you sure?' } do
+          %i.fa.fa-trash{"aria-hidden" => "false", style: "font-size:2rem;color:red;"}
+    .row.wiki-body
+      = f.label :body
+      = f.text_area :body, class: "tinymce"
+  .panel-footer
+    .row.wiki-attributes
+      Author: #{current_user.login}

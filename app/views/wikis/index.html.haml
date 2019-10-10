@@ -1,40 +1,9 @@
-.container-fluid#wikis
-  .row
-    .col-md-2
-    .col-md-8
-      .card
-        %h1 Listing wikis
-
-        %table
-          %thead
-            %tr
-              %th Title
-              %th User
-              %th Body
-              %th Parent
-              %th Version
-              %th Deleted
-              %th Default sort
-              %th Last revision
-              %th
-              %th
-              %th
-
-          %tbody
-            - @wikis.each do |wiki|
-              %tr
-                %td= wiki.title
-                %td= wiki.user_id
-                %td= wiki.body
-                %td= wiki.parent
-                %td= wiki.version
-                %td= wiki.deleted
-                %td= wiki.default_sort
-                %td= wiki.last_revision
-                %td= link_to 'Show', wiki
-                %td= link_to 'Edit', edit_wiki_path(wiki)
-                %td= link_to 'Destroy', wiki, method: :delete, data: { confirm: 'Are you sure?' }
-
-        %br
-
-        = link_to 'New Wiki', new_wiki_path
+%nav.navbar.navbar-fixed-top{style: "top:52px;"}
+  .sidebar-date.pull-right
+    Today is #{DateTime.now.in_time_zone('Indiana (East)').to_formatted_s(:stardate)}   
+    %i.fa.fa-chevron-right.sidebar-toggle{"aria-hidden" => "false", "data-placement" => "left", "data-toggle" => "tooltip", title: "Show/Hide Sidebar."}
+#row-main.row
+  #mySidenav.sidenav.sidenav-open
+    = render "sidebar"
+  #main.main-collapsed
+    = render "list"
