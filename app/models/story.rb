@@ -20,7 +20,7 @@ class Story < ActiveRecord::Base
 		count = 0
 		words = self.sections.pluck(:body)
 		words.each do |text|
-			count += text.strip_tags.split.size unless text.nil?
+			count += text.gsub(/<[^>]*>/ui,'').split.size unless text.nil?
 		end	
 		return count
 	end
