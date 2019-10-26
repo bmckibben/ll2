@@ -60,6 +60,20 @@
 		  padding: 2px 5px;
 	  }  
 	}
+  .section-notes {
+    .list-group-item {
+      font-size: 1rem;
+    }
+    .list-group {
+      margin-bottom: 10px;
+    } 
+    .btn {
+      width: 100%;
+      max-width: 200px;
+      line-height: 1;
+      float: right;
+    } 
+  }  
 	.section-page {
 	  width: 100%;
 	  min-height:100%;
