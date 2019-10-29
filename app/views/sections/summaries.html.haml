@@ -1,0 +1,18 @@
+.container-fluid#stories
+  .row
+    .col-md-2
+    .col-md-8.card
+      %h1 Chapter Summaries
+      - @chapters.each do |chapter|
+        .panel
+          .panel-head
+            %h2
+              = chapter.title
+          .panel-body
+            %p
+              = chapter.summary
+
+
+
+
+
