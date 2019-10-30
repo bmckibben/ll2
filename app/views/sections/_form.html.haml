@@ -6,7 +6,7 @@
       .col-xs-9
         = f.input :title 
       .col-xs-3
-        = "Word Count #{@section.body.gsub(/<[^>]*>/ui,'').split.size}"
+        = "Word Count #{@section.body.gsub(/<[^>]*>/ui,'').split.size}" unless @section.body.nil?
     .row
       .col-md-9.editor  
         = f.label :summary 
