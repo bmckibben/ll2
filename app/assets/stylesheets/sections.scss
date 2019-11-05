@@ -61,6 +61,8 @@
 	  }  
 	}
   .section-notes {
+     max-height: 10rem;
+    overflow: scroll;  
     .list-group-item {
       font-size: 1rem;
     }
