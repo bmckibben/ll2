@@ -91,7 +91,11 @@
 	}
 
 }
-
+.btn-notes {
+  width: 100%;
+  max-width: 200px;
+  line-height:1;
+}
 .modal {
   .edit-note-modal {
     #section_note_note {

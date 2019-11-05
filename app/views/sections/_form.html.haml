@@ -34,7 +34,7 @@
             - @section.section_notes.each do |note|
               %li.list-group-item
                 =note.note
-          =link_to "Add Note", edit_note_modal_path(section_id: @section.id), remote: true, class: "btn btn-primary"
+        =link_to "Add Note", edit_note_modal_path(section_id: @section.id), remote: true, class: "btn btn-notes btn-primary"
     .row   
       .col-md-9.footnotes
         - @section.section_footnotes.each do |footnote|
