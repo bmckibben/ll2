@@ -15,8 +15,11 @@
     margin-top: 0pt; 
     margin-bottom: 0pt;
   }
- 
-  
+  @media print {
+    h1 {page-break-before: always;}
+  }
+-# insert title page here
+-# insert copyright page here
 #manuscript
   -@sections.each do |page| 
     %h1
