@@ -1,25 +1,25 @@
-:css
-  p {
-    font-size: 12pt; 
-    font-family: 'Courier New'; 
-    color: #000000; 
-    background-color: transparent; 
-    font-weight: 400; 
-    font-style: normal; 
-    font-variant: normal; 
-    text-decoration: none; 
-    vertical-align: baseline; 
-    white-space: pre-wrap;
-    line-height: 2.4; 
-    text-indent: 36pt; 
-    margin-top: 0pt; 
-    margin-bottom: 0pt;
-  }
-  @media print {
-    h1 {page-break-before: always;}
-  }
--# insert title page here
--# insert copyright page here
+#title-page
+  .this-page
+    .author
+      %table
+        %tr
+          %td
+            = "Ben McKibben"
+            %br
+            = "Greenwood, Indiana"
+            %br
+            = "317.409.6295"          
+            %br
+            = "mckibben@att.net"
+          %td.right
+            = "Word Count: #{@story.wordcount}"
+    .title
+      %h1
+        = @story.title
+      %h2
+        = "Ben McKibben"
+    .tagline
+      = "A child abducted by extraterrestrials grows up and returns to Earth as a missionary for an alien religion."             
 #manuscript
   -@sections.each do |page| 
     %h1
