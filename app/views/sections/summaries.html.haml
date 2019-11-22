@@ -9,8 +9,15 @@
             %h2
               = chapter.title
           .panel-body
-            %p
-              = chapter.summary
+            .row
+              .col-md-6
+                = "Updated: #{chapter.updated_at.strftime("")}"
+              .col-md-6
+                = "Word Count: #{chapter.word_count}"
+            .row
+              .col-md-12
+                %p
+                  = chapter.summary
 
 
 
