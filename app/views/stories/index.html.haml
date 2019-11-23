@@ -20,7 +20,7 @@
               %td= story.short_summary
               %td= story.wordcount
               %td= link_to 'Chapters', chapters_path(story_id: story.id)
-              %td= link_to 'Notes', chapter_notes_path(story_id: story.id)
+              %td= link_to 'Summaries', chapter_summaries_path(story_id: story.id)
               %td= link_to 'Print', story_manuscript_path(story_id: story.id)
 
 
