@@ -38,7 +38,8 @@ class SectionsController < InheritedResources::Base
   end
   
   def summaries
-    @chapters = Section.where(story_id: params[:story_id]).order(sequence: :asc)
+    story_id = params[:story_id] || 3
+    @chapters = Section.where(story_id: story_id).order(sequence: :asc)
   end
 
   private

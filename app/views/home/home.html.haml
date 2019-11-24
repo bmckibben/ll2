@@ -1,2 +1,11 @@
-.test{style:  "height: 100%; background-image: url(#{image_path('36.jpg');})"}
-	= "bob"
+.container-fluid#stories
+	.row
+		.col-md-12
+			%h1{style: "font-family:Rokkitt"}
+				= "Rokkitt"
+			%h1{style: "font-family:Syncopate"}
+				= "Syncopate"
+			%h1{style: "font-family:Arvo"}
+				= "Arvo"								
+	.test{style:  "height: 100%; background-image: url(#{image_path('36.jpg');})"}
+		= "bob"
