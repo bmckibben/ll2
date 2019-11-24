@@ -3,8 +3,9 @@
 %table
   %thead
     %tr
-      %th Text
-      %th Integer
+      %th section
+      %th number
+      %th footnote
       %th
       %th
       %th
@@ -12,8 +13,9 @@
   %tbody
     - @section_footnotes.each do |section_footnote|
       %tr
-        %td= section_footnote.text
-        %td= section_footnote.integer
+        %td= section_footnote.section_id
+        %td= section_footnote.a_number
+        %td= section_footnote.footnote
         %td= link_to 'Show', section_footnote
         %td= link_to 'Edit', edit_section_footnote_path(section_footnote)
         %td= link_to 'Destroy', section_footnote, method: :delete, data: { confirm: 'Are you sure?' }
