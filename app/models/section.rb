@@ -22,4 +22,8 @@
 class Section < ActiveRecord::Base
 	has_many :section_footnotes
 	has_many :section_notes
+
+	def word_count
+		body.to_s.gsub(/<[^>]*>/ui,'').split.size
+	end
 end

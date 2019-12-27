@@ -9,8 +9,19 @@
             %h2
               = chapter.title
           .panel-body
-            %p
-              = chapter.summary
+            .row
+              .col-md-5
+                = "Updated: #{chapter.updated_at.strftime("%d %b %Y")}"
+              .col-md-5
+                = "Word Count: #{chapter.word_count}"
+              .col-md-2.action-icon
+                - if user_signed_in? and current_user.role_cd > 0
+                  =link_to edit_section_path(chapter) do
+                    %i.fas.fa-pencil-alt
+            .row
+              .col-md-12
+                %p
+                  = chapter.summary
 
 
 

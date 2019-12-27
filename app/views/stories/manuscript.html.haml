@@ -1,3 +1,25 @@
+#title-page
+  .this-page
+    .author
+      %table
+        %tr
+          %td
+            = "Ben McKibben"
+            %br
+            = "Greenwood, Indiana"
+            %br
+            = "317.409.6295"          
+            %br
+            = "mckibben@att.net"
+          %td.right
+            = "Word Count: #{@story.wordcount}"
+    .title
+      %h1
+        = @story.title
+      %h2
+        = "Ben McKibben"
+    .tagline
+      = "A child abducted by extraterrestrials grows up and returns to Earth as a missionary for an alien religion."             
 #manuscript
   -@sections.each do |page| 
     %h1

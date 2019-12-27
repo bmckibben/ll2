@@ -1,10 +1,12 @@
 class StoriesController < InheritedResources::Base
 
   def manuscript
+  	story = params[:story_id] 
+  	@story = Story.find(story)
     @sections = Section.where(story_id: params[:story_id]).order(sequence: :asc)
-    render :layout => false
+    render layout: "print"
   end
-
+	
   private
 
     def story_params

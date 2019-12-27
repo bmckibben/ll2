@@ -61,6 +61,8 @@
 	  }  
 	}
   .section-notes {
+     max-height: 10rem;
+    overflow: scroll;  
     .list-group-item {
       font-size: 1rem;
     }
@@ -91,7 +93,13 @@
 	}
 
 }
-
+.btn-notes {
+  width: 100%;
+  max-width: 200px;
+  line-height:1;
+  float: right;
+  margin-top:  10px;
+}
 .modal {
   .edit-note-modal {
     #section_note_note {
