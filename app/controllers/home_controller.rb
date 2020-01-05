@@ -4,7 +4,7 @@ class HomeController < ApplicationController
   end
   
   def home
-  	
+  	render layout: "application"
   end  
 
   def contact

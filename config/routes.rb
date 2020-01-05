@@ -27,7 +27,16 @@ Rails.application.routes.draw do
   get "sections/notes/:story_id(.:format)", to: "sections#notes", as: :chapter_notes
   get "sections/summaries/:story_id(.:format)", to: "sections#summaries", as: :chapter_summaries
   get "sections/chapters/:story_id(.:format)", to: "sections#chapters", as: :chapters
-
+  get 'wikis/wiki_form' => 'wikis#wiki_form'
+  get 'wikis/re_display' => 'wikis#re_display'
+  get 'wikis/test' => 'wikis#test'
+  get 'wikis/wikilist' => 'wikis#wikilist'
+  get 'wikis/search' => 'wikis#search'
+  post 'wiki_tags/delete_wiki_tag' => 'wiki_tags#delete_wiki_tag'
+  post 'wikis/wiki_disable' => 'wikis#wiki_disable'
+  post 'wiki_tags/new_wiki_tag' => 'wiki_tags#new_wiki_tag'
+  get 'wiki_tags/menu' => 'wiki_tags#menu'
+  
   resources :sections
   
   get "stories/manuscript", to: "stories#manuscript", as: :story_manuscript

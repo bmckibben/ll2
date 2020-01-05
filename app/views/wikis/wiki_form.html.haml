@@ -1,8 +1,7 @@
-= tinymce_assets
 %datalist#tag_list
   - @wikis.each do |tag|
     %option{value: "#{tag.id}"}= tag.title
-= form_for(@wiki, :html => {:class => "wiki-form", :remote=>true}) do |f|
+= simple_form_for(@wiki, :html => {:class => "wiki-form", :remote=>true}) do |f|
   - if @wiki.errors.any?
     #error_explanation
       %h2
@@ -14,13 +13,13 @@
   .panel-heading
     .row
       .col-md-10.wiki-tags
-        %p.wiki-title{style: "max-width:300px;"}
+        %p.wiki-title{style: "max-width:100%;"}
           = f.label :title
           = f.text_field :title, class: "form-control"
       .col-md-2.wiki-actions.right
         %button.btn-transparent{"data-placement" => "bottom", "data-toggle" => "tooltip", name: "commit", title: "Save changes to this wiki.", type: "submit"}
-          %i#wiki-save.fa.fa-check-square-o.action-icon{"aria-hidden" => "false"}
-        %i#wiki-cancel.fa.fa-window-close-o.action-icon{"aria-hidden" => "false", "data-placement" => "bottom", "data-toggle" => "tooltip", title: "Close wiki without saving."}
+          %i#wiki-save.far.fa-check-square.action-icon{"aria-hidden" => "false"}
+        %i#wiki-cancel.far.fa-window-close.action-icon{"aria-hidden" => "false", "data-placement" => "bottom", "data-toggle" => "tooltip", title: "Close wiki without saving."}
         %i.fa.fa-trash.action-icon.wiki-delete{"aria-hidden" => "false", "data-id" => "#{@wiki.id}", "data-placement" => "bottom", "data-toggle" => "tooltip", title: "Inactivate this wiki."}
   .panel-body
     = f.label "Tags"
@@ -44,8 +43,7 @@
           = f.text_field :default_sort, class: "form-control"
     .row
       .col-md-12.wiki-body
-        = f.label :body
-        = f.text_area :body, class: "tinymce form-control"
+        = f.input :body, class: "wiki-body-body"
         = f.hidden_field :authenticity_token, value: form_authenticity_token
         = f.hidden_field :parent
   .panel-footer
@@ -53,4 +51,16 @@
       .col-md-12.wiki-attributes
         Author: #{current_user.login} |
         Created:  #{Time.now.strftime("%Y-%m-%d %R")}
-= tinymce
+
+:javascript
+  $( document ).ready(function() {
+    tinyMCE.init({
+      selector: '#wiki_body',
+      height: 500,
+      menubar: "",
+      plugins: "image link charmap advlist fullscreen code",
+      toolbar: "fullscreen | undo redo | styleselect | bold italic backcolor  | alignleft aligncenter alignright alignjustify | bullist outdent indent | removeformat | image | link | charmap | code | help",
+      content_css: "#{ asset_path('application.css')}"
+    });
+
+  })

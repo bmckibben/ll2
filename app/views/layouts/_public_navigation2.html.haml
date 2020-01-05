@@ -8,22 +8,32 @@
       =link_to image_tag("literallight_txt.png"), "#page-top", class: "navbar-brand page-scroll" 
     
     .collapse.navbar-collapse.navbar-right.navbar-main-collapse{id:"navbar-collapse-1"}
-      %ul.nav.navbar-nav
-        %li
-          =link_to 'About', '#about', class: "page-scroll"
-        %li
-          =link_to 'Expertise', '#services', class: "page-scroll"
-        %li
-          =link_to 'Portfolio', '#works', class: "page-scroll" 
-        %li
-          =link_to 'Team', '#team', class: "page-scroll"
-        %li
-          =link_to 'Testimonials', '#testimonials', class: "page-scroll"
-        %li
-          =link_to 'Contact', '#contact', class: "page-scroll"                                       
-        -if user_signed_in?
+      .row
+        %ul.nav.navbar-nav
           %li
-            =link_to 'Sign out', destroy_user_session_path, method: :delete 
-        -else
+            =link_to 'About', '#about', class: "page-scroll"
           %li
-            =link_to 'Login', new_user_session_path
+            =link_to 'Expertise', '#services', class: "page-scroll"
+          %li
+            =link_to 'Portfolio', '#works', class: "page-scroll" 
+          %li
+            =link_to 'Team', '#team', class: "page-scroll"
+          %li
+            =link_to 'Testimonials', '#testimonials', class: "page-scroll"
+          %li
+            =link_to 'Contact', '#contact', class: "page-scroll"                                       
+          -if user_signed_in?
+            %li
+              =link_to 'Sign out', destroy_user_session_path, method: :delete 
+          -else
+            %li
+              =link_to 'Login', new_user_session_path
+      -if user_signed_in?
+        .row
+          %ul.nav.navbar-nav
+            %li
+              =link_to 'Home', internal_home_path
+            %li
+              =link_to 'Writings', stories_path 
+            %li
+              =link_to 'Journal', wikis_path

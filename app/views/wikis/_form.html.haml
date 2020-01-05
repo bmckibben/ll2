@@ -1,4 +1,3 @@
-= tinymce_assets
 = form_for(@wiki) do |f|
   - if @wiki.errors.any?
     #error_explanation
@@ -30,7 +29,20 @@
           %i.fa.fa-trash{"aria-hidden" => "false", style: "font-size:2rem;color:red;"}
     .row.wiki-body
       = f.label :body
-      = f.text_area :body, class: "tinymce"
+      = f.input :body, class: "wiki-body-body"
   .panel-footer
     .row.wiki-attributes
       Author: #{current_user.login}
+
+:javascript
+  $( document ).ready(function() {
+    tinyMCE.init({
+      selector: '#wiki-body-body',
+      height: 500,
+      menubar: "",
+      plugins: "image link charmap advlist fullscreen code",
+      toolbar: "fullscreen | undo redo | styleselect | bold italic backcolor  | alignleft aligncenter alignright alignjustify | bullist outdent indent | removeformat | image | link | charmap | code | help",
+      content_css: "#{ asset_path('application.css')}"
+    });
+
+  })      

@@ -1,26 +1,31 @@
-html, body {
-  height: 100%;
+* {
+ box-sizing: border-box;
 }
 
-body {
-  overflow: scroll;
+*:before,
+*:after {
+ box-sizing: border-box;
 }
-#page-container {
+
+html, body {
+  height: 100%;
   position: relative;
-  min-height: 100vh;
 }
-main {
-  // @extend .container;
-  padding-bottom: 50px;
-  width: 100%;
-  min-height: 100%;
-  //padding-left: 20px;
-  //padding-right: 40px;
+
+#page-container {
+ min-height: 100vh; /* will cover the 100% of viewport */
+ overflow: hidden;
+ display: block;
+ position: relative;
+ padding-bottom: 6rem; /* height of your footer */
+}
+
+.main {
+  //background-color: #aa0;
   padding-top:80px;
   height: auto !important;
   height: 100%;
-  /* Negative indent footer by it's height */
-  //margin: 50px auto -100px;  
+  min-height: 100%;
   }
 
 section {
@@ -31,13 +36,14 @@ section {
 footer {
   position: absolute;
   bottom: 0;
-  height: 60px;
-  clear:both;
+  height: 6rem;
+  // clear:both;
   color: #666;
   padding-left: 2em;
   background: transparent;
   border-top: 1px solid #666;
   width: 100%;
+  // margin-top: 4rem;
 } 
 #footer-home {
 //   position: absolute;

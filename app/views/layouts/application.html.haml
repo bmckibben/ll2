@@ -8,9 +8,7 @@
   %body.gradient-main
     #page-container
       = render 'layouts/public_navigation'
-      %main
-        .container-fluid
-          .clearfix
-            = yield
+      .main
+        = yield
       %footer
         = render 'layouts/public_footer'

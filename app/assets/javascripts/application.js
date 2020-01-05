@@ -24,9 +24,5 @@
 //= require z.isotope
 //= require z.prettyPhoto
 //= require tinymce-jquery
-//= require histories
 //= require home
-//= require html_pages
-//= require stories
-//= require sections
-//= require wiki_tags
+//= require wikis
