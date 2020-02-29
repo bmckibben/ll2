@@ -17,8 +17,8 @@
         = f.input :story_id, collection: Story.all
         = f.label :sequence    
         = f.input :sequence
-        = f.label :throughline
-        = f.input :throughline, as: :select, collection: ["Main","Impact", "Objective", "Relationship"], include_blank: true, allow_blank: true      
+        = f.label :draft 
+        = f.input :draft   
         .card
           .card-body
             = f.label :resolution 
