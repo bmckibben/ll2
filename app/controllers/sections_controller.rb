@@ -45,6 +45,6 @@ class SectionsController < InheritedResources::Base
   private
 
     def section_params
-      params.require(:section).permit(:title, :sequence, :summary, :body, :throughline, :resolution, :conflict, :story_id)
+      params.require(:section).permit(:title, :sequence, :summary, :body, :throughline, :resolution, :conflict, :story_id, :draft)
     end
 end
