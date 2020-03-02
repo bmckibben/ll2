@@ -39,7 +39,9 @@
           =link_to "Add Note", edit_note_modal_path(section_id: @section.id), remote: true, class: "btn btn-notes btn-primary"
           = f.button :submit, "Save", class: "btn btn-primary"  
           =link_to "Footnotes", edit_footnote_modal_path(section_id: @section.id), remote: true, class: "btn btn-primary"          
-          =link_to "Chapters", sections_path(story_id: @section.story_id), class: "btn btn-primary"        
+          =link_to "Chapters", sections_path(story_id: @section.story_id), class: "btn btn-primary" 
+          %p
+            = "※※※"       
     .row   
       .col-md-9.footnotes
         - @section.section_footnotes.each do |footnote|
