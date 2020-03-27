@@ -1,8 +1,8 @@
-@import url("https://fonts.googleapis.com/css?family=Rokkitt|Arimo|Arvo");
+@import url("https://fonts.googleapis.com/css?family=Rokkitt|Arimo|Arvo|Syncopate");
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-#manuscsript {
+#manuscript {
   p {
     font-size: 12pt; 
     font-family: 'Courier New'; 
@@ -19,6 +19,9 @@
     margin-top: 0pt; 
     margin-bottom: 0pt;
   }
+  h1 {
+    font-family: Rokkitt, serif;
+  }   
 }
 #title-page {
   .author {
@@ -46,9 +49,11 @@
   }  
   h1 {
     text-align:center;
+    font-family: Syncopate, serif;
   }
   h2 {
     text-align:center;
+    font-family: Syncopate, serif;
   }
   .tagline {
     text-align:center;
@@ -61,6 +66,9 @@
 
 @media print {
   #manuscript {
-    h1 {page-break-before: always;}
+    h1 {
+      page-break-before: always;
+      font-family: Rokkitt, serif;
+    }
   }  
 }
