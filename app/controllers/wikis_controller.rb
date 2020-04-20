@@ -161,8 +161,8 @@ class WikisController < InheritedResources::Base
           wiki_tag.save            
         end
       else
-        Rails.log.info("No tag for you!")  
-        Rails.log.info("~~~~~~~~~~~~~~~~~~~~~~~~~~~~")  
+        #Rails.log.info("No tag for you!")  
+        #Rails.log.info("~~~~~~~~~~~~~~~~~~~~~~~~~~~~")  
       end
 
     end  
