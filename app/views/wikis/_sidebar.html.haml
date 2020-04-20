@@ -1,7 +1,7 @@
 .white-scroller.sidebar-content
   %p{id: "sidebar-actions pull-right"}
     %i#wiki-new.fa.fa-plus.action-icon{"aria-hidden" => "false", "data-placement" => "bottom", "data-toggle" => "tooltip", title: "Add a new wiki."}
-    %i#wiki-new-journal.fa.fa-file-text.action-icon{"aria-hidden" => "false", "data-placement" => "bottom", "data-toggle" => "tooltip", title: "Add a new journal."}
+    %i#wiki-new-journal.fas.fa-file-alt.action-icon{"aria-hidden" => "false", "data-placement" => "bottom", "data-toggle" => "tooltip", title: "Add a new journal."}
     = link_to wikis_path do
       %i#wiki-home.fa.fa-home.action-icon{"aria-hidden" => "false", "data-placement" => "bottom", "data-toggle" => "tooltip", title: "Display home wikis."}
   = form_tag(wikis_search_path, id: "search-form", method: :get) do
