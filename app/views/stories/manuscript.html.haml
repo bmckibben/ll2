@@ -21,14 +21,18 @@
       %h2
         = "Ben McKibben"
     .tagline
-      = "A child abducted by extraterrestrials grows up and returns to Earth as a missionary for an alien religion."             
+      = @story.short_summary             
 #manuscript
   %h1 
-    ="Copyright © 2020 by Ben McKibben"
+    ="Copyright © #{Time.now.year} by Ben McKibben"
   %p
     ="All rights reserved. This book or any portion thereof may not be reproduced or used in any manner whatsoever without the express written permission of the author except for the use of brief quotations in a book review."
   %p
-    ="The characters in this book are entirely fictional. Any resemblance to actual persons living or dead is entirely coincidental. The opinions expressed are those of the characters and should not be confused with the author’s opinions."  
+    ="The characters in this book are entirely fictional. Any resemblance to actual persons living or dead is entirely coincidental. The opinions expressed are those of the characters and should not be confused with the author’s opinions."     
+  %h1 
+    ="Summary"
+  %p
+    = simple_format(@story.long_summary)
 
   -@sections.each do |page| 
     %h1

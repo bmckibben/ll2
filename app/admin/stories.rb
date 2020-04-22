@@ -11,5 +11,10 @@ permit_params :title, :subtitle, :abbreviated_title, :short_summary, :long_summa
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
-
+	index do
+		column :id
+		column :title
+		column :updated_at
+		column :created_at
+	end
 end

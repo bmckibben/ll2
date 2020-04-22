@@ -12,4 +12,12 @@ ActiveAdmin.register Section do
 #   permitted
 # end
 
+	index do
+		column :id
+		column :sequence
+		column :draft
+		column :title
+		column :updated_at
+		column :created_at
+	end
 end
