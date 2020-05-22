@@ -7,9 +7,9 @@
           - if !wiki_tag.tag.nil?
             %a.btn.btn-tag{"data-tag-id" => "#{wiki_tag.tag_id}", "data-this-id" => "#{@wiki.id}", href: "javascript:void(0)"}= wiki_tag.tag.title
     .col-md-3.wiki-actions.right
-      %i.fa.fa-plus.action-icon.wiki-here{"aria-hidden" => "false", "data-id" => "#{@wiki.id}", "data-parent" => "#{@wiki.title}", "data-placement" => "bottom", "data-toggle" => "tooltip", title: "Create a child wiki."}
-      %i.fa.fa-pencil.action-icon.wiki-edit{"aria-hidden" => "false", "data-id" => "#{@wiki.id}", "data-placement" => "bottom", "data-toggle" => "tooltip", title: "Edit this wiki."}
-      %i.fa.fa-times-circle-o.action-icon.wiki-remove{"aria-hidden" => "false", "data-id" => "#{@wiki.id}", "data-placement" => "bottom", "data-toggle" => "tooltip", title: "Remove this wiki from the page."}
+      %i.fas.fa-plus.action-icon.wiki-here{"aria-hidden" => "false", "data-id" => "#{@wiki.id}", "data-parent" => "#{@wiki.title}", "data-placement" => "bottom", "data-toggle" => "tooltip", title: "Create a child wiki."}
+      %i.fas.fa-pencil-alt.action-icon.wiki-edit{"aria-hidden" => "false", "data-id" => "#{@wiki.id}", "data-placement" => "bottom", "data-toggle" => "tooltip", title: "Edit this wiki."}
+      %i.far.fa-times-circle.action-icon.wiki-remove{"aria-hidden" => "false", "data-id" => "#{@wiki.id}", "data-placement" => "bottom", "data-toggle" => "tooltip", title: "Remove this wiki from the page."}
 .panel-body
   .row
     .col-md-12.wiki-body
