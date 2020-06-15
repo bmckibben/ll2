@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :quotes
   resources :section_footnotes
   resources :section_notes
   devise_for :admin_users, {class_name: 'User'}.merge(ActiveAdmin::Devise.config)

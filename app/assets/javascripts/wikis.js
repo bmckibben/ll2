@@ -262,7 +262,7 @@ function addTag(wiki_id,tag_id,tag_name) {
 	$.ajax(
 	{   url: "/wiki_tags/new_wiki_tag", 
 	    method: "post",
-	    data: {"wiki_id":wiki_id, "tag_id":tag_id }
+	    data: {"wiki_id":wiki_id, "tag_id":tag_id, "authenticity_token": window._token}
 	})
 	.success(function(data){
 		id = data;

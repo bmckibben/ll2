@@ -24,11 +24,11 @@
   .panel-body
     = f.label "Tags"
     .row
-      .col-md-4.col-sm-12
+      .col-md-3
         .input-group{style: "max-width:300px;"}
           %input#input-tag.form-control{"aria-describedby" => "add-tag", "aria-label" => "Wiki tag", list: "tag_list", placeholder: "Type or Select Tag", type: "text"}/
           %span#add-tag.input-group-addon{"data-wiki-id" => "#{@wiki.id}"} Add
-      #tag-tray.col-md-8.col-sm-12
+      #tag-tray.col-md-8
         - @wiki.wiki_tags.each do |wiki_tag|
           - if !wiki_tag.tag.nil?
             %a.btn.tag-delete{"data-placement" => "bottom", "data-tag" => "#{wiki_tag.id}", "data-toggle" => "tooltip", "data-wiki" => "#{@wiki.id}", href: "javascript:void(0)", title: "Remove this tag."}
@@ -62,5 +62,5 @@
       toolbar: "fullscreen | undo redo | styleselect | bold italic backcolor  | alignleft aligncenter alignright alignjustify | bullist outdent indent | removeformat | image | link | charmap | code | help",
       content_css: "#{ asset_path('application.css')}"
     });
-
+    window._token = '#{form_authenticity_token}'
   })

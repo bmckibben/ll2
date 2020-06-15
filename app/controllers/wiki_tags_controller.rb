@@ -82,7 +82,6 @@ class WikiTagsController < InheritedResources::Base
 
     respond_to do |format|
       if @wiki_tag.save
-        format.html { render nothing: true }
         format.js { render :json => @wiki_tag.id }
       else
         format.html { render nothing: true }
