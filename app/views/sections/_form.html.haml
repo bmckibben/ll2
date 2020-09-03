@@ -19,16 +19,9 @@
         = f.input :sequence
         = f.label :draft 
         = f.input :draft   
-        .card
-          .card-body
-            = f.label "Characters" 
-            = f.input :resolution, label: true
-        .card
-          .card-body  
-            = f.label :conflict   
-            = f.input :conflict, label: "Conflict"
+
         .card.section-notes
-          .card-title
+          .card-title Notes
             
           %ul.list-group.list-group-flush        
             - @section.section_notes.each do |note|
