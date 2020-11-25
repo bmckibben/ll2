@@ -26,3 +26,4 @@
 //= require tinymce-jquery
 //= require home
 //= require wikis
+//= require active_admin
