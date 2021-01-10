@@ -3,7 +3,7 @@ class HistoriesController < InheritedResources::Base
   def recommended
   	base = 100
   	lamda = 23
-  	history_limit = 100
+  	history_limit = 40
   	if params[:recommend_params]
     	base = params[:recommend_params][:base] unless params[:recommend_params][:base].blank?
     	lamda = params[:recommend_params][:lamda] unless params[:recommend_params][:lamda].blank?

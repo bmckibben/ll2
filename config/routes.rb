@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   post "home/contact", to: "home#contact", as: :home_contact
   get "home/index", to: "home#index", as: :internal_home
   get "home/home", to: "home#home", as: :home_home
+  get "mom", to: "home#mom", as: :home_mom
   
   get "test_modal", to: "home#test_modal", as: :home_test_modal
   

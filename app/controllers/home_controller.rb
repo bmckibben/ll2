@@ -22,4 +22,7 @@ class HomeController < ApplicationController
       end
   end	
 
+  def mom
+    render layout: "home"
+  end
 end
