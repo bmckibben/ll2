@@ -302,9 +302,6 @@ hr {
 #works {
 	padding: 120px 0;
 	background: #f6f6f6;
-	.element-item {
-		margin-bottom: 20px;
-	}
 }
 .categories {
 	padding-bottom: 30px;
@@ -314,6 +311,12 @@ hr {
 /* Isotope Stuff */
 
 .grid-item { width: 25%; }
+.element-item { 
+	width: 25%;
+	padding: 10px;
+	float: left; 
+	position:relative;
+}
 .grid-item--width2 { width: 50%; }
 .grid {
   border: none;

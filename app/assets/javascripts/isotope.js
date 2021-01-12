@@ -1,12 +1,9 @@
 $( document ).ready(function() {
 
   var $grid = $('.grid').isotope({
-    itemSelector: '.portfolio-item',
+    itemSelector: '.element-item',
     layoutMode: 'fitRows',
     getSortData: {
-      name: '.name',
-      symbol: '.symbol',
-      number: '.number parseInt',
       category: '[data-category]',
       weight: function( itemElem ) {
         var weight = $( itemElem ).find('.weight').text();
@@ -50,4 +47,6 @@ $( document ).ready(function() {
       $( this ).addClass('is-checked');
     });
   });
+
+  $grid.isotope('layout');  
 });
