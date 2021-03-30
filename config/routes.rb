@@ -38,7 +38,8 @@ Rails.application.routes.draw do
   post 'wikis/wiki_disable' => 'wikis#wiki_disable'
   post 'wiki_tags/new_wiki_tag' => 'wiki_tags#new_wiki_tag'
   get 'wiki_tags/menu' => 'wiki_tags#menu'
-  
+  get "stories/download_json", to: "stories#download_json", as: :story_download_json
+
   resources :sections
   
   get "stories/manuscript", to: "stories#manuscript", as: :story_manuscript

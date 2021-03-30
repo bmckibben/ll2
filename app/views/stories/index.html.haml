@@ -22,6 +22,6 @@
               %td= link_to 'Chapters', chapters_path(story_id: story.id)
               %td= link_to 'Summaries', chapter_summaries_path(story_id: story.id)
               %td= link_to 'Print', story_manuscript_path(story_id: story.id)
-
+              %td= link_to 'JSON', story_download_json_path(story_id: story.id)
 
 
