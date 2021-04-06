@@ -39,9 +39,15 @@
       ="Chapter #{page.sequence.to_s}"
     .section-body  
       =page.body.to_s.html_safe
+
+  %h1 
+    ="Notes"
+  -@sections.each do |page| 
+    %h4
+      ="Chapter #{page.sequence.to_s}"
     .section-footnote
       - page.section_footnotes.each do |footnote|
         %sup
           =footnote.a_number 
         =footnote.footnote
-        %br  
+        %br 
