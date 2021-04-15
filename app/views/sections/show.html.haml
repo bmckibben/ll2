@@ -6,9 +6,11 @@
 
       %h1
         = @section.title
-      - if user_signed_in? and current_user.role_cd > 0
+      =link_to chapter_summaries_path(story_id: @section.story_id),style: 'margin-right:2rem;' do
+        %i.fa.fa-list 
+      - if user_signed_in? and current_user.role_cd > 0          
         =link_to edit_section_path(@section) do
-          %i.fas.fa-pencil-alt        
+          %i.fas.fa-pencil-alt                        
       %p
         %b Sequence:
         = @section.sequence
