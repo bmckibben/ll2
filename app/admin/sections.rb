@@ -8,5 +8,6 @@ ActiveAdmin.register Section do
 		column :title
 		column :updated_at
 		column :created_at
+		actions
 	end
 end
