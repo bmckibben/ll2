@@ -16,14 +16,14 @@
             %br
             = "Word Count: #{@story.wordcount}"
     .title
-      = image_tag("cover.png", class: "img-responsive" )
-      / %h1
-      /   = @story.title
-      / %h2
-      /   = "A Novel by Ben McKibben"
+      %h1
+        = @story.title
+      %h2
+        = "A Novel by Ben McKibben"
     .tagline
       = @story.short_summary             
 #manuscript
+  = image_tag("cover.png", class: "img-responsive cover" )
   %h1 
     ="Copyright © #{Time.now.year} by Ben McKibben"
   %p
