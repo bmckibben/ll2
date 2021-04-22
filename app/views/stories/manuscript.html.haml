@@ -23,7 +23,7 @@
     .tagline
       = @story.short_summary             
 #manuscript
-  = image_tag("cover.png", class: "img-responsive cover" )
+  = image_tag(@story.cover_image, class: "img-responsive cover" ) unless @story.cover_image.blank?
   %h1 
     ="Copyright © #{Time.now.year} by Ben McKibben"
   %p
