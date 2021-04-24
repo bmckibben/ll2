@@ -15,11 +15,13 @@ class SectionsController < InheritedResources::Base
   end
 
   def edit_footnote_modal
-    @section = Section.find(params[:section_id])
+    #binding.pry
 
     if !params[:footnote_id].nil?
-      @footnote = @section.section_footnotes.find(params[:footnote_id])
+      @footnote = SectionFootnote.find(params[:footnote_id])
+      @section = Section.find(@footnote.section_id)
     else
+      @section = Section.find(params[:section_id])
       @footnote = @section.section_footnotes.build()
     end   
     render 'edit_footnote_modal.js.erb'

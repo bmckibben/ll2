@@ -54,6 +54,10 @@ gem 'rails_12factor'
 
 
 group :development do
+  gem 'pry'
+  gem 'pry-nav'
+  gem 'pry-rails'
+  gem 'pry-remote'	
   gem 'better_errors'
   gem "binding_of_caller" 
   gem "annotate"

@@ -29,9 +29,9 @@
                 =note.note
         
         .form-actions.control-panel
+          = f.button :submit, "Save", class: "btn btn-primary"         
           =link_to "Add Note", edit_note_modal_path(section_id: @section.id), remote: true, class: "btn btn-notes btn-primary"
-          = f.button :submit, "Save", class: "btn btn-primary"  
-          =link_to "Footnotes", edit_footnote_modal_path(section_id: @section.id), remote: true, class: "btn btn-primary"          
+          =link_to "Add Footnote", edit_footnote_modal_path(section_id: @section.id), remote: true, class: "btn btn-primary"          
           =link_to "Summaries", chapter_summaries_path(story_id: @section.story_id), class: "btn btn-primary" unless @section.story_id.nil?
           %p
             = "※※※"       
@@ -39,7 +39,8 @@
       .col-md-9.footnotes
         - @section.section_footnotes.order(:a_number).each do |footnote|
           %sup
-            =footnote.a_number 
+            =link_to edit_footnote_modal_path(footnote_id: footnote.id), remote: true do
+              =footnote.a_number 
           =footnote.footnote
           %br
       .col-md-3
