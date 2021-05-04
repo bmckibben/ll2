@@ -28,7 +28,7 @@ class SectionsController < InheritedResources::Base
   end
 
   def index
-    @sections = Section.where(story_id: params[:story_id]).order(sequence: :asc)
+    @sections = Section.where(story_id: params[:story_id]).order(sequence: :desc)
   end
 
   def chapters
