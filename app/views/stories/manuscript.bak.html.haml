@@ -1,0 +1,53 @@
+#title-page
+  .this-page
+    .author
+      %table
+        %tr
+          %td
+            = "Ben McKibben"
+            %br
+            = "Greenwood, Indiana"
+            %br
+            = "317.409.6295"          
+            %br
+            = "mckibben@att.net"
+          %td.right
+            = "Copyright © #{Time.now.year}, All Rights Reserved" 
+            %br
+            = "Word Count: #{@story.wordcount}"
+    .title
+      %h1
+        = @story.title
+      %h2
+        = "A Novel by #{@story.author}"
+    .tagline
+      = @story.short_summary             
+#manuscript
+  = image_tag(@story.cover_image, class: "img-responsive cover" ) unless @story.cover_image.blank?
+  %h1 
+    ="Copyright © #{Time.now.year} by #{@story.author}"
+  %p
+    ="All rights reserved. This book or any portion thereof may not be reproduced or used in any manner whatsoever without the express written permission of the author except for the use of brief quotations in a book review."
+  %p
+    ="The characters in this book are entirely fictional. Any resemblance to actual persons living or dead is entirely coincidental. The opinions expressed are those of the characters and should not be confused with the author’s opinions."     
+  %h1 
+    ="Summary"
+  =@story.long_summary.to_s.html_safe
+
+  -@sections.each do |page| 
+    %h1
+      ="Chapter #{page.sequence.to_s}"
+    .section-body  
+      =page.body.to_s.html_safe
+
+  %h1 
+    ="Notes"
+  -@sections.each do |page| 
+    %h4
+      ="Chapter #{page.sequence.to_s}"
+    .section-footnote
+      - page.section_footnotes.each do |footnote|
+        %sup
+          =footnote.a_number 
+        =footnote.footnote
+        %br 

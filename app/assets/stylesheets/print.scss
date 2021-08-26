@@ -5,7 +5,8 @@
 #manuscript {
   p {
     font-size: 12pt; 
-    font-family: 'Courier New'; 
+    //font-family: 'Courier New'; 
+    font-family: TimesNewRoman, "Times New Roman";
     color: #000000; 
     background-color: transparent; 
     font-weight: 400; 
@@ -19,8 +20,11 @@
     margin-top: 0pt; 
     margin-bottom: 0pt;
   }
-  h1 {
-    font-family: Rokkitt, serif;
+  h1, h2 {
+    //font-family: Rokkitt, serif;
+    font-size: 12pt;
+    font-family: TimesNewRoman, "Times New Roman";
+    text-align:center;    
   } 
   .section-footnote {
     border-top: 1px solid #000
@@ -32,7 +36,8 @@
 }
 #title-page {
   .author {
-    border: 1px solid #000;
+    //border: 1px solid #000;
+    border: none;
     width: 100%;
     padding: 1rem;
     table {
@@ -54,15 +59,21 @@
     margin-top: 30rem;
     margin-bottom: 40rem;
   }  
-  h1 {
-    text-align:center;
-    font-family: Syncopate, serif;
-  }
-  h2 {
-    text-align:center;
-    font-family: Syncopate, serif;
-    font-size: 20px;
-  }
+  // h1 {
+  //   text-align:center;
+  //   font-family: Syncopate, serif;
+  // }
+  // h2 {
+  //   text-align:center;
+  //   font-family: Syncopate, serif;
+  //   font-size: 20px;
+  // }
+  h1, h2 {
+    //font-family: Rokkitt, serif;
+    font-size: 12pt;
+    font-family: TimesNewRoman, "Times New Roman" ;  
+    text-align:center; 
+  }   
   .tagline {
     text-align:center;
     width: 100%;
@@ -76,8 +87,9 @@
   #manuscript {
     h1 {
       page-break-before: always;
-      font-family: Rokkitt, serif;
+    //   font-family: Rokkitt, serif;
     }
+     
     .section-footnote {
       border-top: 1px solid #000
     }    
