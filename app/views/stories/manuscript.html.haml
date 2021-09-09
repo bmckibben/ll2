@@ -27,8 +27,14 @@
 #manuscript
 
   -@sections.each do |page| 
-    %h1
+    %p{class: "newpage"}
+    %p &nbsp;
+    %p &nbsp;
+    %p &nbsp;
+    %p &nbsp;
+    %p{class: "center"} 
       ="CHAPTER #{page.sequence.to_s}"
+    %p &nbsp;  
     .section-body  
-      =page.body.to_s.html_safe
+      =page.body.to_s.gsub(/<sup>\d*<\/sup>/,'' ).html_safe
 

@@ -83,15 +83,17 @@
   }
 }
 
-@media print {
-  #manuscript {
-    h1 {
-      page-break-before: always;
-    //   font-family: Rokkitt, serif;
+#manuscript {
+  .newpage {
+    page-break-before: always;
+  //   font-family: Rokkitt, serif;
+  }
+  .center {
+    text-align: center;
+  }
+  .section-body{
+    p:first{
+      text-indent: 0;
     }
-     
-    .section-footnote {
-      border-top: 1px solid #000
-    }    
-  }  
-}
+  }
+}    
