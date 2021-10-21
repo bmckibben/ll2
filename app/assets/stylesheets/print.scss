@@ -20,6 +20,9 @@
     margin-top: 0pt; 
     margin-bottom: 0pt;
   }
+  p:first-child{
+    text-indent: 0;
+  }    
   h1, h2 {
     //font-family: Rokkitt, serif;
     font-size: 12pt;
@@ -80,6 +83,7 @@
   }
   .right {
     text-align:right;
+    vertical-align: top;
   }
 }
 
