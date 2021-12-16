@@ -18,7 +18,7 @@ class Story < ActiveRecord::Base
 
 	def wordcount
 		count = 0
-		words = self.sections.pluck(:body)
+		words = self.sections.where("draft > 0").pluck(:body)
 		words.each do |text|
 			count += text.gsub(/<[^>]*>/ui,'').split.size unless text.nil?
 		end	
