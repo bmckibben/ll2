@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.3'
+ruby '2.5.8'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
@@ -28,7 +28,7 @@ gem 'jquery-validation-rails'
 gem 'jbuilder'
 
 # Markup and design related libraries
-gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+gem 'twitter-bootstrap-rails'
 gem 'bootstrap-sass'
 gem 'bootstrap-select-rails'
 gem 'font-awesome-sass'
