@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.1.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.2'
+gem 'rails'
 
 gem 'pg'
 # Use Puma as the app server
@@ -36,7 +36,7 @@ gem 'rails-assets-tether'
 
 # stuff I intend to use
 gem 'redis'
-gem "devise", ">= 4.6.0"
+gem "devise"
 gem 'devise_invitable'
 gem 'simple_form'
 gem 'friendly_id'
@@ -50,7 +50,7 @@ gem 'tinymce-rails'
 gem "nokogiri"
 
 # per heroku
-gem 'rails_12factor'
+#gem 'rails_12factor'
 
 
 group :development do
