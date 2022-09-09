@@ -7,6 +7,7 @@ ruby '3.1.0'
 gem 'rails'
 
 gem 'pg'
+# gem 'mysql2'
 # Use Puma as the app server
 gem 'puma'
 # Use SCSS for stylesheets

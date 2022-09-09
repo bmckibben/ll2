@@ -199,6 +199,7 @@ GEM
     mini_mime (1.1.2)
     mini_portile2 (2.8.0)
     minitest (5.16.3)
+    mysql2 (0.5.4)
     net-imap (0.2.3)
       digest
       net-protocol
@@ -218,7 +219,6 @@ GEM
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     orm_adapter (0.5.0)
-    pg (1.4.3)
     pry (0.14.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -316,8 +316,6 @@ GEM
       railties (>= 5.0, < 8.0)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
-    uglifier (4.2.0)
-      execjs (>= 0.3.0, < 3)
     warden (1.2.9)
       rack (>= 2.0.9)
     websocket-driver (0.7.5)
@@ -348,8 +346,8 @@ DEPENDENCIES
   jquery-validation-rails
   kaminari
   listen
+  mysql2
   nokogiri
-  pg
   pry
   pry-nav
   pry-rails
@@ -364,7 +362,6 @@ DEPENDENCIES
   tinymce-rails
   twitter-bootstrap-rails
   tzinfo-data
-  uglifier
 
 RUBY VERSION
    ruby 3.1.0p0
