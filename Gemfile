@@ -50,7 +50,7 @@ gem 'tinymce-rails'
 gem "nokogiri"
 
 # per heroku
-#gem 'rails_12factor'
+gem 'rails_12factor'
 
 
 group :development do
