@@ -12,7 +12,7 @@ gem 'puma'
 # Use SCSS for stylesheets
 gem 'sassc-rails'
 # Use terser-ruby as compressor for JavaScript assets
-gem 'terser'
+# gem 'terser'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 
