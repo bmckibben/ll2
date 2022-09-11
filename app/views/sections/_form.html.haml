@@ -11,7 +11,7 @@
       .col-md-9.editor  
         = f.label :summary 
         = f.input :summary
-        = f.input :body, class: "section-body", label: false
+        = f.text_area :body, class: "tinymce section-body", label: false
       .col-md-3.attributes
         = f.label :story_id
         = f.input :story_id, collection: Story.all
@@ -47,22 +47,13 @@
           %br
       .col-md-3
 
-
+= tinymce
 
 :javascript
   $( document ).ready(function() {
     $("#open-modal").click(function(){
       $("#edit_footnote_modal_box").modal("show")
     })
-
-    tinyMCE.init({
-      selector: '#section_body',
-      height: 500,
-      menubar: "",
-      plugins: "image link charmap advlist code",
-      toolbar: "undo redo | styleselect | bold italic backcolor  | alignleft aligncenter alignright alignjustify | bullist outdent indent | removeformat | image | link | charmap | code | help",
-      content_css: "#{ asset_path('application.css')}"
-    });
 
   })
 
