@@ -1,4 +1,3 @@
-= tinymce_assets
 = simple_form_for(@section) do |f|
   = f.error_notification
 
@@ -60,8 +59,8 @@
       selector: '#section_body',
       height: 500,
       menubar: "",
-      plugins: "image link charmap advlist fullscreen code",
-      toolbar: "fullscreen | undo redo | styleselect | bold italic backcolor  | alignleft aligncenter alignright alignjustify | bullist outdent indent | removeformat | image | link | charmap | code | help",
+      plugins: "image link charmap advlist code",
+      toolbar: "undo redo | styleselect | bold italic backcolor  | alignleft aligncenter alignright alignjustify | bullist outdent indent | removeformat | image | link | charmap | code | help",
       content_css: "#{ asset_path('application.css')}"
     });
 
