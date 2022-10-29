@@ -1,0 +1,13 @@
+.item-brd
+  .row
+    .col-md-8
+      %a.text-dark.no-decor{"data-toggle" => "collapse", :href => "#report-slots-#{project.id}"}
+        %h5.h6.mb-0
+          %span.badge.badge-light.text-boldy.text-muted.mr-1= task_size
+          %span.proj-col-label-sm.mr-1{:style => "background:#{project.color}"}
+          %span.text-boldy.mr-2= project.name
+    .col-md-4.text-right
+      - duration_total project_slots do |duration, cost|
+        %span.h6.text-boldy= duration
+        - if cost.present?
+          %span.h6.text-boldy.ml-3= cost

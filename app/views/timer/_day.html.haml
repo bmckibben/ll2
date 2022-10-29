@@ -1,0 +1,3 @@
+%h3.text-normal.mb-3{:id => "timer-day-#{day.to_s(:db)}"}
+  %span.text-bolder.text-sm= day.to_s(:short_date)
+  .text-success.mt-1{:id => "timer-day-duration-#{day.to_s(:db)}"}= duration_total daily_slots

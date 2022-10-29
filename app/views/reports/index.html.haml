@@ -1,0 +1,19 @@
+%h1.h3.mb-5
+  %i.iconly-0506-pie-chart2
+  Reports
+= bootstrap_form_for @filter, url: '', method: :get, enforce_utf8: false do |form|
+  .input-date-range
+    %input#report_filter_period{:readonly => "readonly", :type => "text"}/
+    %span.iconly-0394-calendar-full
+#reports-projects.mt-4
+  - if @filter.report.present?
+    %h3.text-normal.mb-3
+      %span.text-bolder.text-sm Total
+      .text-success.mt-1= duration_total @filter.report
+    - each_project_for(@filter) do |project, project_slots, grouped_task_slots|
+      = render 'project', project: project, project_slots: project_slots, task_size: grouped_task_slots.size
+      = render 'tasks', project: project, grouped_task_slots: grouped_task_slots
+  - else
+    %p.text-muted No tracking found.
+:javascript
+  app.rangePicker('#report_filter_period', '#{@filter.interval}', #{@filter.start_at}, #{@filter.end_at});

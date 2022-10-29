@@ -1,0 +1,10 @@
+= bootstrap_form_for :session, url: session_path do |form|
+  = form.text_field :email, type: 'email'
+  = form.password_field :password
+  .mt-4
+    = form.submit class: 'btn btn-sm btn-primary'
+  .mt-4.text-sm
+    - if Clearance.configuration.allow_sign_up?
+      = link_to t(".sign_up"), sign_up_path
+      •
+    = link_to t(".forgot_password"), new_password_path

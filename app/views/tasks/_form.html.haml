@@ -1,0 +1,7 @@
+= bootstrap_form_for [project, task], remote: true, html: { class: 'item-brd', id: "project-task-#{task.id}" }  do |form|
+  .row
+    .col-md-10
+      = form.text_field :name, placeholder: 'Task name', autofocus: true, class: 'form-control-sm', hide_label: true, wrapper: { class: 'mb-0' }
+    .col-md-2.text-right
+      = form.submit 'Save', class: 'btn btn-sm btn-secondary mr-1 text-sm'
+      = link_to 'Cancel', project, class: 'text-danger'

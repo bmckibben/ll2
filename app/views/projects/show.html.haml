@@ -1,0 +1,20 @@
+.row.mb-1
+  .col-md-9
+    %h1.h3
+      %span.proj-col-label.mr-1{:style => "background:#{@project.color}"}
+      = @project.name
+  .col-md-3.text-right
+    = link_to @project, method: :delete, data: { confirm: 'Are you sure you want to delete this project?', toggle: 'tooltip' }, title: 'Delete project', class: 'btn btn-round btn-outline-secondary text-sm' do
+      %i.iconly-0129-trash
+    = link_to [:edit, @project], data: { toggle: 'tooltip' }, title: 'Edit project', class: 'btn btn-round btn-outline-secondary text-sm' do
+      %i.iconly-0014-pencil
+    = link_to [:new, @project, :task], remote: true, data: { toggle: 'tooltip', replace: '#project-task-' }, title: 'Add new task', class: 'btn btn-round btn-outline-secondary text-sm ml-3' do
+      %i.iconly-0823-plus
+.text-muted.mb-4
+  - if @project.disabled
+    %span.badge.badge-warning.mr-1 Disabled
+  - if @project.rate.present?
+    Rate: #{humanized_money_with_symbol @project.rate} per hour
+#project-task-.item-brd
+#project-tasks
+  = render @project.tasks.order(:name)
