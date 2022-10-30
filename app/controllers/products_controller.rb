@@ -1,5 +1,5 @@
 class ProductsController < InheritedResources::Base
-
+	layout "projlog"
   private
 
     def product_params

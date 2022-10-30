@@ -2,7 +2,7 @@
 
 class ReportsController < ApplicationController
   before_action :set_tab
-
+  layout "projlog"
   def index
     @filter = ReportFilter.new(current_user, report_filter_params)
   end

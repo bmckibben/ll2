@@ -3,7 +3,7 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: %i[show edit update destroy]
   before_action :set_tab
-
+  layout "projlog"  
   def index
     @projects = project_scope.order(:name)
   end

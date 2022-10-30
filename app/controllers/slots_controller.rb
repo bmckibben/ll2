@@ -2,7 +2,7 @@
 
 class SlotsController < ApplicationController
   before_action :set_slot, only: %i[show edit update stop destroy]
-
+  layout "projlog"
   def show
     render partial: 'slot', locals: { slot: @slot }
   end

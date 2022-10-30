@@ -11,7 +11,7 @@ class Project < ApplicationRecord
 
   validates :name, presence: true
 
-  monetize :rate_cents, as: :rate, allow_nil: true
+  #monetize :rate_cents, as: :rate, allow_nil: true
 
   scope :enabled, -> { where(disabled_at: nil) }
 

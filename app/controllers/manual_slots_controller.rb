@@ -2,7 +2,7 @@
 
 class ManualSlotsController < ApplicationController
   before_action :set_tab
-
+  layout "projlog"
   def new
     @slot = Slot.new
   end

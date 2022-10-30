@@ -1,7 +1,7 @@
 %h1.h3.mb-5 What did you work on?
 .row
   .col-md-6
-    = bootstrap_form_for @slot, url: manual_slots_path do |form|
+    = simple_form_for @slot, url: manual_slots_path do |form|
       = form.select :task_id, grouped_tasks_options(@slot)
       = form.text_field :start_at_formatted, label: 'Started on', class: 'w-auto'
       = form.time_field :end_at_time, label: 'Ended on', class: 'w-auto', placeholder: '00:00'

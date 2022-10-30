@@ -3,7 +3,7 @@
 class TasksController < ApplicationController
   before_action :set_project
   before_action :set_task, only: %i[edit update toggle destroy]
-
+  layout "projlog"
   def new
     @task = Task.new
     render_form

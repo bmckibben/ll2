@@ -1,7 +1,7 @@
 %h1.h3.mb-5
   %i.iconly-0506-pie-chart2
   Reports
-= bootstrap_form_for @filter, url: '', method: :get, enforce_utf8: false do |form|
+= simple_form_for @filter, url: '', method: :get, enforce_utf8: false do |form|
   .input-date-range
     %input#report_filter_period{:readonly => "readonly", :type => "text"}/
     %span.iconly-0394-calendar-full
