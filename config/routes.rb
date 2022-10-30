@@ -47,5 +47,19 @@ Rails.application.routes.draw do
   resources :wikis
   resources :wiki_tags 
   resources :users 
+  resources :products
+  resources :timer, only: :index
+  resources :reports, only: :index
+  resources :clients, only: %i[create update destroy]
+  resources :projects do
+    resources :tasks, only: %i[new edit create update destroy] do
+      post :toggle, on: :member
+    end
+  end
+  resources :slots, only: %i[edit show create update destroy] do
+    post :stop, on: :member
+  end
+  resources :manual_slots, only: %i[new create]
+
 end
 
