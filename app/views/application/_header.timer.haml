@@ -1,0 +1,36 @@
+%nav#app-header{:class => "navbar fixed-top navbar-expand-md navbar-light app-header pg-sign-#{signed_in?}", "data-turbolinks-permanent" => ""}
+  .row
+    .col-md-3
+      = link_to timer_index_path, class: 'navbar-brand text-bold' do
+        %span
+          %i.fa-regular.fa-clock
+        projlog
+    - if signed_in?
+      .col-md-9
+        %ul.navbar-nav.ml-auto
+          %li.nav-item.dropdown.app-timer-tasks
+            %a{"aria-expanded" => "false", "aria-haspopup" => "true", :class => "nav-link text-truncate task-name #{'loaded' if current_slot.present?}", "data-target" => "timer.taskNameLink", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+              %i.fa-solid.fa-chevron-down
+              %span{"data-target" => "timer.taskName"}
+                - if current_slot.present?
+                  = render('task_name', task: current_slot.task)
+                - else
+                  What are you working on ?
+            .dropdown-menu.dropdown-menu-lg{"aria-labelledby" => "app-header-drop-tasks"}
+              - current_user_tasks.each do |project, tasks|
+                %h6.dropdown-header.text-sm.pl-2
+                  %span.proj-col-label-sm.mr-1{:style => "background:#{project.color}"}
+                  = project.name
+                - tasks.each do |task|
+                  = link_to '#start', class: 'dropdown-item', data: {             |
+                    target: 'task',                                               |
+                    action: 'timer#playTask',                                     |
+                    name:   render(partial: 'task_name', locals: { task: task }), |
+                    url:    slots_path(slot: { task_id: task.id }) } do           |
+                    = task.name
+          %li.nav-item.mr-1
+            = link_to '#start', class: 'nav-link text-lg', data: { target: 'timer.playNow', action: 'timer#toggle' } do
+              %i.fa-regular.fa-circle-play                    
+          %li.nav-item
+            %span.navbar-text.app-timer-ticker{"data-target" => "timer.ticker"} 00:00:00
+

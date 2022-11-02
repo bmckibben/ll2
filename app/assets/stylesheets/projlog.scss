@@ -22,7 +22,7 @@ h1, h2, h3, .h1, .h2, .h3, .text-bold {
     width: 2rem;
     height: 2rem;
     display: inline-block;
-    background: $pink;
+    background: #ff2956;
     color: #fff;
     text-align: center;
     border-radius: 3px;
@@ -40,15 +40,15 @@ h1, h2, h3, .h1, .h2, .h3, .text-bold {
 }
 
 a.text-muted:hover {
-  color: $black !important;
+  color: #ffffff !important;
 }
 
 .text-pink {
-  color: $pink !important;
+  color: #ff2956 !important;
 }
 
 .text-dark {
-  color: $black;
+  color: #ffffff;
 }
 
 .text-lg {
@@ -92,7 +92,7 @@ a.text-muted:hover {
   border-radius: 3px;
 
   &:hover {
-    background: $gray-300;
+    background: #c0c0c0;
   }
 }
 
@@ -169,7 +169,7 @@ a.text-muted:hover {
 }
 
 .badge-light {
-  border: 1px solid $gray-300;
+  border: 1px solid #c0c0c0;
 }
 
 // colors
