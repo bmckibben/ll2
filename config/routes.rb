@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :task_times
+  resources :tasks
+  resources :projects
+  resources :products
 
   resources :quotes
   resources :section_footnotes

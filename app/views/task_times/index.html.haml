@@ -1,0 +1,25 @@
+%h1 Listing task_times
+
+%table
+  %thead
+    %tr
+      %th Description
+      %th Start date
+      %th End date
+      %th
+      %th
+      %th
+
+  %tbody
+    - @task_times.each do |task_time|
+      %tr
+        %td= task_time.description
+        %td= task_time.start_date
+        %td= task_time.end_date
+        %td= link_to 'Show', task_time
+        %td= link_to 'Edit', edit_task_time_path(task_time)
+        %td= link_to 'Destroy', task_time, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Task time', new_task_time_path

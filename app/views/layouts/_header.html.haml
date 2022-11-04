@@ -1,0 +1,16 @@
+%nav#app-header{:class => "navbar fixed-top navbar-expand-md navbar-light app-header pg-sign-#{signed_in?}"}
+  = simple_form_for @slot do |form|
+    .row
+      .col-md-2
+        = link_to timer_index_path, class: 'navbar-brand text-bold' do
+          %i.fa-regular.fa-clock
+          ProjTime
+      - if signed_in?
+        .col-md-5
+          = form.input :description, placeholder: 'What are you doing', label: false
+        .col-md-3  
+          = form.select :task_id, grouped_tasks_options(@slot)
+        .col-md-1
+          .app-timer-ticker{"data-target" => "timer.ticker"} 00:00:00
+        .col-md-1
+          %i.fa-regular.fa-circle-play
