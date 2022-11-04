@@ -30,6 +30,7 @@
       $('#timer').submit();
       elapsed_time = setInterval(function () {
           $("#elapsed_time").html(secondsToHms(i));
+          $(document).prop('title', secondsToHms(i));
           i++;
       }, 1000);      
     })
