@@ -12,7 +12,7 @@ class SectionsController < InheritedResources::Base
   		@note = @section.section_notes.build()
   	end
     respond_to do |format|
-      format.html {render 'test.html.haml'}
+      format.html {render not_found}
       format.js {render 'edit_note_modal.js.erb'}
     end     
   end
