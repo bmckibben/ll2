@@ -46,6 +46,9 @@
         = f.input :body, class: "wiki-body-body"
         = f.hidden_field :authenticity_token, value: form_authenticity_token
         = f.hidden_field :parent
+    .row
+      .col-md-12
+        = tag_options.inspect
   .panel-footer
     .row
       .col-md-12.wiki-attributes
