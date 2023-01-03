@@ -7,5 +7,5 @@ class Wiki < ActiveRecord::Base
 	
 	#accepts_nested_attributes_for :wiki_tags, :allow_destroy => true
 	
-	attr_accessor : tags
+	attr_accessor :tags
 end
