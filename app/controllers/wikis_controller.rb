@@ -8,7 +8,7 @@ class WikisController < InheritedResources::Base
     @menu = view_context.nested_set(view_context.query_menu,'tree-menu', 0)
     #might change recents to where < one month?
     @recents = Wiki.where(updated_at: DateTime.now..1.month.ago).order(updated_at: :desc)
-    @tag_options = WikiTags.distinct.pluck(:parent) 
+    @tag_options = WikiTag.distinct.pluck(:parent) 
   end
 
   # GET /wikis/1
