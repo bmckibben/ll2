@@ -177,7 +177,7 @@ class WikisController < InheritedResources::Base
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def wiki_params
-      params.require(:wiki).permit(:title, :user_id, :body, :parent, :version, :deleted, :default_sort)
+      params.require(:wiki).permit(:title, :user_id, :body, :parent, :version, :deleted, :default_sort, :tags)
     end
 
 
