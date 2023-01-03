@@ -49,8 +49,7 @@
     .row
       .col-md-12
         .input-group{style: "max-width:300px;"}
-          = f.input :parent, collection: @tag_options, include_blank: true, class: "form-control", multiple: true
-          %span#add-tag.input-group-addon{"data-wiki-id" => "#{@wiki.id}"} Add
+          = f.input :tags, collection: @tag_options, include_blank: true, class: "form-control", multiple: true
   .panel-footer
     .row
       .col-md-12.wiki-attributes
