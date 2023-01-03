@@ -32,7 +32,7 @@
       = f.input :body, class: "wiki-body-body"
     .row
       .col-md-12
-        = "Show tag select options"
+        = @tag_options.inspect
   .panel-footer
     .row.wiki-attributes
       Author: #{current_user.login}
