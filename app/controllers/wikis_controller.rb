@@ -103,6 +103,8 @@ class WikisController < InheritedResources::Base
 
   def wiki_form
     @wikis = Wiki.all.order(title: :asc)
+    tags = WikiTag.distinct.pluck(:tag_id) 
+    @wiki_options = Wiki.find(tags)
     @new_journal = false
 
     if params[:wiki_id] != "0"
