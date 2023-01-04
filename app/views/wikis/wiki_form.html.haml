@@ -23,6 +23,10 @@
     .row
       .col-md-3
         .input-group{style: "max-width:300px;"}
+          = f.input :tags, class: "form-control", list: "tags_list"
+          %datalist#tags_list
+            - @tag_options.each do |tag|
+              %option{value: "#{tag.title}"}
           %span#add-tag.input-group-addon{"data-wiki-id" => "#{@wiki.id}"} Add
       #tag-tray.col-md-8
         - @wiki.wiki_tags.each do |wiki_tag|
@@ -42,13 +46,7 @@
         = f.input :body, class: "wiki-body-body"
         = f.hidden_field :authenticity_token, value: form_authenticity_token
         = f.hidden_field :parent
-    .row
-      .col-md-12
-        .input-group{style: "max-width:300px;"}
-          = f.input :tags, class: "form-control", list: "tags_list"
-          %datalist#tags_list
-            - @tag_options.each do |tag|
-              %option{value: "#{tag.title}"}
+
   .panel-footer
     .row
       .col-md-12.wiki-attributes
