@@ -1,3 +1,6 @@
+%datalist#tag_list
+  - @tag_options.each do |tag|
+    %option{value: "#{tag.title}"}
 = simple_form_for(@wiki, :html => {:class => "wiki-form", :remote=>true}) do |f|
   - if @wiki.errors.any?
     #error_explanation
@@ -21,12 +24,10 @@
   .panel-body
     = f.label "Tags"
     .row
+    .row
       .col-md-3
         .input-group{style: "max-width:300px;"}
-          = f.input :tags, class: "form-control", list: "tags_list", input_html: {"aria-describedby" => "add-tag", "aria-label" => "Wiki tag", placeholder: "Type or Select Tag", type: "text"}
-          %datalist#tags_list
-            - @tag_options.each do |tag|
-              %option{value: "#{tag.title}"}
+          = finput :tags, id: "input-tag", class: "form-control", input_html: {"aria-describedby" => "add-tag", "aria-label" => "Wiki tag", list: "tag_list", placeholder: "Type or Select Tag", type: "text"}
           %span#add-tag.input-group-addon{"data-wiki-id" => "#{@wiki.id}"} Add
       #tag-tray.col-md-8
         - @wiki.wiki_tags.each do |wiki_tag|
