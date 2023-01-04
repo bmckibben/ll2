@@ -45,7 +45,7 @@
     .row
       .col-md-12
         .input-group{style: "max-width:300px;"}
-          = f.input :tags, class: "form-control", list: "tags_list
+          = f.input :tags, class: "form-control", list: "tags_list"
           %datalist#tags_list
             - @tag_options.each do |tag|
               %option{value: "#{tag.title}"}
