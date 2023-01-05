@@ -13,7 +13,7 @@ class SectionsController < InheritedResources::Base
   	end
     respond_to do |format|
       format.html {render not_found}
-      format.js {render 'edit_note_modal.js.erb'}
+      format.js {render 'edit_note_modal'}
     end     
   end
 

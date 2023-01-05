@@ -44,7 +44,7 @@
           = f.text_field :default_sort, class: "form-control"
     .row
       .col-md-12.wiki-body
-        = f.text_area :body, class: "tinymce section-body", label: false
+        = f.text_area :body, class: "tinymce section-body"
         = f.hidden_field :authenticity_token, value: form_authenticity_token
         = f.hidden_field :parent
 
