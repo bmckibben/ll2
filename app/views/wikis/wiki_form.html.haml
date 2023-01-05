@@ -44,7 +44,7 @@
           = f.text_field :default_sort, class: "form-control"
     .row
       .col-md-12.wiki-body
-        = f.input :body, class: "wiki-body-body"
+        = f.text_area :body, class: "tinymce section-body", label: false
         = f.hidden_field :authenticity_token, value: form_authenticity_token
         = f.hidden_field :parent
 
@@ -54,16 +54,4 @@
         Author: #{current_user.login} |
         Created:  #{Time.now.strftime("%Y-%m-%d %R")}
 
-:javascript
-  $( document ).ready(function() {
-    
-    tinyMCE.init({
-      selector: '#wiki-body-body',
-      height: 500,
-      menubar: "",
-      plugins: "image link charmap advlist fullscreen code",
-      toolbar: "fullscreen | undo redo | styleselect | bold italic backcolor  | alignleft aligncenter alignright alignjustify | bullist outdent indent | removeformat | image | link | charmap | code | help",
-      content_css: "#{ asset_path('application.css')}"
-    });
-
-  })
+= tinymce content_css: asset_path('application.css')
