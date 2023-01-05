@@ -69,7 +69,7 @@ class WikisController < InheritedResources::Base
 
     respond_to do |format|    
       if @wiki.save
-        create_parent_tag(@wiki)
+        update_tags(@wiki)
         if @wiki.default_sort == 0
           @wiki.update(:default_sort => @wiki.id)
         end
@@ -197,9 +197,6 @@ class WikisController < InheritedResources::Base
           wiki_tag.save
        else   
           existing = WikiTag.where(wiki_id: wiki.id, tag_id: tag.id).first
-          puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-          puts existing.inspect
-          puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
           if existing.nil?
             wiki_tag = WikiTag.new(wiki_id: wiki.id, tag_id: tag.id)
             wiki_tag.save 
