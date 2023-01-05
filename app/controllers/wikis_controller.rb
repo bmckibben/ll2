@@ -82,6 +82,7 @@ class WikisController < InheritedResources::Base
     @wiki_id = @wiki.id
     respond_to do |format|
       if @wiki.update(wiki_params)
+        update_tags(@wiki) unless wiki_params[:tags].blank 
         format.html { redirect_to wikis_url, notice: 'Wiki was successfully updated.' }
         format.js { render "wikis/display" }
       else
@@ -180,6 +181,21 @@ class WikisController < InheritedResources::Base
       params.require(:wiki).permit(:title, :user_id, :body, :parent, :version, :deleted, :default_sort, :tags)
     end
 
+    def update_tags(params)
+       tag = Wiki.where(title: params[:tags])
+       if tag.nil?
+          wiki = Wiki.new(title: params[:tags], body: "<p>{{TOC}}</p>", user_id: current_user.id)
+          wiki_tag = WikiTag.new(wiki_id: params[:id], tag_id: wiki.id)
+       else   
+          existing = WikiTag.where(wiki_id: params[:id], tag_id: tag.id)
+          if existing.nil?
+            wiki_tag = WikiTag.new(wiki_id: params[:id], tag_id: tag.id)
+          else
+             #do nothing, don't want dups
+          end
+       end
+            
+    end
 
 
 end
