@@ -8,11 +8,11 @@ class SectionFootnotesController < InheritedResources::Base
     respond_to do |format|
       if @footnote.save
         format.html 
-        format.js { render  "sections/close_modal.js.erb"}
+        format.js { render  "sections/close_modal"}
       else
       	raise @footnote.errors.inspect
         format.html 
-        format.js { render "home/error_alert.js.erb", locals: {message: "Note save error"} }
+        format.js { render "home/error_alert", locals: {message: "Note save error"} }
       end
     end
   end
@@ -22,11 +22,11 @@ class SectionFootnotesController < InheritedResources::Base
     respond_to do |format|
       if @footnote.update(section_footnote_params)
         format.html 
-        format.js { render  "sections/close_modal.js.erb"}
+        format.js { render  "sections/close_modal"}
       else
         raise @footnote.errors.inspect
         format.html 
-        format.js { render "home/error_alert.js.erb", locals: {message: "Note save error"} }
+        format.js { render "home/error_alert", locals: {message: "Note save error"} }
       end
     end
   end

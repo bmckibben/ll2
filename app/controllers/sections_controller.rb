@@ -27,7 +27,7 @@ class SectionsController < InheritedResources::Base
       @section = Section.find(params[:section_id])
       @footnote = @section.section_footnotes.build()
     end   
-    render 'edit_footnote_modal.js.erb'
+    render 'edit_footnote_modal'
   end
 
   def index

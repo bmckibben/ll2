@@ -12,10 +12,10 @@ class SectionNotesController < InheritedResources::Base
 
       if @note.save
         format.html 
-        format.js { render  "sections/close_modal.js.erb"}
+        format.js { render  "sections/close_modal"}
       else
         format.html 
-        format.js { render "home/error_alert.js.erb", locals: {message: "Note save error"} }
+        format.js { render "home/error_alert", locals: {message: "Note save error"} }
       end
     end
   end
