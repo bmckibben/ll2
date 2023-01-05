@@ -189,7 +189,7 @@ class WikisController < InheritedResources::Base
           wiki_tag = WikiTag.new(wiki_id: wiki.id, tag_id: new_tag.id)
           wiki_tag.save
        else   
-          existing = WikiTag.where(wiki_id: wiki.id, tag_id: tag.id)
+          existing = WikiTag.where(wiki_id: wiki.id, tag_id: tag.id).first
           puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
           puts existing.inspect
           puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
