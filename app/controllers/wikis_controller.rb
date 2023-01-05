@@ -82,7 +82,7 @@ class WikisController < InheritedResources::Base
     @wiki_id = @wiki.id
     respond_to do |format|
       if @wiki.update(wiki_params)
-        update_tags(@wiki) unless wiki_params[:tags].blank 
+        update_tags(@wiki) unless wiki_params[:tags].blank? 
         format.html { redirect_to wikis_url, notice: 'Wiki was successfully updated.' }
         format.js { render "wikis/display" }
       else
