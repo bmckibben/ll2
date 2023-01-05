@@ -29,6 +29,13 @@ class WikisController < InheritedResources::Base
      @wikis = WikiTag.all
   end
 
+  
+  def quick
+    @wiki = Wiki.new
+    @wiki.title = Time.now.to_formatted_s(:stardate)
+    render layout: "home"
+  end
+
   def search
 
     if params[:search_text].present?
