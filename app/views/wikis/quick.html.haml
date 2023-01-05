@@ -7,7 +7,7 @@
 
       .form-inputs
         = f.input :title
-        = f.input :tags, input_html: {value: "Note", id: "tag_list"}
+        = f.input :tags, input_html: {value: "Note", list: "tag_list"}
         %datalist#tag_list
           %option{value: "Note"}
           %option{value: "Journal"}
