@@ -24,7 +24,6 @@
   .panel-body
     = f.label "Tags"
     .row
-    .row
       .col-md-3
         .input-group{style: "max-width:300px;"}
           = f.input :tags, id: "input-tag", class: "form-control", label: false, input_html: {"aria-describedby" => "add-tag", "aria-label" => "Wiki tag", list: "tag_list", placeholder: "Type or Select Tag", type: "text"}
@@ -44,6 +43,7 @@
           = f.text_field :default_sort, class: "form-control"
     .row
       .col-md-12.wiki-body
+        = f.label "Body"
         = f.text_area :body, class: "tinymce section-body"
         = f.hidden_field :authenticity_token, value: form_authenticity_token
         = f.hidden_field :parent
@@ -55,3 +55,8 @@
         Created:  #{Time.now.strftime("%Y-%m-%d %R")}
 
 = tinymce content_css: asset_path('application.css')
+
+:javascript
+  $( document ).ready(function() {
+    window._token = '#{form_authenticity_token}'
+  })
