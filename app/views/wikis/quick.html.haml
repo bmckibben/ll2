@@ -1,7 +1,14 @@
-.row{style: "margin-top:40px;"}
-  .col-md-4.col-md-offset-4.col-xs-12.white-scroller
+.row
+  .col-xs-12
     %h1 New Wiki
-    = form_for(@wiki) do |f|
-      = f.text_field :title
-      = f.input :tags, input_html: {value: "Journal"} 
-      = f.text_area :body
+    = simple_form_for(@wiki) do |f|
+      = f.error_notification
+      = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+      .form-inputs
+        = f.input :title
+        = f.input :tags, input_html: {value: "Journal"} 
+        = f.input :body
+
+      .form-actions
+        = f.button :submit      
