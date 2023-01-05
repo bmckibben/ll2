@@ -182,7 +182,7 @@ class WikisController < InheritedResources::Base
     end
 
     def update_tags(wiki)
-       tag = Wiki.where(title: wiki.tags)
+       tag = Wiki.where(title: wiki.tags).first
        if tag.nil?
           new_tag = Wiki.new(title: wiki.tags, body: "<p>{{TOC}}</p>", user_id: current_user.id)
           new_tag.save
