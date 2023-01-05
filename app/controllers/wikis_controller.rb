@@ -181,15 +181,18 @@ class WikisController < InheritedResources::Base
       params.require(:wiki).permit(:title, :user_id, :body, :parent, :version, :deleted, :default_sort, :tags)
     end
 
-    def update_tags(params)
-       tag = Wiki.where(title: params[:tags])
+    def update_tags(wiki)
+       tag = Wiki.where(title: wiki.tags)
        if tag.nil?
-          wiki = Wiki.new(title: params[:tags], body: "<p>{{TOC}}</p>", user_id: current_user.id)
-          wiki_tag = WikiTag.new(wiki_id: params[:id], tag_id: wiki.id)
+          new_tag = Wiki.new(title: wiki.tags, body: "<p>{{TOC}}</p>", user_id: current_user.id)
+          new_tag.save
+          wiki_tag = WikiTag.new(wiki_id: wiki.id, tag_id: new_tag.id)
+          wiki_tag.save
        else   
-          existing = WikiTag.where(wiki_id: params[:id], tag_id: tag.id)
+          existing = WikiTag.where(wiki_id: wiki.id, tag_id: tag.id)
           if existing.nil?
-            wiki_tag = WikiTag.new(wiki_id: params[:id], tag_id: tag.id)
+            wiki_tag = WikiTag.new(wiki_id: wiki.id, tag_id: tag.id)
+            wiki_tag.save 
           else
              #do nothing, don't want dups
           end
