@@ -1,14 +1,12 @@
-.row
-  .col-xs-12
-    %h1 New Wiki
-    = simple_form_for @wiki, remote: true do |f|
-      = f.error_notification
-      = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+%h1 New Wiki
+= simple_form_for @wiki, remote: true do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 
-      .form-inputs
-        = f.input :title
-        = f.input :tags, collection: ["Note", "Journal", "Dream"], input_html: {value: "Note", list: "tag_list"}
-        = f.input :body, input_html: {autofocus: true}
+  .form-inputs
+    = f.input :title
+    = f.input :parent, collection: @tag_options.map{|tag| [tag.title, tag.id]}
+    = f.input :body, input_html: {autofocus: true}
 
-      .form-actions
-        = f.button :submit      
+  .form-actions
+    = f.button :submit      

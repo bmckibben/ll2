@@ -33,6 +33,8 @@ class WikisController < InheritedResources::Base
   def quick
     @wiki = Wiki.new
     @wiki.title = Time.now.to_formatted_s(:stardate)
+    tags = WikiTag.distinct.pluck(:tag_id) 
+    @tag_options = Wiki.find(tags)    
     render layout: "home"
   end
 
@@ -69,7 +71,7 @@ class WikisController < InheritedResources::Base
 
     respond_to do |format|    
       if @wiki.save
-        update_tags(@wiki)
+        create_parent_tag(@wiki)
         if @wiki.default_sort == 0
           @wiki.update(:default_sort => @wiki.id)
         end
