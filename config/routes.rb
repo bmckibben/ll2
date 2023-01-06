@@ -34,6 +34,7 @@ Rails.application.routes.draw do
   get 'wikis/quick' => 'wikis#quick'
   get 'wikis/wikilist' => 'wikis#wikilist'
   get 'wikis/search' => 'wikis#search'
+  get 'wikis/printlist' => 'wikis#printlist'  
   post 'wiki_tags/delete_wiki_tag' => 'wiki_tags#delete_wiki_tag'
   post 'wikis/wiki_disable' => 'wikis#wiki_disable'
   post 'wiki_tags/new_wiki_tag' => 'wiki_tags#new_wiki_tag'
