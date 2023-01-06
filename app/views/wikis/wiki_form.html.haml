@@ -59,13 +59,8 @@
 
 :javascript
   $( document ).ready(function() {
-    tinyMCE.init({
-      selector: '#wiki_body',
-      height: 500,
-      menubar: "",
-      plugins: "image link charmap advlist fullscreen code",
-      toolbar: "fullscreen | undo redo | styleselect | bold italic backcolor  | alignleft aligncenter alignright alignjustify | bullist outdent indent | removeformat | image | link | charmap | code | help",
-      content_css: "#{ asset_path('application.css')}"
-    });    
-    window._token = '#{form_authenticity_token}'
+    tinymce.remove();
+    tinymce.init();    
+    window._token = '#{form_authenticity_token}';
+    console.log("loaded");
   })
