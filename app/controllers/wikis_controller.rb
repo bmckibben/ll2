@@ -66,7 +66,7 @@ class WikisController < InheritedResources::Base
     if params[:tag].nil?
       @wikis = Wiki.all.order(created_at: :desc)
     else
-      @wikis = Wiki.includes(:wiki_tags).where(tag_id: params[:tag]).order(created_at: :desc)
+      @wikis = Wiki.includes(:wiki_tags).where(wiki_tags: {tag_id: params[:tag]}).order(created_at: :desc)
     end
   end
 
