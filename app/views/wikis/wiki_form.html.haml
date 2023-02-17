@@ -24,10 +24,9 @@
   .panel-body
     = f.label "Tags"
     .row
-    .row
       .col-md-3
         .input-group{style: "max-width:300px;"}
-          = f.input :tags, id: "input-tag", class: "form-control", input_html: {"aria-describedby" => "add-tag", "aria-label" => "Wiki tag", list: "tag_list", placeholder: "Type or Select Tag", type: "text"}
+          = f.input :tags, id: "input-tag", class: "form-control", label: false, input_html: {"aria-describedby" => "add-tag", "aria-label" => "Wiki tag", list: "tag_list", placeholder: "Type or Select Tag", type: "text"}
           %span#add-tag.input-group-addon{"data-wiki-id" => "#{@wiki.id}"} Add
       #tag-tray.col-md-8
         - @wiki.wiki_tags.each do |wiki_tag|
@@ -44,7 +43,9 @@
           = f.text_field :default_sort, class: "form-control"
     .row
       .col-md-12.wiki-body
-        = f.input :body, class: "wiki-body-body"
+        = f.label "Body"
+        %br
+        = f.text_area :body, class: "tinymce section-body", id: "wiki_body" 
         = f.hidden_field :authenticity_token, value: form_authenticity_token
         = f.hidden_field :parent
 
@@ -54,15 +55,10 @@
         Author: #{current_user.login} |
         Created:  #{Time.now.strftime("%Y-%m-%d %R")}
 
+= tinymce content_css: asset_path('application.css')
+
 :javascript
   $( document ).ready(function() {
-    tinyMCE.init({
-      selector: '#wiki_body',
-      height: 500,
-      menubar: "",
-      plugins: "image link charmap advlist fullscreen code",
-      toolbar: "fullscreen | undo redo | styleselect | bold italic backcolor  | alignleft aligncenter alignright alignjustify | bullist outdent indent | removeformat | image | link | charmap | code | help",
-      content_css: "#{ asset_path('application.css')}"
-    });
-    window._token = '#{form_authenticity_token}'
+    window._token = '#{form_authenticity_token}';
+    console.log("loaded");
   })

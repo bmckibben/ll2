@@ -29,6 +29,15 @@ class WikisController < InheritedResources::Base
      @wikis = WikiTag.all
   end
 
+  
+  def quick
+    @wiki = Wiki.new
+    @wiki.title = Time.now.to_formatted_s(:stardate)
+    tags = WikiTag.distinct.pluck(:tag_id) 
+    @tag_options = Wiki.find(tags)    
+    render layout: "home"
+  end
+
   def search
 
     if params[:search_text].present?
@@ -51,6 +60,14 @@ class WikisController < InheritedResources::Base
 
   def wikilist
      @wikis = Wiki.all
+  end
+
+  def printlist
+    if params[:tag].nil?
+      @wikis = Wiki.all.order(created_at: :desc)
+    else
+      @wikis = Wiki.includes(:wiki_tags).where(wiki_tags: {tag_id: params[:tag]}).order(created_at: :desc)
+    end
   end
 
   # POST /wikis
@@ -82,6 +99,7 @@ class WikisController < InheritedResources::Base
     @wiki_id = @wiki.id
     respond_to do |format|
       if @wiki.update(wiki_params)
+        update_tags(@wiki) unless wiki_params[:tags].blank? 
         format.html { redirect_to wikis_url, notice: 'Wiki was successfully updated.' }
         format.js { render "wikis/display" }
       else
@@ -180,6 +198,24 @@ class WikisController < InheritedResources::Base
       params.require(:wiki).permit(:title, :user_id, :body, :parent, :version, :deleted, :default_sort, :tags)
     end
 
+    def update_tags(wiki)
+       tag = Wiki.where(title: wiki.tags).first
+       if tag.nil?
+          new_tag = Wiki.new(title: wiki.tags, body: "<p>{{TOC}}</p>", user_id: current_user.id)
+          new_tag.save
+          wiki_tag = WikiTag.new(wiki_id: wiki.id, tag_id: new_tag.id)
+          wiki_tag.save
+       else   
+          existing = WikiTag.where(wiki_id: wiki.id, tag_id: tag.id).first
+          if existing.nil?
+            wiki_tag = WikiTag.new(wiki_id: wiki.id, tag_id: tag.id)
+            wiki_tag.save 
+          else
+             #do nothing, don't want dups
+          end
+       end
+            
+    end
 
 
 end

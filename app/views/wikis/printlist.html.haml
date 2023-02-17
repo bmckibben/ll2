@@ -1,0 +1,11 @@
+.row{style: "margin-top:40px;"}
+  .col-md-8.col-md-offset-2.col-xs-12.white-scroller
+    %h1 Wikis
+    - @wikis.each do |wiki|
+      %h3 
+        = wiki.title
+      %p 
+        = wiki.created_at.to_formatted_s(:stardate)
+        %br
+        = wiki.body.html_safe
+      %hr

@@ -147,6 +147,13 @@ background: linear-gradient(to bottom,  #7db9e8 0%,#0085f2 49%,#0099ff 50%,#2d77
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7db9e8', endColorstr='#2d77af',GradientType=0 ); /* IE6-9 */
 }
 
+.nav-container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+} 
+
 .navbar-inner {
   /*background: asset-url("linebk.gif", image) repeat left top;*/
   background-color: #999;

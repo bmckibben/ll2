@@ -13,7 +13,7 @@ class SectionsController < InheritedResources::Base
   	end
     respond_to do |format|
       format.html {render not_found}
-      format.js {render 'edit_note_modal.js.erb'}
+      format.js {render 'edit_note_modal'}
     end     
   end
 
@@ -27,7 +27,7 @@ class SectionsController < InheritedResources::Base
       @section = Section.find(params[:section_id])
       @footnote = @section.section_footnotes.build()
     end   
-    render 'edit_footnote_modal.js.erb'
+    render 'edit_footnote_modal'
   end
 
   def index
