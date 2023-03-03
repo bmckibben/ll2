@@ -52,9 +52,10 @@
 :javascript
   $( document ).ready(function() {
     $("#open-modal").click(function(){
-      $("#edit_footnote_modal_box").modal("show")
+      $("#edit_footnote_modal_box").modal("show");
     })
-    $(".tox-tinymce").height("65vh")
+    console.log( $(".tox-tinymce").height());
+    $(".tox-tinymce").height("65vh");
   })
 
 
