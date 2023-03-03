@@ -54,8 +54,13 @@
     $("#open-modal").click(function(){
       $("#edit_footnote_modal_box").modal("show");
     })
-    console.log( $(".tox-tinymce").height());
-    $(".tox-tinymce").height("65vh");
   })
 
-
+  $('.tinymce').tinymce({
+    theme : 'advanced',
+    plugins : 'autoresize',
+    width: '100%',
+    height: 800,
+    autoresize_min_height: 800,
+    autoresize_max_height: 800,
+  });
