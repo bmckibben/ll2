@@ -54,9 +54,9 @@
     $("#open-modal").click(function(){
       $("#edit_footnote_modal_box").modal("show");
     })
-    
-    $('textarea#section_body').tinymce({
-      height: 800
-    })
-    
+  })
+  
+  tinymce.init({
+    selector: '.tinymce',
+    height: 800
   })
