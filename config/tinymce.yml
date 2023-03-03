@@ -1,6 +1,6 @@
 themes: silver
 menubar: true
-height: 550
+height: 600
 plugins:
   - image
   - link
