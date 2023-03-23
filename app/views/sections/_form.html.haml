@@ -11,7 +11,7 @@
       .col-md-9.editor  
         = f.label :summary 
         = f.input :summary
-        = f.button "Edit", class: "btn-edit"
+        = f.button :button, "Edit", class: "btn-edit"
         = f.text_area :body, class: "tinymce section-body", label: false
       .col-md-3.attributes
         = f.label :story_id
