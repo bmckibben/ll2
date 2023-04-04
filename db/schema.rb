@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2020_04_19_161100) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_22_214900) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -28,23 +28,22 @@ ActiveRecord::Schema[7.0].define(version: 2020_04_19_161100) do
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
   end
 
-  create_table "histories", id: false, force: :cascade do |t|
-    t.bigint "id", null: false
-    t.datetime "date", precision: nil
-    t.integer "ball_1"
-    t.integer "ball_2"
-    t.integer "ball_3"
-    t.integer "ball_4"
-    t.integer "ball_5"
+  create_table "draws", force: :cascade do |t|
+    t.datetime "draw_date"
+    t.integer "b1"
+    t.integer "s1"
+    t.integer "b2"
+    t.integer "s2"
+    t.integer "b3"
+    t.integer "s3"
+    t.integer "b4"
+    t.integer "s4"
+    t.integer "b5"
+    t.integer "s5"
     t.integer "powerball"
-    t.datetime "created_at", precision: nil, null: false
-    t.datetime "updated_at", precision: nil, null: false
-    t.decimal "predicted_1"
-    t.decimal "predicted_2"
-    t.decimal "predicted_3"
-    t.decimal "predicted_4"
-    t.decimal "predicted_5"
-    t.decimal "predicted_powerball"
+    t.integer "powerscore"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "html_pages", force: :cascade do |t|
@@ -56,10 +55,42 @@ ActiveRecord::Schema[7.0].define(version: 2020_04_19_161100) do
     t.datetime "updated_at", precision: nil, null: false
   end
 
+  create_table "picks", force: :cascade do |t|
+    t.datetime "draw_date"
+    t.integer "b1"
+    t.integer "s1"
+    t.boolean "m1"
+    t.integer "b2"
+    t.integer "s2"
+    t.boolean "m2"
+    t.integer "b3"
+    t.integer "s3"
+    t.boolean "m3"
+    t.integer "b4"
+    t.integer "s4"
+    t.boolean "m4"
+    t.integer "b5"
+    t.integer "s5"
+    t.boolean "m5"
+    t.integer "powerball"
+    t.integer "powerscore"
+    t.boolean "powermatch"
+    t.decimal "won"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "quotes", force: :cascade do |t|
     t.string "author"
     t.text "quote"
     t.boolean "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "scores", force: :cascade do |t|
+    t.integer "ball"
+    t.integer "weight"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -92,6 +123,13 @@ ActiveRecord::Schema[7.0].define(version: 2020_04_19_161100) do
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
     t.integer "draft", default: 1
+    t.text "goal"
+    t.text "disaster"
+    t.text "reaction"
+    t.text "dilemma"
+    t.text "q1"
+    t.text "q2"
+    t.text "q3"
     t.index ["story_id"], name: "index_sections_on_story_id"
   end
 
