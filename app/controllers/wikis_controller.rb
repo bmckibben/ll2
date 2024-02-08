@@ -5,7 +5,8 @@ class WikisController < InheritedResources::Base
   # GET /wikis.json
   def index
     @wikis = Wiki.where("default_sort < 0 and (deleted is null or deleted is false)").order(created_at: :desc)
-    @menu = view_context.nested_set(view_context.query_menu,'tree-menu', 0)
+    @menu_seeds = Wiki.where("parent is null and (deleted is null or deleted is false)").order(default_sort: :asc)
+    # view_context.nested_set(view_context.query_menu,'tree-menu', 0)
     #might change recents to where < one month?
     @recents = Wiki.where(updated_at: DateTime.now..1.month.ago).order(updated_at: :desc)
    
