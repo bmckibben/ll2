@@ -1,0 +1,44 @@
+.container-fluid#transactions
+  .row
+    .col-md-1
+    .col-md-10.card
+
+      %h1 Transactions
+
+      %table.table.table-striped
+        %thead
+          %tr
+            %th Check 
+            %th Date
+            %th Payee
+            %th Category
+            %th Status
+            %th Debit
+            %th Credit
+            %th Balance
+            %th Description
+            %th
+            %th
+            %th 
+              = link_to 'Add New', new_ac_transaction_path, class:"btn btn-primary"
+
+        %tbody
+          - @ac_transactions.each do |ac_transaction|
+            %tr
+              %td= ac_transaction.check_number
+              %td= ac_transaction.date.strftime("%Y.%m.%d")
+              %td= ac_transaction.ac_payee.name
+              %td
+                = "#{ac_transaction.ac_category.name}:#{ac_transaction.ac_sub_category.name}"
+              %td= ac_transaction.ac_transaction_status.name
+              %td= ac_transaction.debit
+              %td= ac_transaction.credit
+              %td= ac_transaction.balance
+              %td= ac_transaction.description
+              %td= link_to 'Show', ac_transaction
+              %td= link_to 'Edit', edit_ac_transaction_path(ac_transaction)
+              %td= link_to 'Destroy', ac_transaction, method: :delete, data: { confirm: 'Are you sure?' }
+
+      %br
+
+      

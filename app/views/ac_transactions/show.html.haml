@@ -1,0 +1,33 @@
+%p#notice= notice
+
+%p
+  %b Date:
+  = @ac_transaction.date
+%p
+  %b Amount:
+  = @ac_transaction.amount
+%p
+  %b Description:
+  = @ac_transaction.description
+%p
+  %b Check number:
+  = @ac_transaction.check_number
+%p
+  %b Ac account:
+  = @ac_transaction.ac_account
+%p
+  %b Ac payee:
+  = @ac_transaction.ac_payee
+%p
+  %b Ac category:
+  = @ac_transaction.ac_category
+%p
+  %b Ac sub category:
+  = @ac_transaction.ac_sub_category
+%p
+  %b Ac transaction status:
+  = @ac_transaction.ac_transaction_status
+
+= link_to 'Edit', edit_ac_transaction_path(@ac_transaction)
+\|
+= link_to 'Back', ac_transactions_path

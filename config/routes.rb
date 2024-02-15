@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  resources :ac_sub_categories
+  resources :ac_categories
+  resources :ac_schedules
+  resources :ac_transactions
+  resources :ac_transaction_statuses
+  resources :ac_sub_cagetories
+  resources :ac_cagetories
+  resources :ac_payees
+  resources :ac_accounts
+  resources :ac_groups
 
   resources :quotes
   resources :section_footnotes

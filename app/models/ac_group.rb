@@ -1,0 +1,2 @@
+class AcGroup < ApplicationRecord
+end

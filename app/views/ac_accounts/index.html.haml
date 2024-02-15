@@ -1,0 +1,35 @@
+%h1 Listing ac_accounts
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Bank
+      %th Account number
+      %th Opening date
+      %th Datetime
+      %th Opening balance
+      %th Active
+      %th Ac group
+      %th
+      %th
+      %th
+
+  %tbody
+    - @ac_accounts.each do |ac_account|
+      %tr
+        %td= ac_account.name
+        %td= ac_account.bank
+        %td= ac_account.account_number
+        %td= ac_account.opening_date
+        %td= ac_account.datetime
+        %td= ac_account.opening_balance
+        %td= ac_account.active
+        %td= ac_account.ac_group
+        %td= link_to 'Show', ac_account
+        %td= link_to 'Edit', edit_ac_account_path(ac_account)
+        %td= link_to 'Destroy', ac_account, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Ac account', new_ac_account_path

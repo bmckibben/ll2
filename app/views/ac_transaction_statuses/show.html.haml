@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @ac_transaction_status.name
+%p
+  %b Status code:
+  = @ac_transaction_status.status_code
+
+= link_to 'Edit', edit_ac_transaction_status_path(@ac_transaction_status)
+\|
+= link_to 'Back', ac_transaction_statuses_path
