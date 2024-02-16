@@ -1,0 +1,23 @@
+%h1 Listing ac_transaction_statuses
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Status code
+      %th
+      %th
+      %th
+
+  %tbody
+    - @ac_transaction_statuses.each do |ac_transaction_status|
+      %tr
+        %td= ac_transaction_status.name
+        %td= ac_transaction_status.status_code
+        %td= link_to 'Show', ac_transaction_status
+        %td= link_to 'Edit', edit_ac_transaction_status_path(ac_transaction_status)
+        %td= link_to 'Destroy', ac_transaction_status, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Ac transaction status', new_ac_transaction_status_path

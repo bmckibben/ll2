@@ -1,0 +1,39 @@
+-# frozen_string_literal: true
+
+
+.container-fluid#transactions
+  .row
+    .col-md-1
+    .col-md-10.card
+      = simple_form_for(@ac_transaction) do |f|
+        = f.error_notification
+        = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?      
+        .form-inputs
+          %table.table
+            %tbody
+              %tr
+                %td= f.input :check_number, label: false
+                %td= f.input :date, as: :date, html5: true, label: false 
+                %td= f.association :ac_payee, label: false
+                %td
+                  = f.association :ac_category, label: false
+                %td  
+                  = f.association :ac_sub_category, label: false
+                %td= f.association :ac_transaction_status, label: false
+                %td= f.input :debit, label: false
+                %td= f.input :credit, label: false
+                %td= f.input :balance, label: false
+                %td= f.input :description, label: false
+                %td 
+                %td= f.button :submit, "Save", class: "btn btn-primary"
+                %td= link_to "Cancel", :back, class: "btn btn-warning"
+
+
+:javascript
+  $( document ).ready(function() {
+    $('select').selectpicker();
+  })
+
+
+-# add to application.scss  @import "bootstrap-select";
+-# add to application.js //= require bootstrap-select

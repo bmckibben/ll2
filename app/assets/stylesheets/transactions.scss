@@ -1,0 +1,44 @@
+// Place all the styles related to the histories controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#transactions{
+  .card {
+    color: #000;
+    background-color: #fff;
+    table {
+    	width: 100%;
+    }
+	  th {
+		  padding: 2px 5px;
+	  }
+	  td {
+		  padding: 2px 5px;
+	  }  
+	}
+} 
+ 
+#new_ac_transaction {
+	textarea{
+		height: 34px;
+	}
+	.table{
+		tr{
+			background-color:#ccffcc;
+		}
+	}
+	.form-group{
+		margin-bottom: 0;
+	}
+	.dropdown-toggle{
+		height: 34px;
+		background-color: #ffffff;
+		color: #000000;
+
+	}
+	.btn-default{
+		font-size: 12px;
+		padding: 8px 12px;
+	}
+}

@@ -1,0 +1,2 @@
+class AcPayee < ApplicationRecord
+end

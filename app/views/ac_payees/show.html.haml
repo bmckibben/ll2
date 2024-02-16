@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @ac_payee.name
+%p
+  %b Active:
+  = @ac_payee.active
+
+= link_to 'Edit', edit_ac_payee_path(@ac_payee)
+\|
+= link_to 'Back', ac_payees_path

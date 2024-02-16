@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @ac_account.name
+%p
+  %b Bank:
+  = @ac_account.bank
+%p
+  %b Account number:
+  = @ac_account.account_number
+%p
+  %b Opening date:
+  = @ac_account.opening_date
+%p
+  %b Datetime:
+  = @ac_account.datetime
+%p
+  %b Opening balance:
+  = @ac_account.opening_balance
+%p
+  %b Active:
+  = @ac_account.active
+%p
+  %b Ac group:
+  = @ac_account.ac_group
+
+= link_to 'Edit', edit_ac_account_path(@ac_account)
+\|
+= link_to 'Back', ac_accounts_path

@@ -1,0 +1,2 @@
+class AcCategory < ApplicationRecord
+end

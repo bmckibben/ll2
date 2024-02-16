@@ -1,0 +1,23 @@
+%h1 Listing ac_categories
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Budget
+      %th
+      %th
+      %th
+
+  %tbody
+    - @ac_categories.each do |ac_category|
+      %tr
+        %td= ac_category.name
+        %td= ac_category.budget
+        %td= link_to 'Show', ac_category
+        %td= link_to 'Edit', edit_ac_category_path(ac_category)
+        %td= link_to 'Destroy', ac_category, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Ac category', new_ac_category_path

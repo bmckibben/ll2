@@ -15,6 +15,7 @@
 //= require jquery
 //= require jquery-ui
 //= require bootstrap-sprockets
+//= require bootstrap-select
 //= require cable
 //= require tether
 //= require isotope

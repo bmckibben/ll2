@@ -13,6 +13,7 @@
 @import url("https://fonts.googleapis.com/css?family=Rokkitt|Syncopate|");
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "bootstrap-select";
 @import "font-awesome";
 @import "bootstrap_overrides";
 @import "prettyPhoto";
@@ -23,6 +24,7 @@
 @import 'histories';
 @import 'sections';
 @import 'stories';
+@import 'transactions';
 @import 'wikis';
 @import 'devise';
 @import 'tinymce';

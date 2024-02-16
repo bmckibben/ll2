@@ -1,0 +1,39 @@
+%p#notice= notice
+
+%p
+  %b Amount:
+  = @ac_schedule.amount
+%p
+  %b Description:
+  = @ac_schedule.description
+%p
+  %b Auto insert:
+  = @ac_schedule.auto_insert
+%p
+  %b Frequency:
+  = @ac_schedule.frequency
+%p
+  %b Frequency period:
+  = @ac_schedule.frequency_period
+%p
+  %b First date:
+  = @ac_schedule.first_date
+%p
+  %b Type:
+  = @ac_schedule.type
+%p
+  %b Ac account:
+  = @ac_schedule.ac_account
+%p
+  %b Ac payee:
+  = @ac_schedule.ac_payee
+%p
+  %b Ac category:
+  = @ac_schedule.ac_category
+%p
+  %b Ac sub category:
+  = @ac_schedule.ac_sub_category
+
+= link_to 'Edit', edit_ac_schedule_path(@ac_schedule)
+\|
+= link_to 'Back', ac_schedules_path

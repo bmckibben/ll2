@@ -1,0 +1,17 @@
+-# frozen_string_literal: true
+= simple_form_for(@ac_account) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    = f.input :name
+    = f.input :bank
+    = f.input :account_number
+    = f.input :opening_date
+    = f.input :datetime
+    = f.input :opening_balance
+    = f.input :active
+    = f.association :ac_group
+
+  .form-actions
+    = f.button :submit

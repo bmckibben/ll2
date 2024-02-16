@@ -1,0 +1,23 @@
+%h1 Listing ac_groups
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Active
+      %th
+      %th
+      %th
+
+  %tbody
+    - @ac_groups.each do |ac_group|
+      %tr
+        %td= ac_group.name
+        %td= ac_group.active
+        %td= link_to 'Show', ac_group
+        %td= link_to 'Edit', edit_ac_group_path(ac_group)
+        %td= link_to 'Destroy', ac_group, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Ac group', new_ac_group_path
