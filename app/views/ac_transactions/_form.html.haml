@@ -1,5 +1,17 @@
 -# frozen_string_literal: true
 
+:scss
+  tr{ 
+    background-color: #ccffcc;
+  }
+
+  .alt-input{
+    position: relative;
+    top: -34px;
+    left: 0;
+    z-index: 10;
+    display: none;    
+  }
 
 .container-fluid#transactions
   .row
@@ -12,26 +24,49 @@
           %table.table
             %tbody
               %tr
-                %td= f.input :check_number, label: false
-                %td= f.input :date, as: :date, html5: true, label: false 
-                %td= f.association :ac_payee, label: false
                 %td
-                  = f.association :ac_category, label: false
+                  = f.input :ac_account_id, as: :hidden, input_html: {value: 1}
+                  = f.input :check_number
+                %td= f.input :date, as: :date, html5: true
+                %td
+                  .alt-div
+                    = f.association :ac_payee, label: "Pay To"
+                  .alt-input  
+                    = f.input :ui_payee, label:false
+                %td
                 %td  
-                  = f.association :ac_sub_category, label: false
-                %td= f.association :ac_transaction_status, label: false
-                %td= f.input :debit, label: false
-                %td= f.input :credit, label: false
-                %td= f.input :balance, label: false
-                %td= f.input :description, label: false
-                %td 
-                %td= f.button :submit, "Save", class: "btn btn-primary"
-                %td= link_to "Cancel", :back, class: "btn btn-warning"
+              %tr
+                %td
+                  = f.association :ac_category, label: "Category"
+                %td  
+                  = f.association :ac_sub_category, label: "SubCategory"
+                %td
+                  = f.input :ac_transaction_status_id, as: :hidden, input_html: {value: 2}
+                  = f.input :debit, label: "Debit"
+                %td= f.input :credit, label: "Credit" 
+                %td= f.input :description, label: "Memo"
+              %tr
+                %td
+                %td  
+                %td
+                %td
+                %td
+                  = f.button :submit, "Save", class: "btn btn-primary"
+                  = link_to "Cancel", :back, class: "btn btn-warning"
 
 
 :javascript
   $( document ).ready(function() {
-    $('select').selectpicker();
+    $('#ac_transaction_ac_payee_id').selectpicker();
+    $('.dropdown-toggle').on("click", function(){
+      alternate = $(this).closest("td").find(".alt-input");
+      alternate.toggle();
+      alternate.find("input").trigger("focus");
+    });
+    $('.dropdown-menu').on("click", function(){
+      $(this).closest("td").find(".alt-input").toggle();
+    });  
+
   })
 
 

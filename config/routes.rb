@@ -1,18 +1,5 @@
 Rails.application.routes.draw do
-  resources :ac_sub_categories
-  resources :ac_categories
-  resources :ac_schedules
-  resources :ac_transactions
-  resources :ac_transaction_statuses
-  resources :ac_sub_cagetories
-  resources :ac_cagetories
-  resources :ac_payees
-  resources :ac_accounts
-  resources :ac_groups
 
-  resources :quotes
-  resources :section_footnotes
-  resources :section_notes
   devise_for :admin_users, {class_name: 'User'}.merge(ActiveAdmin::Devise.config)
   ActiveAdmin.routes(self)
   devise_for :users
@@ -58,5 +45,18 @@ Rails.application.routes.draw do
   resources :wikis
   resources :wiki_tags 
   resources :users 
+  resources :ac_sub_categories
+  resources :ac_categories
+  resources :ac_schedules
+  resources :ac_transactions
+  resources :ac_transaction_statuses
+  resources :ac_sub_cagetories
+  resources :ac_cagetories
+  resources :ac_payees
+  resources :ac_accounts
+  resources :ac_groups
+  resources :quotes
+  resources :section_footnotes
+  resources :section_notes  
 end
 

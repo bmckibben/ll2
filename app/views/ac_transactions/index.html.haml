@@ -30,7 +30,7 @@
               %td= ac_transaction.ac_payee.name
               %td
                 = "#{ac_transaction.ac_category.name}:#{ac_transaction.ac_sub_category.name}"
-              %td= ac_transaction.ac_transaction_status.name
+              %td= ac_transaction.ac_transaction_status.name[0,1]
               %td= ac_transaction.debit
               %td= ac_transaction.credit
               %td= ac_transaction.balance
