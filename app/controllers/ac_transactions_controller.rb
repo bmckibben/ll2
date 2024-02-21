@@ -9,17 +9,16 @@ class AcTransactionsController < InheritedResources::Base
       payee = AcPayee.create(name: params[:ac_transaction][:ui_payee], active: true)
       params[:ac_transaction][:ac_payee_id] = payee.id
     end
-    #unless params[:ac_transaction][:ui_category].empty?
-    #   category = AcCategory.create(name: params[:ac_transaction][:ui_category])
-    #   params[:ac_transaction][:ac_category_id] = category.id
-    # end
+    unless params[:ac_transaction][:ui_category].empty?
+      category = AcCategory.create(name: params[:ac_transaction][:ui_category])
+      params[:ac_transaction][:ac_category_id] = category.id
+    end    
+    unless params[:ac_transaction][:ui_sub_category].empty?
+      subcategory = AcSubCategory.create(name: params[:ac_transaction][:ui_sub_category], ac_category_id: params[:ac_transaction][:ac_category_id])
+      params[:ac_transaction][:ac_sub_category_id] = subcategory.id
+    end 
     @ac_transaction = AcTransaction.new(ac_transaction_params)
-    begin
-      @ac_transaction.save
-    rescue Exception => e
-      raise e.inspect
-    end
-
+    puts "~~Saving: #{params[:id]}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
     respond_to do |format|    
       if @ac_transaction.save
         format.html { redirect_to ac_transactions_path, notice: 'Transaction was successfully created.' }
@@ -29,12 +28,34 @@ class AcTransactionsController < InheritedResources::Base
     end
   end
 
-
+  def update
+    #binding.pry
+    unless params[:ac_transaction][:ui_payee].empty?
+      payee = AcPayee.create(name: params[:ac_transaction][:ui_payee], active: true)
+      params[:ac_transaction][:ac_payee_id] = payee.id
+    end
+    unless params[:ac_transaction][:ui_category].empty?
+      category = AcCategory.create(name: params[:ac_transaction][:ui_category])
+      params[:ac_transaction][:ac_category_id] = category.id
+    end    
+    unless params[:ac_transaction][:ui_sub_category].empty?
+      subcategory = AcSubCategory.create(name: params[:ac_transaction][:ui_sub_category], ac_category_id: params[:ac_transaction][:ac_category_id])
+      params[:ac_transaction][:ac_sub_category_id] = subcategory.id
+    end 
+    puts "~~Updating: #{params[:id]}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+    respond_to do |format|    
+      if @ac_transaction.update(ac_transaction_params)
+        format.html { redirect_to ac_transactions_path, notice: 'Transaction was successfully created.' }
+      else
+        format.html { render :new }
+      end
+    end
+  end
 
   private
 
     def set_transaction
-      @transaction = AcTransaction.find(params[:id])
+      @ac_transaction = AcTransaction.find(params[:id])
     end
 
     def ac_transaction_params

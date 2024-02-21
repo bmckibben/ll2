@@ -11,7 +11,7 @@ ActiveAdmin.register_page "Dashboard" do
     end
 
     panel 'Application' do
-      span "Code Version: 2019.184"
+      span "Code Version: 2024.054"
       br
       span "Environment: #{Rails.env}"
       br

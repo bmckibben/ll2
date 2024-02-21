@@ -17,27 +17,32 @@
             %th Credit
             %th Balance
             %th Description
-            %th
-            %th
             %th 
               = link_to 'Add New', new_ac_transaction_path, class:"btn btn-primary"
 
         %tbody
           - @ac_transactions.each do |ac_transaction|
             %tr
-              %td= ac_transaction.check_number
-              %td= ac_transaction.date.strftime("%Y.%m.%d")
-              %td= ac_transaction.ac_payee.name
-              %td
+              %td.right
+                = ac_transaction.check_number
+              %td.center
+                = ac_transaction.date.strftime("%Y.%m.%d")
+              %td.left
+                = ac_transaction.ac_payee.name
+              %td.left
                 = "#{ac_transaction.ac_category.name}:#{ac_transaction.ac_sub_category.name}"
-              %td= ac_transaction.ac_transaction_status.name[0,1]
-              %td= ac_transaction.debit
-              %td= ac_transaction.credit
-              %td= ac_transaction.balance
+              %td.center
+                = ac_transaction.ac_transaction_status.name[0,1]
+              %td.right
+                = number_to_currency(ac_transaction.debit)
+              %td.right
+                = number_to_currency(ac_transaction.credit)
+              %td.right
+                = number_to_currency(ac_transaction.balance)
               %td= ac_transaction.description
-              %td= link_to 'Show', ac_transaction
-              %td= link_to 'Edit', edit_ac_transaction_path(ac_transaction)
-              %td= link_to 'Destroy', ac_transaction, method: :delete, data: { confirm: 'Are you sure?' }
+              %td.center
+                =link_to edit_ac_transaction_path(ac_transaction) do
+                  %i.fas.fa-pencil-alt
 
       %br
 

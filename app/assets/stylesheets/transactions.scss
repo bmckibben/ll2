@@ -12,14 +12,27 @@
     }
 	  th {
 		  padding: 2px 5px;
+		  text-align: center;
 	  }
 	  td {
 		  padding: 2px 5px;
 	  }  
-	}
+	  
+	  td.left {
+	  	text-align: left;
+	  }
+
+	  td.right {
+	  	text-align: right;
+	  }
+
+	  td.center {
+	  	text-align: center;
+	  }
+	}  	
 } 
  
-#new_ac_transaction {
+.new_ac_transaction, .edit_ac_transaction {
 	textarea{
 		height: 34px;
 	}
@@ -41,4 +54,17 @@
 		font-size: 12px;
 		padding: 8px 12px;
 	}
+  tr{ 
+    background-color: #ccffcc;
+  }
+
+  .alt-input{
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    display: none; 
+    margin-top: -34px;
+  }
+
 }

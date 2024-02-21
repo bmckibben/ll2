@@ -1,18 +1,5 @@
 -# frozen_string_literal: true
 
-:scss
-  tr{ 
-    background-color: #ccffcc;
-  }
-
-  .alt-input{
-    position: relative;
-    top: -34px;
-    left: 0;
-    z-index: 10;
-    display: none;    
-  }
-
 .container-fluid#transactions
   .row
     .col-md-1
@@ -37,9 +24,15 @@
                 %td  
               %tr
                 %td
-                  = f.association :ac_category, label: "Category"
-                %td  
-                  = f.association :ac_sub_category, label: "SubCategory"
+                  .alt-div
+                    = f.association :ac_category, label: "Category"
+                  .alt-input
+                    = f.input :ui_category, label:false  
+                %td
+                  .alt-div  
+                    = f.association :ac_sub_category, label: "SubCategory"
+                  .alt-input
+                    = f.input :ui_sub_category, label: false  
                 %td
                   = f.input :ac_transaction_status_id, as: :hidden, input_html: {value: 2}
                   = f.input :debit, label: "Debit"
@@ -52,16 +45,14 @@
                 %td
                 %td
                   = f.button :submit, "Save", class: "btn btn-primary"
-                  = link_to "Cancel", :back, class: "btn btn-warning"
+                  = link_to "Cancel", ac_transactions_path, class: "btn btn-warning"
 
 
 :javascript
   $( document ).ready(function() {
-    $('#ac_transaction_ac_payee_id').selectpicker();
+    $('select').selectpicker();
     $('.dropdown-toggle').on("click", function(){
-      alternate = $(this).closest("td").find(".alt-input");
-      alternate.toggle();
-      alternate.find("input").trigger("focus");
+      $(this).closest("td").find(".alt-input").toggle();
     });
     $('.dropdown-menu').on("click", function(){
       $(this).closest("td").find(".alt-input").toggle();
