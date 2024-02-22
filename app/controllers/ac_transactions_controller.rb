@@ -3,6 +3,10 @@ class AcTransactionsController < InheritedResources::Base
   before_action :authenticate_user!
   before_action :set_transaction, only: [:update]
 
+  def index
+    @ac_transactions = AcTransaction.all.order(:date)
+  end
+
   def create
     #binding.pry
     unless params[:ac_transaction][:ui_payee].empty?

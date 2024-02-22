@@ -1,0 +1,41 @@
+%h1 Listing ac_schedules
+
+%table
+  %thead
+    %tr
+      %th Amount
+      %th Description
+      %th Auto insert
+      %th Frequency
+      %th Frequency period
+      %th First date
+      %th Type
+      %th Ac account
+      %th Ac payee
+      %th Ac category
+      %th Ac sub category
+      %th
+      %th
+      %th
+
+  %tbody
+    - @ac_schedules.each do |ac_schedule|
+      %tr
+        %td= ac_schedule.amount
+        %td= ac_schedule.description
+        %td= ac_schedule.auto_insert
+        %td= ac_schedule.frequency
+        %td= ac_schedule.frequency_period
+        %td= ac_schedule.first_date
+        %td= ac_schedule.type
+        %td= ac_schedule.ac_account
+        %td= ac_schedule.ac_payee
+        %td= ac_schedule.ac_category
+        %td= ac_schedule.ac_sub_category
+        %td= link_to 'Show', ac_schedule
+        %td= link_to 'Edit', edit_ac_schedule_path(ac_schedule)
+        %td= link_to 'Destroy', ac_schedule, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Ac schedule', new_ac_schedule_path

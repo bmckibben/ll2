@@ -12,6 +12,8 @@ class AcTransaction < ApplicationRecord
 
   private
 
+  # !!!ACCOUNT FOR DATE SORT WHEN CALCULATING BALANCE!!!
+
   def set_running_balance
     previous_balance = previous_transaction.try(:balance) || 10000
     self.balance = previous_balance + (self.credit || 0) - (self.debit || 0)
@@ -25,8 +27,8 @@ class AcTransaction < ApplicationRecord
   end
 
   def previous_transaction
-    scope = AcTransaction.order(:id)
-    scope = scope.where('id < ?', id) if persisted?
+    scope = AcTransaction.order(:date)
+    scope = scope.where('date < ?', date) if persisted?
 
     scope.last
   end
@@ -34,7 +36,7 @@ class AcTransaction < ApplicationRecord
   def next_transaction
     return if new_record?
 
-    AcTransaction.where('id > ?', id).order(:id).first
+    AcTransaction.where('date > ?', date).order(:date).first
   end
 
 end

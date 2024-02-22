@@ -1,20 +1,73 @@
 -# frozen_string_literal: true
-= simple_form_for(@ac_schedule) do |f|
-  = f.error_notification
-  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 
-  .form-inputs
-    = f.input :amount
-    = f.input :description
+.container-fluid#schedules
+  .row
+    .col-md-1
+    .col-md-10.card
+      = simple_form_for(@ac_schedule) do |f|
+        = f.error_notification
+        = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?      
+        .form-inputs
+          %table.table
+            %tbody
+              %tr
+                %td
+                  = f.input :ac_account_id, as: :hidden, input_html: {value: 1}
+                  = f.input :auto_insert, label: "Auto"
+                %td
+                  = f.input :first_date, as: :date, html5: true, label: "Start Date"
+                %td
+                  = f.input :frequency, label: "Every"
+                  = f.input :frequency_period, label: false
+                %td
+                  .alt-div
+                    = f.association :ac_payee, label: "Pay To"
+                  .alt-input  
+                    = f.input :ui_payee, label:false
+                %td
+              %tr
+                %td
+                  .alt-div
+                    = f.association :ac_category, label: "Category"
+                  .alt-input
+                    = f.input :ui_category, label:false  
+                %td
+                  .alt-div  
+                    = f.association :ac_sub_category, label: "SubCategory"
+                  .alt-input
+                    = f.input :ui_sub_category, label: false  
+                %td
+                  = f.input :debit, label: "Debit"
+                %td= f.input :credit, label: "Credit" 
+                %td= f.input :description, label: "Memo"
+              %tr
+                %td
+                %td  
+                %td
+                %td
+                %td
+                  = f.button :submit, "Save", class: "btn btn-primary"
+                  = link_to "Cancel", ac_schedules_path, class: "btn btn-warning"
+
+
+:javascript
+  $( document ).ready(function() {
+    $('select').selectpicker();
+    $('.dropdown-toggle').on("click", function(){
+      $(this).closest("td").find(".alt-input").toggle();
+    });
+    $('.dropdown-menu').on("click", function(){
+      $(this).closest("td").find(".alt-input").toggle();
+    });  
+
+  })
+
+
+-# add to application.scss  @import "bootstrap-select";
+-# add to application.js //= require bootstrap-select
+
     = f.input :auto_insert
     = f.input :frequency
     = f.input :frequency_period
     = f.input :first_date
     = f.input :type
-    = f.association :ac_account
-    = f.association :ac_payee
-    = f.association :ac_category
-    = f.association :ac_sub_category
-
-  .form-actions
-    = f.button :submit

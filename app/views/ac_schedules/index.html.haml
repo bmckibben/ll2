@@ -1,41 +1,53 @@
-%h1 Listing ac_schedules
+.container-fluid#transactions
+  .row
+    .col-md-1
+    .col-md-10.card
 
-%table
-  %thead
-    %tr
-      %th Amount
-      %th Description
-      %th Auto insert
-      %th Frequency
-      %th Frequency period
-      %th First date
-      %th Type
-      %th Ac account
-      %th Ac payee
-      %th Ac category
-      %th Ac sub category
-      %th
-      %th
-      %th
+      %h1 Scheduled Transactions
 
-  %tbody
-    - @ac_schedules.each do |ac_schedule|
-      %tr
-        %td= ac_schedule.amount
-        %td= ac_schedule.description
-        %td= ac_schedule.auto_insert
-        %td= ac_schedule.frequency
-        %td= ac_schedule.frequency_period
-        %td= ac_schedule.first_date
-        %td= ac_schedule.type
-        %td= ac_schedule.ac_account
-        %td= ac_schedule.ac_payee
-        %td= ac_schedule.ac_category
-        %td= ac_schedule.ac_sub_category
-        %td= link_to 'Show', ac_schedule
-        %td= link_to 'Edit', edit_ac_schedule_path(ac_schedule)
-        %td= link_to 'Destroy', ac_schedule, method: :delete, data: { confirm: 'Are you sure?' }
+      %table.table.table-striped
+        %thead
+          %tr
+            %th Auto
+            %th Start Date
+            %th Frequency
+            %th Payee
+            %th Category
+            %th Status
+            %th Debit
+            %th Credit
+            %th Next Date
+            %th Description
+            %th 
+              = link_to 'Add New', new_ac_schedule_path, class:"btn btn-primary"
 
-%br
+        %tbody
+          - @ac_schedules.each do |ac_schedule|
+            %tr
+              %td.right
+                = ac_schedule.auto_insert
+              %td.center
+                = ac_schedule.first_date.strftime("%Y.%m.%d")
+              %td.left
+                = "Every #{ac_schedule.frequency} #{ac_schedule.frequency_period}" 
+              %td.left
+                = ac_schedule.ac_payee.name
+              %td.left
+                = "#{ac_schedule.ac_category.name}:#{ac_schedule.ac_sub_category.name}"
+              %td.center
+                
+              %td.right
+                = number_to_currency(ac_schedule.debit)
+              %td.right
+                = number_to_currency(ac_schedule.credit)
+              %td.right
+                = ac_schedule.next_date.strftime("%Y.%m.%d")
+              %td
+                = ac_schedule.description
+              %td.center
+                =link_to edit_ac_schedule_path(ac_schedule) do
+                  %i.fas.fa-pencil-alt
 
-= link_to 'New Ac schedule', new_ac_schedule_path
+      %br
+
+      
