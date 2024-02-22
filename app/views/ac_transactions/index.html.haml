@@ -22,6 +22,7 @@
 
         %tbody
           - @ac_transactions.each do |ac_transaction|
+            - @balance += ((ac_transaction.credit || 0 ) - (ac_transaction.debit || 0))
             %tr
               %td.right
                 = ac_transaction.check_number
@@ -38,7 +39,7 @@
               %td.right
                 = number_to_currency(ac_transaction.credit)
               %td.right
-                = number_to_currency(ac_transaction.balance)
+                = number_to_currency(@balance)
               %td= ac_transaction.description
               %td.center
                 =link_to edit_ac_transaction_path(ac_transaction) do

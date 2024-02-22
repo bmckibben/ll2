@@ -10,13 +10,13 @@
           %tr
             %th Auto
             %th Start Date
-            %th Frequency
-            %th Payee
-            %th Category
+            %th.left Frequency
+            %th.left Payee
+            %th.left Category
             %th Status
             %th Debit
             %th Credit
-            %th Next Date
+            %th.left Next Date
             %th Description
             %th 
               = link_to 'Add New', new_ac_schedule_path, class:"btn btn-primary"
@@ -45,8 +45,8 @@
               %td
                 = ac_schedule.description
               %td.center
-                =link_to edit_ac_schedule_path(ac_schedule) do
-                  %i.fas.fa-pencil-alt
+                =link_to new_ac_transaction_path do
+                  %i.fas.fa-arrow-up-right-from-square
 
       %br
 

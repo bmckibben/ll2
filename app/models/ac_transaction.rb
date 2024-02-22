@@ -7,8 +7,8 @@ class AcTransaction < ApplicationRecord
 
   attr_accessor :ui_account, :ui_payee, :ui_category, :ui_sub_category, :ui_transaction_status
 
-  before_save :set_running_balance
-  after_update :recalc_running_balance
+  #before_save :set_running_balance
+  #after_update :recalc_running_balance
 
   private
 

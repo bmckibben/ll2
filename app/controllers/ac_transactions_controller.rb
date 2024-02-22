@@ -4,6 +4,7 @@ class AcTransactionsController < InheritedResources::Base
   before_action :set_transaction, only: [:update]
 
   def index
+    @balance = AcAccount.find(1).opening_balance
     @ac_transactions = AcTransaction.all.order(:date)
   end
 
