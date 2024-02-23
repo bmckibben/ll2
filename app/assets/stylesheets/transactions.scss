@@ -10,26 +10,30 @@
     table {
     	width: 100%;
     }
-	  th {
-		  padding: 2px 5px;
-		  text-align: center;
-	  }
-	  td {
-		  padding: 2px 5px;
-	  }  
-	  
-	  td.left {
-	  	text-align: left;
-	  }
 
-	  td.right {
-	  	text-align: right;
-	  }
+	} 
+	.grayed {
+		color: #bbbbbb;
+	} 
+  th {
+	  padding: 2px 5px;
+	  text-align: center;
+  }
+  td {
+	  padding: 2px 5px;
+  }  
+  
+  td.left, th.left {
+  	text-align: left;
+  }
 
-	  td.center {
-	  	text-align: center;
-	  }
-	}  	
+  td.right, th.right {
+  	text-align: right;
+  }
+
+  td.center, th,center {
+  	text-align: center;
+  }
 } 
  
 .new_ac_transaction, .edit_ac_transaction, .new_ac_schedule, .edit_ac_schedule {

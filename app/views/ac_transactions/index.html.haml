@@ -10,8 +10,8 @@
           %tr
             %th Check 
             %th Date
-            %th Payee
-            %th Category
+            %th.left Payee
+            %th.left Category
             %th Status
             %th Debit
             %th Credit
@@ -42,8 +42,31 @@
                 = number_to_currency(@balance)
               %td= ac_transaction.description
               %td.center
-                =link_to edit_ac_transaction_path(ac_transaction) do
+                =link_to edit_ac_transaction_path(ac_transaction), title: "Edit Transaction" do
                   %i.fas.fa-pencil-alt
+          - @ac_schedules.each do |ac_schedule|
+            - @balance += ((ac_schedule.credit || 0 ) - (ac_schedule.debit || 0))
+            %tr.grayed
+              %td.right
+                               
+              %td.center
+                = ac_schedule.next_date.strftime("%Y.%m.%d")
+              %td.left
+                = ac_schedule.ac_payee.name
+              %td.left
+                = "#{ac_schedule.ac_category.name}:#{ac_schedule.ac_sub_category.name}"
+              %td.center
+                = "S"
+              %td.right
+                = number_to_currency(ac_schedule.debit)
+              %td.right
+                = number_to_currency(ac_schedule.credit)
+              %td.right
+                = number_to_currency(@balance)
+              %td= ac_schedule.description
+              %td.center
+                =link_to new_ac_transaction_path(schedule_id: ac_schedule.id), title: "Insert Transaction" do
+                  %i.fas.fa-arrow-up-right-from-square                  
 
       %br
 

@@ -18,7 +18,7 @@ class AcSchedulesController < InheritedResources::Base
       subcategory = AcSubCategory.create(name: params[:ac_schedule][:ui_sub_category], ac_category_id: params[:ac_schedule][:ac_category_id])
       params[:ac_schedule][:ac_sub_category_id] = subcategory.id
     end 
-    @ac_schedule = Acschedule.new(ac_schedule_params)
+    @ac_schedule = AcSchedule.new(ac_schedule_params)
     puts "~~Saving: #{params[:id]}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
     respond_to do |format|    
       if @ac_schedule.save
@@ -55,12 +55,12 @@ class AcSchedulesController < InheritedResources::Base
 
   private
 
-    def set_schedule
+    def set_ac_schedule
       @ac_schedule = AcSchedule.find(params[:id])
     end
 
     def ac_schedule_params
-      params.require(:ac_schedule).permit(:amount, :description, :auto_insert, :frequency, :frequency_period, :first_date, :type, :ac_account_id, :ac_payee_id, :ac_category_id, :ac_sub_category_id)
+      params.require(:ac_schedule).permit(:debit, :credit, :description, :auto_insert, :frequency, :frequency_period, :first_date, :type, :ac_account_id, :ac_payee_id, :ac_category_id, :ac_sub_category_id)
     end
 
 end

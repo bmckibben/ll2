@@ -6,6 +6,24 @@ class AcTransactionsController < InheritedResources::Base
   def index
     @balance = AcAccount.find(1).opening_balance
     @ac_transactions = AcTransaction.all.order(:date)
+    schedules = AcSchedule.all
+    @ac_schedules = schedules.sort_by {|a| a.next_date}
+  end
+
+  def new
+    @ac_transaction = AcTransaction.new
+    unless params["schedule_id"].nil?
+      scheduled = AcSchedule.find(params["schedule_id"])
+      @ac_transaction.ac_account_id = scheduled.ac_account_id
+      @ac_transaction.ac_payee_id = scheduled.ac_payee_id
+      @ac_transaction.ac_category_id = scheduled.ac_category_id
+      @ac_transaction.ac_sub_category_id = scheduled.ac_sub_category_id
+      @ac_transaction.date = scheduled.next_date
+      @ac_transaction.credit = scheduled.credit
+      @ac_transaction.debit = scheduled.debit
+      @ac_transaction.ac_transaction_status_id = 2
+      @ac_transaction.description = scheduled.description
+    end
   end
 
   def create
