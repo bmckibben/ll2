@@ -4,7 +4,9 @@
     .col-md-10.card
 
       %h1 Transactions
-
+      .right
+        = link_to 'Add Transaction', new_ac_transaction_path, class:"btn btn-primary"
+        = link_to 'Schedule Transaction', new_ac_schedule_path, class:"btn btn-primary"      
       %table.table.table-striped
         %thead
           %tr
@@ -18,7 +20,7 @@
             %th Balance
             %th Description
             %th 
-              = link_to 'Add New', new_ac_transaction_path, class:"btn btn-primary"
+
 
         %tbody
           - @ac_transactions.each do |ac_transaction|
@@ -43,7 +45,7 @@
               %td= ac_transaction.description
               %td.center
                 =link_to edit_ac_transaction_path(ac_transaction), title: "Edit Transaction" do
-                  %i.fas.fa-pencil-alt
+                  %i.bi.bi-pencil-square
           - @ac_schedules.each do |ac_schedule|
             - @balance += ((ac_schedule.credit || 0 ) - (ac_schedule.debit || 0))
             %tr.grayed
@@ -66,8 +68,7 @@
               %td= ac_schedule.description
               %td.center
                 =link_to new_ac_transaction_path(schedule_id: ac_schedule.id), title: "Insert Transaction" do
-                  %i.fas.fa-arrow-up-right-from-square                  
-
+                  %i.bi.bi-plus-square
       %br
 
       
