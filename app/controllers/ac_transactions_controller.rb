@@ -41,7 +41,6 @@ class AcTransactionsController < InheritedResources::Base
       params[:ac_transaction][:ac_sub_category_id] = subcategory.id
     end 
     @ac_transaction = AcTransaction.new(ac_transaction_params)
-    puts "~~Saving: #{params[:id]}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
     respond_to do |format|    
       if @ac_transaction.save
         format.html { redirect_to ac_transactions_path, notice: 'Transaction was successfully created.' }
@@ -65,7 +64,6 @@ class AcTransactionsController < InheritedResources::Base
       subcategory = AcSubCategory.create(name: params[:ac_transaction][:ui_sub_category], ac_category_id: params[:ac_transaction][:ac_category_id])
       params[:ac_transaction][:ac_sub_category_id] = subcategory.id
     end 
-    puts "~~Updating: #{params[:id]}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
     respond_to do |format|    
       if @ac_transaction.update(ac_transaction_params)
         format.html { redirect_to ac_transactions_path, notice: 'Transaction was successfully created.' }

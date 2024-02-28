@@ -19,10 +19,9 @@ class AcSchedulesController < InheritedResources::Base
       params[:ac_schedule][:ac_sub_category_id] = subcategory.id
     end 
     @ac_schedule = AcSchedule.new(ac_schedule_params)
-    puts "~~Saving: #{params[:id]}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
     respond_to do |format|    
       if @ac_schedule.save
-        format.html { redirect_to ac_schedules_path, notice: 'schedule was successfully created.' }
+        format.html { redirect_to ac_transactions_path, notice: 'schedule was successfully created.' }
       else
         format.html { render :new }
       end
@@ -43,10 +42,10 @@ class AcSchedulesController < InheritedResources::Base
       subcategory = AcSubCategory.create(name: params[:ac_schedule][:ui_sub_category], ac_category_id: params[:ac_schedule][:ac_category_id])
       params[:ac_schedule][:ac_sub_category_id] = subcategory.id
     end 
-    puts "~~Updating: #{params[:id]}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+    
     respond_to do |format|    
       if @ac_schedule.update(ac_schedule_params)
-        format.html { redirect_to ac_schedules_path, notice: 'schedule was successfully created.' }
+        format.html { redirect_to ac_transactions_path, notice: 'schedule was successfully created.' }
       else
         format.html { render :new }
       end
