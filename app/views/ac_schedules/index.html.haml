@@ -46,7 +46,10 @@
                 = ac_schedule.description
               %td.center
                 =link_to edit_ac_schedule_path(ac_schedule), title: "Edit Schedule" do
-                  %i.fas.fa-pencil-alt
+                  %i.bi.bi-pencil-square
+                = link_to ac_schedule, method: :delete, data: { confirm: 'Are you sure?' }, title: "Delete Schedule" do
+                  %i.bi.bi-x-square  
+                
 
       %br
 

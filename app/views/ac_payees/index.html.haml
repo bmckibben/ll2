@@ -1,23 +1,26 @@
-%h1 Listing ac_payees
+.container-fluid#transactions
+  .row
+    .col-md-1
+    .col-md-10.card
+      %h1 Listing ac_payees
 
-%table
-  %thead
-    %tr
-      %th Name
-      %th Active
-      %th
-      %th
-      %th
+      %table
+        %thead
+          %tr
+            %th Name
+            %th Active
+            %th
+            %th
+            %th
+              = link_to 'New Payee', new_ac_payee_path, class: "btn btn-primary"
 
-  %tbody
-    - @ac_payees.each do |ac_payee|
-      %tr
-        %td= ac_payee.name
-        %td= ac_payee.active
-        %td= link_to 'Show', ac_payee
-        %td= link_to 'Edit', edit_ac_payee_path(ac_payee)
-        %td= link_to 'Destroy', ac_payee, method: :delete, data: { confirm: 'Are you sure?' }
+        %tbody
+          - @ac_payees.each do |ac_payee|
+            %tr
+              %td= ac_payee.name
+              %td= ac_payee.active
+              %td= link_to 'Show', ac_payee
+              %td= link_to 'Edit', edit_ac_payee_path(ac_payee)
+              %td= link_to 'Destroy', ac_payee, method: :delete, data: { confirm: 'Are you sure?' }
 
-%br
-
-= link_to 'New Ac payee', new_ac_payee_path
+      

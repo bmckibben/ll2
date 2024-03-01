@@ -1,23 +1,24 @@
-%h1 Listing ac_categories
+.container-fluid#transactions
+  .row
+    .col-md-1
+    .col-md-10.card
+      %h1 Categories
 
-%table
-  %thead
-    %tr
-      %th Name
-      %th Budget
-      %th
-      %th
-      %th
+      %table
+        %thead
+          %tr
+            %th Name
+            %th Budget
+            %th
+            %th
+            %th
+              = link_to 'New Category', new_ac_category_path, class: "btn btn-primary"
 
-  %tbody
-    - @ac_categories.each do |ac_category|
-      %tr
-        %td= ac_category.name
-        %td= ac_category.budget
-        %td= link_to 'Show', ac_category
-        %td= link_to 'Edit', edit_ac_category_path(ac_category)
-        %td= link_to 'Destroy', ac_category, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New Ac category', new_ac_category_path
+        %tbody
+          - @ac_categories.each do |ac_category|
+            %tr
+              %td= ac_category.name
+              %td= ac_category.budget
+              %td= link_to 'Show', ac_category
+              %td= link_to 'Edit', edit_ac_category_path(ac_category)
+              %td= link_to 'Destroy', ac_category, method: :delete, data: { confirm: 'Are you sure?' }

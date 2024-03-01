@@ -34,6 +34,11 @@
   td.center, th,center {
   	text-align: center;
   }
+  .status-toggle{
+  	color: #f66;
+  	cursor: pointer;
+  	font-weight: bold;
+  }
 } 
  
 .new_ac_transaction, .edit_ac_transaction, .new_ac_schedule, .edit_ac_schedule {

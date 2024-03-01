@@ -17,8 +17,25 @@
             =link_to 'Writings', stories_path  
           %li
             =link_to 'Journal', wikis_path
-          %li
-            =link_to 'Financial', ac_transactions_path
+          %li.dropdown
+            %a.dropdown-toggle{data: {toggle:"dropdown"}, role:"button", href:"#", aria:{expanded:"false"}}
+              Financial
+              %span.caret
+            %ul.dropdown-menu{role:"menu"}
+              %li
+                =link_to 'Transactions', ac_transactions_path
+              %li
+                =link_to 'Schedules', ac_schedules_path           
+              %li
+                =link_to 'Accounts', ac_accounts_path
+              %li
+                =link_to 'Payees', ac_payees_path
+              %li
+                =link_to 'Groups', ac_groups_path    
+              %li
+                =link_to 'Categories', ac_categories_path 
+              %li
+                =link_to 'Sub Categories', ac_sub_categories_path                                                
           %li
             =link_to 'Admin',  admin_root_path            
           %li.dropdown

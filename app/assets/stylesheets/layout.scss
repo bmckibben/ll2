@@ -147,6 +147,17 @@ background: linear-gradient(to bottom,  #7db9e8 0%,#0085f2 49%,#0099ff 50%,#2d77
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7db9e8', endColorstr='#2d77af',GradientType=0 ); /* IE6-9 */
 }
 
+.btn-danger:hover {
+/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#a00002+0,c90407+56,ea041f+100 */
+background: linear-gradient(to bottom,  #a00002 0%,#c90407 56%,#ea041f 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+.btn-danger {
+/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#a90329+0,8f0222+44,6d0019+100;Brown+Red+3D */
+background: linear-gradient(to bottom,  #a90329 0%,#8f0222 44%,#6d0019 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
+}
+
 .nav-container {
     padding-right: 15px;
     padding-left: 15px;

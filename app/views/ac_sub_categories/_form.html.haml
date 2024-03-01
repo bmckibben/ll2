@@ -6,7 +6,8 @@
   .form-inputs
     = f.input :name
     = f.input :budget
-    = f.association :ac_category
+    = f.association :ac_category, label: "Category"
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, "Save", class: "btn btn-primary"
+    = link_to "Cancel", ac_sub_categories_path, class: "btn btn-danger"

@@ -1,7 +1,11 @@
-%h1 Editing ac_payee
+.container-fluid#transactions
+	.row
+		.col-md-1
+		.col-md-10.card
+			%h1 Edit Payee
 
-= render 'form'
+			= render 'form'
 
-= link_to 'Show', @ac_payee
-\|
-= link_to 'Back', ac_payees_path
+			= link_to 'Show', @ac_payee
+			\|
+			= link_to 'Back', ac_payees_path

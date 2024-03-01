@@ -1,12 +1,16 @@
-%p#notice= notice
+.container-fluid#transactions
+  .row
+    .col-md-1
+    .col-md-10.card
+      %p#notice= notice
 
-%p
-  %b Name:
-  = @ac_group.name
-%p
-  %b Active:
-  = @ac_group.active
+      %p
+        %b Name:
+        = @ac_group.name
+      %p
+        %b Active:
+        = @ac_group.active
 
-= link_to 'Edit', edit_ac_group_path(@ac_group)
-\|
-= link_to 'Back', ac_groups_path
+      = link_to 'Edit', edit_ac_group_path(@ac_group)
+      \|
+      = link_to 'Back', ac_groups_path

@@ -1,25 +1,26 @@
-%h1 Listing ac_sub_categories
+.container-fluid#transactions
+  .row
+    .col-md-1
+    .col-md-10.card
+      %h1 Subcategories
 
-%table
-  %thead
-    %tr
-      %th Name
-      %th Budget
-      %th Ac category
-      %th
-      %th
-      %th
+      %table
+        %thead
+          %tr
+            %th Name
+            %th Budget
+            %th Category
+            %th
+            %th
+            %th
+              = link_to 'New Subcategory', new_ac_sub_category_path, class: "btn btn-primary"
 
-  %tbody
-    - @ac_sub_categories.each do |ac_sub_category|
-      %tr
-        %td= ac_sub_category.name
-        %td= ac_sub_category.budget
-        %td= ac_sub_category.ac_category
-        %td= link_to 'Show', ac_sub_category
-        %td= link_to 'Edit', edit_ac_sub_category_path(ac_sub_category)
-        %td= link_to 'Destroy', ac_sub_category, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New Ac sub category', new_ac_sub_category_path
+        %tbody
+          - @ac_sub_categories.each do |ac_sub_category|
+            %tr
+              %td= ac_sub_category.name
+              %td= ac_sub_category.budget
+              %td= ac_sub_category.ac_category.name
+              %td= link_to 'Show', ac_sub_category
+              %td= link_to 'Edit', edit_ac_sub_category_path(ac_sub_category)
+              %td= link_to 'Destroy', ac_sub_category, method: :delete, data: { confirm: 'Are you sure?' }

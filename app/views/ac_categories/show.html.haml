@@ -1,12 +1,16 @@
-%p#notice= notice
+.container-fluid#transactions
+  .row
+    .col-md-1
+    .col-md-10.card
+      %p#notice= notice
 
-%p
-  %b Name:
-  = @ac_category.name
-%p
-  %b Budget:
-  = @ac_category.budget
+      %p
+        %b Name:
+        = @ac_category.name
+      %p
+        %b Budget:
+        = @ac_category.budget
 
-= link_to 'Edit', edit_ac_category_path(@ac_category)
-\|
-= link_to 'Back', ac_categories_path
+      = link_to 'Edit', edit_ac_category_path(@ac_category)
+      \|
+      = link_to 'Back', ac_categories_path

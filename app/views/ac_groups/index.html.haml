@@ -1,23 +1,24 @@
-%h1 Listing ac_groups
+.container-fluid#transactions
+  .row
+    .col-md-1
+    .col-md-10.card
+      %h1 Groups
 
-%table
-  %thead
-    %tr
-      %th Name
-      %th Active
-      %th
-      %th
-      %th
+      %table
+        %thead
+          %tr
+            %th Name
+            %th Active
+            %th
+            %th
+            %th
+              = link_to 'New Group', new_ac_group_path, class: "btn btn-primary"
 
-  %tbody
-    - @ac_groups.each do |ac_group|
-      %tr
-        %td= ac_group.name
-        %td= ac_group.active
-        %td= link_to 'Show', ac_group
-        %td= link_to 'Edit', edit_ac_group_path(ac_group)
-        %td= link_to 'Destroy', ac_group, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New Ac group', new_ac_group_path
+        %tbody
+          - @ac_groups.each do |ac_group|
+            %tr
+              %td= ac_group.name
+              %td= ac_group.active
+              %td= link_to 'Show', ac_group
+              %td= link_to 'Edit', edit_ac_group_path(ac_group)
+              %td= link_to 'Destroy', ac_group, method: :delete, data: { confirm: 'Are you sure?' }

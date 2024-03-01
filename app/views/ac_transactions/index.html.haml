@@ -35,7 +35,8 @@
               %td.left
                 = "#{ac_transaction.ac_category.name}:#{ac_transaction.ac_sub_category.name}"
               %td.center
-                = ac_transaction.ac_transaction_status.name[0,1]
+                %span.status-toggle{data: {id: ac_transaction.id, status: ac_transaction.ac_transaction_status.name[0,1]}} 
+                  = ac_transaction.ac_transaction_status.name[0,1]
               %td.right
                 = number_to_currency(ac_transaction.debit)
               %td.right
@@ -72,3 +73,22 @@
       %br
 
       
+:javascript
+  $( document ).ready(function() {
+    $(".status-toggle").on( "click", function(){
+      let s = $(this).data("status");
+      let p = "P"
+      let c = "C"
+
+      if (s === p){
+        $(this).html("C");
+        $(this).data("status", "C")
+      }else if (s === c){
+        $(this).html("R");
+        $(this).data("status", "R")
+      }else{
+        alert($(this).data("status"));
+      }
+    })
+  })
+

@@ -1,7 +1,11 @@
-%h1 Editing ac_account
+.container-fluid#transactions
+	.row
+		.col-md-1
+		.col-md-10.card
+			%h1 Edit Account
 
-= render 'form'
+			= render 'form'
 
-= link_to 'Show', @ac_account
-\|
-= link_to 'Back', ac_accounts_path
+			= link_to 'Show', @ac_account
+			\|
+			= link_to 'Back', ac_accounts_path
