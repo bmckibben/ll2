@@ -1,11 +1,11 @@
 class AcTransactionsController < InheritedResources::Base
 
   before_action :authenticate_user!
-  before_action :set_transaction, only: [:update]
+  before_action :set_transaction, only: [:update, :status_update]
 
   def index
-    @balance = AcAccount.find(1).opening_balance
-    @ac_transactions = AcTransaction.all.order(:date)
+    @balance = @cleared = AcAccount.find(1).opening_balance
+    @ac_transactions = AcTransaction.all.order(:date, :created_at)
     schedules = AcSchedule.all
     @ac_schedules = schedules.sort_by {|a| a.next_date}
   end
@@ -73,6 +73,10 @@ class AcTransactionsController < InheritedResources::Base
     end
   end
 
+  def status_update
+    @ac_transaction.update(ac_transaction_status_id: params[:status] )
+    render json: nil, status: 200
+  end
   private
 
     def set_transaction

@@ -37,6 +37,7 @@ Rails.application.routes.draw do
   post 'wiki_tags/new_wiki_tag' => 'wiki_tags#new_wiki_tag'
   get 'wiki_tags/menu' => 'wiki_tags#menu'
   get "stories/download_json", to: "stories#download_json", as: :story_download_json
+  get "ac_transactions/status_update", to: "ac_transactions#status_update", as: :ac_transaction_status_update
 
   resources :sections
   

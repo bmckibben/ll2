@@ -39,6 +39,9 @@
   	cursor: pointer;
   	font-weight: bold;
   }
+  li {
+  	list-style: none;
+  }
 } 
  
 .new_ac_transaction, .edit_ac_transaction, .new_ac_schedule, .edit_ac_schedule {
