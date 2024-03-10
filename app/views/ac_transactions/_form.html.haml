@@ -38,6 +38,7 @@
               %tr       
                 %td
                   = f.input :ac_transaction_status_id, as: :hidden, input_html: {value: 2}
+                  = f.input :ac_schedule_id, as: :hidden
                   = f.input :debit, label: "Debit"
                 %td= f.input :credit, label: "Credit" 
                 %td= f.input :description, label: "Memo"
