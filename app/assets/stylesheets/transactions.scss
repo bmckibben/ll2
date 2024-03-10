@@ -49,11 +49,27 @@
 } 
  
 .new_ac_transaction, .edit_ac_transaction, .new_ac_schedule, .edit_ac_schedule {
+	.form-inputs{
+		.row {
+			padding-top: 0.5rem;
+			padding-bottom: 0.5rem;
+		}
+		label {
+			font-size: 14px;
+		}
+	}
 	textarea{
 		height: 34px;
 	}
 	.table{
 		background-color:#ebf2ff;
+ 		@media(min-width:768px) {
+ 			 margin-right: 4rem;
+ 			 margin-left: 2rem;
+ 			 padding-left: 1rem;
+ 			 padding-right: 1rem;
+ 			 font-size: 20px;
+ 		}
 	}
 	.form-group{
 		margin-bottom: 0;

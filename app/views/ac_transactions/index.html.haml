@@ -63,7 +63,7 @@
                     %i.bi.bi-pencil-square
             - @ac_schedules.each do |ac_schedule|
               - @balance += ((ac_schedule.credit || 0 ) - (ac_schedule.debit || 0))
-              %tr.grayed
+              %tr.grayed.sched_row
                 %td.right
                                  
                 %td.center
@@ -97,6 +97,8 @@
         $(this).closest(".dropdown-menu").toggle();
         
     }); 
-       
+    table = $('.table')   
+    row = $(".sched_row[0]")
+    table.animate({scrollTop: row.offset().top - table.height()/2)}, 1000);
   })
 
