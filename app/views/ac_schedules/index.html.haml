@@ -4,52 +4,52 @@
     .col-md-10.card
 
       %h1 Scheduled Transactions
-
-      %table.table.table-striped
-        %thead
-          %tr
-            %th Auto
-            %th Start Date
-            %th.left Frequency
-            %th.left Payee
-            %th.left Category
-            %th Status
-            %th Debit
-            %th Credit
-            %th.left Next Date
-            %th Description
-            %th 
-              = link_to 'Add New', new_ac_schedule_path, class:"btn btn-primary"
-
-        %tbody
-          - @ac_schedules.each do |ac_schedule|
+      .scrollbar-container 
+        %table.table.table-striped
+          %thead
             %tr
-              %td.right
-                = ac_schedule.auto_insert
-              %td.center
-                = ac_schedule.first_date.strftime("%Y.%m.%d")
-              %td.left
-                = "Every #{ac_schedule.frequency} #{ac_schedule.frequency_period}" 
-              %td.left
-                = ac_schedule.ac_payee.name
-              %td.left
-                = "#{ac_schedule.ac_category.name}:#{ac_schedule.ac_sub_category.name}"
-              %td.center
-                
-              %td.right
-                = number_to_currency(ac_schedule.debit)
-              %td.right
-                = number_to_currency(ac_schedule.credit)
-              %td.right
-                = ac_schedule.next_date.strftime("%Y.%m.%d")
-              %td
-                = ac_schedule.description
-              %td.center
-                =link_to edit_ac_schedule_path(ac_schedule), title: "Edit Schedule" do
-                  %i.bi.bi-pencil-square
-                = link_to ac_schedule, method: :delete, data: { confirm: 'Are you sure?' }, title: "Delete Schedule" do
-                  %i.bi.bi-x-square  
-                
+              %th Auto
+              %th Start Date
+              %th.left Frequency
+              %th.left Payee
+              %th.left Category
+              %th Status
+              %th Debit
+              %th Credit
+              %th.left Next Date
+              %th Description
+              %th 
+                = link_to 'Add New', new_ac_schedule_path, class:"btn btn-primary"
+
+          %tbody
+            - @ac_schedules.each do |ac_schedule|
+              %tr
+                %td.right
+                  = ac_schedule.auto_insert
+                %td.center
+                  = ac_schedule.first_date.strftime("%Y.%m.%d")
+                %td.left
+                  = "Every #{ac_schedule.frequency} #{ac_schedule.frequency_period}" 
+                %td.left
+                  = ac_schedule.ac_payee.name
+                %td.left
+                  = "#{ac_schedule.ac_category.name}:#{ac_schedule.ac_sub_category.name}"
+                %td.center
+                  
+                %td.right
+                  = number_to_currency(ac_schedule.debit)
+                %td.right
+                  = number_to_currency(ac_schedule.credit)
+                %td.right
+                  = ac_schedule.next_date.strftime("%Y.%m.%d")
+                %td
+                  = ac_schedule.description
+                %td.center
+                  =link_to edit_ac_schedule_path(ac_schedule), title: "Edit Schedule" do
+                    %i.bi.bi-pencil-square
+                  = link_to ac_schedule, method: :delete, data: { confirm: 'Are you sure?' }, title: "Delete Schedule" do
+                    %i.bi.bi-x-square  
+                  
 
       %br
 

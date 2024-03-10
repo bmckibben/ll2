@@ -12,8 +12,10 @@ class AcTransactionsController < InheritedResources::Base
 
   def new
     @ac_transaction = AcTransaction.new
+    @ac_transaction.date = Time.now
     unless params["schedule_id"].nil?
       scheduled = AcSchedule.find(params["schedule_id"])
+      @ac_transaction.ac_schedule_id = scheduled.id
       @ac_transaction.ac_account_id = scheduled.ac_account_id
       @ac_transaction.ac_payee_id = scheduled.ac_payee_id
       @ac_transaction.ac_category_id = scheduled.ac_category_id
@@ -23,6 +25,7 @@ class AcTransactionsController < InheritedResources::Base
       @ac_transaction.debit = scheduled.debit
       @ac_transaction.ac_transaction_status_id = 2
       @ac_transaction.description = scheduled.description
+      @ac_transaction.schedule_date = @ac_transaction.date
     end
   end
 
@@ -84,7 +87,7 @@ class AcTransactionsController < InheritedResources::Base
     end
 
     def ac_transaction_params
-      params.require(:ac_transaction).permit(:date, :debit, :credit, :balance, :description, :check_number, :ac_account_id, :ac_payee_id, :ac_category_id, :ac_sub_category_id, :ac_transaction_status_id, :ui_account, :ui_payee, :ui_category, :ui_sub_category, :ui_transaction_status)
+      params.require(:ac_transaction).permit(:date, :debit, :credit, :balance, :description, :check_number, :ac_account_id, :ac_payee_id, :ac_category_id, :ac_sub_category_id, :ac_transaction_status_id, :ac_schedule_id, :schedule_date, :ui_account, :ui_payee, :ui_category, :ui_sub_category, :ui_transaction_status)
     end
 
 end

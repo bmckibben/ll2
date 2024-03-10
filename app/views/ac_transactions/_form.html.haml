@@ -14,15 +14,16 @@
                 %td
                   = f.input :ac_account_id, as: :hidden, input_html: {value: 1}
                   = f.input :check_number
-                %td= f.input :date, as: :date, html5: true
+                %td
+                  = f.input :date, as: :date, html5: true
+                %td 
+                  = f.input :schedule_date, as: :date, html5: true
+              %tr
                 %td
                   .alt-div
                     = f.association :ac_payee, label: "Pay To"
                   .alt-input  
-                    = f.input :ui_payee, label:false
-                %td
-                %td  
-              %tr
+                    = f.input :ui_payee, label:false              
                 %td
                   .alt-div
                     = f.association :ac_category, label: "Category"
@@ -32,15 +33,15 @@
                   .alt-div  
                     = f.association :ac_sub_category, label: "SubCategory"
                   .alt-input
-                    = f.input :ui_sub_category, label: false  
+                    = f.input :ui_sub_category, label: false 
+   
+              %tr       
                 %td
                   = f.input :ac_transaction_status_id, as: :hidden, input_html: {value: 2}
                   = f.input :debit, label: "Debit"
                 %td= f.input :credit, label: "Credit" 
                 %td= f.input :description, label: "Memo"
               %tr
-                %td
-                %td  
                 %td
                 %td
                 %td

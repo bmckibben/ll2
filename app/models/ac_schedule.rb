@@ -8,10 +8,16 @@ class AcSchedule < ApplicationRecord
  
   def next_date
 
-    last_transaction = AcTransaction.where(ac_payee_id: self.ac_payee_id, ac_category_id: self.ac_category_id, ac_sub_category_id: self.ac_sub_category_id).order(:date).pluck(:date).last || Date.current()
+    last_transaction = AcTransaction.where(ac_schedule_id: self.id).order(:date).pluck(:date).last 
 
-    puts "#{last_transaction.strftime("%Y.%m.%d")}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-    last_transaction + self.frequency.public_send(self.frequency_period.downcase)
+    if last_transaction.nil?
+      last_transaction = self.first_date
+    else
+      last_transaction += self.frequency.send(self.period)
+    end
+
+    return last_transaction
+    
   end
 
 end
