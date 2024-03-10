@@ -16,7 +16,7 @@
                   = f.input :first_date, as: :date, html5: true, label: "Start Date"
                 %td
                   = f.input :frequency, label: "Every"
-                  = f.input :frequency_period, label: false, collection: {"day","week","month","quarter","year"}
+                  = f.input :frequency_period, label: false, collection: [["day","day"],["week","week"],["month","month"],["quarter","quarter"],["year","year"]]
                 %td
                   .alt-div
                     = f.association :ac_payee, label: "Pay To"
