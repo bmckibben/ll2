@@ -18,10 +18,14 @@
                   = f.input :frequency, label: "Every"
                   = f.input :frequency_period, label: false, collection: [["day","day"],["week","week"],["month","month"],["quarter","quarter"],["year","year"]]
                 %td
-                  .alt-div
-                    = f.association :ac_payee, label: "Pay To"
-                  .alt-input  
-                    = f.input :ui_payee, label:false
+                  = f.input :ui_payee, label: "Pay To", input_html: { list: 'payee_list' }
+                  %datalist{id: 'payee_list'} 
+                    - @ac_payees.each do |payee|
+                      %option{value: payee.name}  
+                  / .alt-div
+                  /   = f.association :ac_payee, label: "Pay To"
+                  / .alt-input  
+                  /   = f.input :ui_payee, label:false
                 %td
               %tr
                 %td

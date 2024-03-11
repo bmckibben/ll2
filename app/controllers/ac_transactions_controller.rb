@@ -28,6 +28,7 @@ class AcTransactionsController < InheritedResources::Base
       @ac_transaction.description = scheduled.description
       @ac_transaction.schedule_date = @ac_transaction.date
     end
+    @ac_payees = AcPayee.all.order(name: :asc)
   end
 
   def create

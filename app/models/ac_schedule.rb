@@ -10,14 +10,18 @@ class AcSchedule < ApplicationRecord
 
     last_transaction = AcTransaction.where(ac_schedule_id: self.id).order(:date).last 
 
-    if last_transaction.nil?
-      next_date = self.first_date
+    if last_transaction.nil? || last_transaction.schedule_date.nil?
+      next_date = self.first_date || Time.now
     else
       next_date = last_transaction.schedule_date + self.frequency.send(self.frequency_period.downcase)
     end
 
     return next_date
 
+  end
+
+  def ui_payee
+    AcPayee.find(self.ac_payee_id).name unless self.ac_payee_id.nil?
   end
 
 end

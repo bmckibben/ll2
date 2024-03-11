@@ -1,8 +1,18 @@
 class AcSchedulesController < InheritedResources::Base
 
   before_action :authenticate_user!
-  before_action :set_ac_schedule, only: [:update]
+  before_action :set_ac_schedule, only: [:update, :edit]
 
+  def new
+    super
+    @ac_payees = AcPayee.all.order(name: :asc)
+    @ac_schedule.first_date = Time.now
+  end
+
+  def edit
+    super
+    @ac_payees = AcPayee.all.order(name: :asc)
+  end
 
   def create
     #binding.pry
