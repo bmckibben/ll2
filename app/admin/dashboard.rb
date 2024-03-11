@@ -19,7 +19,7 @@ ActiveAdmin.register_page "Dashboard" do
       br
       span "Rails: #{Rails.version}"
       br
-      span "Path: #{ENV['PATH']}"      
+  
     end  
 
   end # content
