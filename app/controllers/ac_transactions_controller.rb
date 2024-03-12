@@ -17,7 +17,7 @@ class AcTransactionsController < InheritedResources::Base
     unless params["schedule_id"].nil?
       scheduled = AcSchedule.find(params["schedule_id"])
       puts "~~~#{scheduled.id}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-      @ac_transaction.ac_transaction_id = scheduled.id
+      @ac_transaction.ac_schedule_id = scheduled.id
       @ac_transaction.ac_account_id = scheduled.ac_account_id
       @ac_transaction.ac_payee_id = scheduled.ac_payee_id
       @ac_transaction.ac_category_id = scheduled.ac_category_id
