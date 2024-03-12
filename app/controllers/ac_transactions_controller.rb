@@ -2,6 +2,7 @@ class AcTransactionsController < InheritedResources::Base
 
   before_action :authenticate_user!
   before_action :set_transaction, only: [:update, :status_update]
+  before_action :set_data_lists, only: [:new, :edit]
 
   def index
     @balance = @cleared = AcAccount.find(1).opening_balance
@@ -16,7 +17,7 @@ class AcTransactionsController < InheritedResources::Base
     unless params["schedule_id"].nil?
       scheduled = AcSchedule.find(params["schedule_id"])
       puts "~~~#{scheduled.id}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-      @ac_transaction.ac_schedule_id = scheduled.id
+      @ac_transaction.ac_transaction_id = scheduled.id
       @ac_transaction.ac_account_id = scheduled.ac_account_id
       @ac_transaction.ac_payee_id = scheduled.ac_payee_id
       @ac_transaction.ac_category_id = scheduled.ac_category_id
@@ -32,20 +33,19 @@ class AcTransactionsController < InheritedResources::Base
   end
 
   def create
-    #binding.pry
-    unless params[:ac_transaction][:ui_payee].empty?
-      payee = AcPayee.create(name: params[:ac_transaction][:ui_payee], active: true)
-      params[:ac_transaction][:ac_payee_id] = payee.id
-    end
-    unless params[:ac_transaction][:ui_category].empty?
-      category = AcCategory.create(name: params[:ac_transaction][:ui_category])
-      params[:ac_transaction][:ac_category_id] = category.id
-    end    
-    unless params[:ac_transaction][:ui_sub_category].empty?
-      subcategory = AcSubCategory.create(name: params[:ac_transaction][:ui_sub_category], ac_category_id: params[:ac_transaction][:ac_category_id])
-      params[:ac_transaction][:ac_sub_category_id] = subcategory.id
-    end 
     @ac_transaction = AcTransaction.new(ac_transaction_params)
+
+    payee = AcPayee.find_or_create_by(name: params[:ac_transaction][:ui_payee])
+    payee.update(active: true)
+    @ac_transaction.ac_payee = payee
+
+    category = AcCategory.find_or_create_by(name: params[:ac_transaction][:ui_category])
+    @ac_transaction.ac_category = category
+
+    sub_category = AcSubCategory.find_or_create_by(name: params[:ac_transaction][:ui_sub_category])
+    sub_category.update(ac_category_id: category.id) if sub_category.ac_category_id.nil?
+    @ac_transaction.ac_sub_category = sub_category
+    
     respond_to do |format|    
       if @ac_transaction.save
         format.html { redirect_to ac_transactions_path, notice: 'Transaction was successfully created.' }
@@ -56,19 +56,17 @@ class AcTransactionsController < InheritedResources::Base
   end
 
   def update
-    #binding.pry
-    unless params[:ac_transaction][:ui_payee].empty?
-      payee = AcPayee.create(name: params[:ac_transaction][:ui_payee], active: true)
-      params[:ac_transaction][:ac_payee_id] = payee.id
-    end
-    unless params[:ac_transaction][:ui_category].empty?
-      category = AcCategory.create(name: params[:ac_transaction][:ui_category])
-      params[:ac_transaction][:ac_category_id] = category.id
-    end    
-    unless params[:ac_transaction][:ui_sub_category].empty?
-      subcategory = AcSubCategory.create(name: params[:ac_transaction][:ui_sub_category], ac_category_id: params[:ac_transaction][:ac_category_id])
-      params[:ac_transaction][:ac_sub_category_id] = subcategory.id
-    end 
+    payee = AcPayee.find_or_create_by(name: params[:ac_transaction][:ui_payee])
+    payee.update(active: true)
+    @ac_transaction.ac_payee = payee
+
+    category = AcCategory.find_or_create_by(name: params[:ac_transaction][:ui_category])
+    @ac_transaction.ac_category = category
+
+    sub_category = AcSubCategory.find_or_create_by(name: params[:ac_transaction][:ui_sub_category])
+    sub_category.update(ac_category_id: category.id) if sub_category.ac_category_id.nil?
+    @ac_transaction.ac_sub_category = sub_category
+
     respond_to do |format|    
       if @ac_transaction.update(ac_transaction_params)
         format.html { redirect_to ac_transactions_path, notice: 'Transaction was successfully created.' }
@@ -89,7 +87,12 @@ class AcTransactionsController < InheritedResources::Base
     end
 
     def ac_transaction_params
-      params.require(:ac_transaction).permit(:date, :debit, :credit, :balance, :description, :check_number, :ac_account_id, :ac_payee_id, :ac_category_id, :ac_sub_category_id, :ac_transaction_status_id, :ac_schedule_id, :schedule_date, :ui_account, :ui_payee, :ui_category, :ui_sub_category, :ui_transaction_status)
+      params.require(:ac_transaction).permit(:date, :debit, :credit, :balance, :description, :check_number, :ac_account_id, :ac_payee_id, :ac_category_id, :ac_sub_category_id, :ac_transaction_status_id, :ac_transaction_id, :schedule_date, :ui_account, :ui_payee, :ui_category, :ui_sub_category, :ui_transaction_status)
     end
-
+    
+    def set_data_lists
+      @ac_payees = AcPayee.all.order(name: :asc).where(active: true)
+      @ac_categories = AcCategory.all.order(name: :asc)
+      @ac_sub_categories = AcSubCategory.all.order(name: :asc)
+    end
 end

@@ -24,4 +24,12 @@ class AcSchedule < ApplicationRecord
     AcPayee.find(self.ac_payee_id).name unless self.ac_payee_id.nil?
   end
 
+  def ui_category
+    AcCategory.find(self.ac_category_id).name unless self.ac_category_id.nil?
+  end
+
+  def ui_sub_category
+    AcSubCategory.find(self.ac_sub_category_id).name unless self.ac_sub_category_id.nil?
+  end
+
 end
