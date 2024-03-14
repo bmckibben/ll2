@@ -8,6 +8,7 @@
         %table.table.table-striped
           %thead
             %tr
+              %th.left Next Date
               %th Auto
               %th Start Date
               %th.left Frequency
@@ -16,14 +17,16 @@
               %th Status
               %th Debit
               %th Credit
-              %th.left Next Date
               %th Description
               %th 
                 = link_to 'Add New', new_ac_schedule_path, class:"btn btn-primary"
 
           %tbody
             - @ac_schedules.each do |ac_schedule|
+
               %tr
+                %td.left
+                  = ac_schedule.next_date.strftime("%Y.%m.%d")              
                 %td.right
                   = ac_schedule.auto_insert
                 %td.center
@@ -40,8 +43,7 @@
                   = number_to_currency(ac_schedule.debit)
                 %td.right
                   = number_to_currency(ac_schedule.credit)
-                %td.right
-                  = ac_schedule.next_date.strftime("%Y.%m.%d")
+
                 %td
                   = ac_schedule.description
                 %td.center

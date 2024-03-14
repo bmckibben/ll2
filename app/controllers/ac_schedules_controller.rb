@@ -4,6 +4,11 @@ class AcSchedulesController < InheritedResources::Base
   before_action :set_ac_schedule, only: [:update, :edit]
   before_action :set_data_lists, only: [:new, :edit]
 
+  def index
+    @ac_schedules = AcSchedule.all
+    @ac_schedules = @ac_schedules.sort_by {|schedule| schedule.next_date}
+  end
+
   def new
     @ac_schedule = AcSchedule.new
     @ac_schedule.first_date = Time.now
