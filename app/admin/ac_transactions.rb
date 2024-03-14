@@ -6,15 +6,15 @@ ActiveAdmin.register AcTransaction do
 		column :id
 		column :date
 		column :amount
-		column :desctiption
 		column :check_number
-		column :payee
-		column :category
-		column :sub_category
-		column :transaction_status
+		column :ac_payee
+		column :ac_category
+		column :ac_sub_category
+		column :ac_transaction_status
 		column :debit
 		column :credit
-		column :balance
+		column :ac_schedule_id
+		column :schedule_date
 		column :created_at
 		actions
 	end

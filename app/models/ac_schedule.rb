@@ -7,8 +7,12 @@ class AcSchedule < ApplicationRecord
   attr_accessor :ui_account, :ui_payee, :ui_category, :ui_sub_category
  
   def next_date
-
     last_transaction = AcTransaction.where(ac_schedule_id: self.id).order(:date).last 
+    unless last_transaction.nil?
+      if last_transaction.id == 11
+        binding.pry 
+      end
+    end
 
     if last_transaction.nil? || last_transaction.schedule_date.nil?
       next_date = self.first_date || Time.now

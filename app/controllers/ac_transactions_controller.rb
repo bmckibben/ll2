@@ -6,7 +6,7 @@ class AcTransactionsController < InheritedResources::Base
 
   def index
     @balance = @cleared = AcAccount.find(1).opening_balance
-    @ac_transactions = AcTransaction.all.order(:date, :created_at)
+    @ac_transactions = AcTransaction.all.where(ac_schedule_id: 1).order(:date, :created_at)
     @ac_schedules = AcSchedule.all
     @ac_schedules = @ac_schedules.sort_by {|schedule| schedule.next_date}
   end
@@ -16,7 +16,6 @@ class AcTransactionsController < InheritedResources::Base
     @ac_transaction.date = Time.now
     unless params["schedule_id"].nil?
       scheduled = AcSchedule.find(params["schedule_id"])
-      puts "~~~#{scheduled.id}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
       @ac_transaction.ac_schedule_id = scheduled.id
       @ac_transaction.ac_account_id = scheduled.ac_account_id
       @ac_transaction.ac_payee_id = scheduled.ac_payee_id
