@@ -1,7 +1,7 @@
 ActiveAdmin.register AcTransaction do
 	menu parent: "Transactions", :priority => 1
 	permit_params :date, :credit, :debit, :balance, :description, :check_number, :ac_account_id, :ac_payee_id, 
-		:ac_category_id, :ac_sub_category_id, :ac_transaction_status_id, :schedule_date
+		:ac_category_id, :ac_sub_category_id, :ac_transaction_status_id, :ac_schedule_id, :schedule_date
 	index do
 		column :id
 		column :date
