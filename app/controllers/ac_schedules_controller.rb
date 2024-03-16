@@ -23,7 +23,6 @@ class AcSchedulesController < InheritedResources::Base
 
     category = AcCategory.find_or_create_by(name: params[:ac_schedule][:ui_category])
     @ac_schedule.ac_category = category
-    binding.pry
     sub_category = AcSubCategory.find_or_create_by(name: params[:ac_schedule][:ui_sub_category])
     sub_category.update(ac_category_id: category.id) if sub_category.ac_category_id.nil?
     @ac_schedule.ac_sub_category = sub_category
