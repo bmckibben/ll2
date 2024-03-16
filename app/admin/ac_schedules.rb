@@ -1,7 +1,7 @@
 ActiveAdmin.register AcSchedule do
 	menu parent: "Transactions", :priority => 6
 	permit_params :amount, :description, :auto_insert, :frequency, :frequency_period, 
-		:first_date, :type, :ac_account_id, :ac_payee_id, :ac_category_id, :ac_sub_category_id 
+		:first_date, :type, :ac_account_id, :ac_payee_id, :ac_category_id, :ac_sub_category_id, :ac_schedule_id, :schedule_date 
 	index do
 		column "ac_payee"
 		column "amount"
