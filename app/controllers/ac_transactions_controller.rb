@@ -86,7 +86,7 @@ class AcTransactionsController < InheritedResources::Base
     end
 
     def ac_transaction_params
-      params.require(:ac_transaction).permit(:date, :debit, :credit, :balance, :description, :check_number, :ac_account_id, :ac_payee_id, :ac_category_id, :ac_sub_category_id, :ac_transaction_status_id, :ac_transaction_id, :schedule_date, :ui_account, :ui_payee, :ui_category, :ui_sub_category, :ui_transaction_status)
+      params.require(:ac_transaction).permit(:date, :debit, :credit, :balance, :description, :check_number, :ac_account_id, :ac_payee_id, :ac_category_id, :ac_sub_category_id, :ac_transaction_status_id, :ac_transaction_id, :ac_schedule_id,:schedule_date, :ui_account, :ui_payee, :ui_category, :ui_sub_category, :ui_transaction_status)
     end
     
     def set_data_lists
