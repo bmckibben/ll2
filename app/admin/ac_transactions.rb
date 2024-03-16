@@ -18,4 +18,23 @@ ActiveAdmin.register AcTransaction do
 		column :created_at
 		actions
 	end
+
+  form do |f|
+    f.inputs do
+      f.input :ac_account
+      f.input :ac_payee
+      f.input :ac_category
+      f.input :ac_sub_category
+      f.input :ac_transaction_status
+      f.input :date
+      f.input :description
+      f.input :check_number
+      f.input :debit
+      f.input :credit
+      f.input :ac_schedule_id
+      f.input :schedule_date
+    end
+    f.actions
+  end
+
 end
