@@ -1,49 +1,49 @@
 .container-fluid#transactions
   .row
     .col-md-1.col-sm-0
-    .col-md-10.col-sm-12
+    .col-md-10.col-sm-11
       = simple_form_for(@ac_transaction) do |f|
         = f.error_notification
         = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?      
         .form-inputs.table
           .row
-            .col-md-4.col-sm-12
+            .col-md-4.col-sm-11
               = f.input :ac_account_id, as: :hidden, input_html: {value: 1}
               = f.input :check_number
-            .col-md-4.col-sm-12
+            .col-md-4.col-sm-11
               = f.input :date, as: :date, html5: true
-            .col-md-4.col-sm-12
+            .col-md-4.col-sm-11
               = f.input :schedule_date, as: :date, html5: true
           .row
-            .col-md-4.col-sm-12
+            .col-md-4.col-sm-11
               = f.input :ui_payee, label: "Pay To", input_html: { list: 'payee_list', autocomplete: "off" }
               %datalist{id: 'payee_list'} 
                 - @ac_payees.each do |payee|
                   %option{value: payee.name}  
-            .col-md-4.col-sm-12
+            .col-md-4.col-sm-11
               = f.input :ui_category, label:"Category", input_html: { list: 'category_list', autocomplete: "off" }  
               %datalist{id: 'category_list'} 
                 - @ac_categories.each do |category|
                   %option{value: category.name}  
-            .col-md-4.col-sm-12
+            .col-md-4.col-sm-11
               = f.input :ui_sub_category, label:"SubCategory", input_html: { list: 'sub_category_list', autocomplete: "off" }  
               %datalist{id: 'sub_category_list'} 
                 - @ac_sub_categories.each do |sub_category|
                   %option{value: sub_category.name} 
    
           .row
-            .col-md-4.col-sm-12
+            .col-md-4.col-sm-11
               = f.input :ac_transaction_status_id, as: :hidden, input_html: {value: 2}
               = f.input :ac_schedule_id, as: :hidden
               = f.input :debit, label: "Debit"
-            .col-md-4.col-sm-12 
+            .col-md-4.col-sm-11 
               =f.input :credit, label: "Credit" 
-            .col-md-4.col-sm-12
+            .col-md-4.col-sm-11
               = f.input :description, label: "Memo"
           .row
-            .col-md-4.col-sm-12
-            .col-md-4.col-sm-12
-            .col-md-4.col-sm-12
+            .col-md-4.col-sm-11
+            .col-md-4.col-sm-11
+            .col-md-4.col-sm-11
               = f.button :submit, "Save", class: "btn btn-primary"
               = link_to "Cancel", ac_transactions_path, class: "btn btn-danger"
 

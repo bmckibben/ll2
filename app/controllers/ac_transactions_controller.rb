@@ -29,6 +29,11 @@ class AcTransactionsController < InheritedResources::Base
       @ac_transaction.schedule_date = @ac_transaction.date
     end
     @ac_payees = AcPayee.all.order(name: :asc)
+    render layout: "home"
+  end
+
+  def edit
+    render layout: "home"
   end
 
   def create

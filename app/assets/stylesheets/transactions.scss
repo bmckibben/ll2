@@ -56,7 +56,7 @@
 		}
 		label {
 			font-size: 14px;
-		}
+		}		
 	}
 	textarea{
 		height: 34px;
@@ -95,3 +95,28 @@
   }
 
 }
+
+@media (max-width: 768px) {
+	.new_ac_transaction, .edit_ac_transaction, .new_ac_schedule, .edit_ac_schedule {
+		.form-inputs{
+			label {
+				font-size: 36px;
+			}			
+			.form-control {
+				font-size: 36px;
+				height: 72px;
+			}
+		} 		
+		textarea{
+			height: 72px;
+		}
+		.btn {
+			font-size: 54px;
+		}
+		datalist {
+			option {
+				font-size: 36px;
+			}
+		}
+	}
+}		

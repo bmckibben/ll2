@@ -1,11 +1,9 @@
-.container-fluid#transactions
-	.row
-		.col-md-1
-		.col-md-10.card
-			%h1 Editing Transaction
+%body	
+	.container-fluid#transactions
+		.row
+			.col-md-1
+			.col-md-10.card
+				%h1 Editing Transaction
 
-			= render 'form'
+				= render 'form'
 
-			= link_to 'Show', @ac_transaction
-			\|
-			= link_to 'Back', ac_transactions_path
