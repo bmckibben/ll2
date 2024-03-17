@@ -61,6 +61,7 @@
                 %td.center
                   =link_to edit_ac_transaction_path(ac_transaction), title: "Edit Transaction" do
                     %i.bi.bi-pencil-square
+            - @current_balance = @balance        
             - @ac_schedules.each do |ac_schedule|
               - @balance += ((ac_schedule.credit || 0 ) - (ac_schedule.debit || 0))
               %tr.grayed.sched_row
@@ -84,8 +85,14 @@
                 %td.center
                   =link_to new_ac_transaction_path(schedule_id: ac_schedule.id), title: "Insert Transaction" do
                     %i.bi.bi-plus-square
-      .h2.right
-        = "Cleared: #{number_to_currency(@cleared)}"
+      .row
+        .col-md-6
+        .col-md-3
+          .h2.right
+            = "Balance: #{number_to_currency(@current_balance)}"
+        .col-md-3                  
+          .h2.right
+            = "Cleared: #{number_to_currency(@cleared)}"
 
       
 :javascript

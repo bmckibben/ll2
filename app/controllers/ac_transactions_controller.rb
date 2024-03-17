@@ -1,7 +1,7 @@
 class AcTransactionsController < InheritedResources::Base
 
   before_action :authenticate_user!
-  before_action :set_transaction, only: [:update, :status_update]
+  before_action :set_transaction, only: [:update, :status_update, :edit]
   before_action :set_data_lists, only: [:new, :edit]
 
   def index

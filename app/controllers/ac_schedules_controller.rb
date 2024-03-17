@@ -12,6 +12,11 @@ class AcSchedulesController < InheritedResources::Base
   def new
     @ac_schedule = AcSchedule.new
     @ac_schedule.first_date = Time.now
+    render layout: "home"
+  end
+
+  def edit
+    render layout: "home"
   end
 
   def create
