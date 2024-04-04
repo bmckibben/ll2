@@ -45,6 +45,8 @@
   .scrollbar-container {
   	height: 60vh;
   	overflow-y: scroll;
+	display: flex;
+	flex-direction: column-reverse;
   }
 } 
  
