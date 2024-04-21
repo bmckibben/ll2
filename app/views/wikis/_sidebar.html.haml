@@ -25,11 +25,7 @@
           %li
             %a.tree-menu{"data-wiki-id" => "#{wiki_link.id}", href: "javascript:void(0);"}= wiki_link.title
     #recent.tab-pane
-      %ul.recent-list
-        - group_date = ""
+      %ul.nav.nav-list
         - @recents.each do |recent_link|
-          - if group_date != recent_link.updated_at.strftime('%F')
-            - group_date = recent_link.updated_at.strftime('%F')
-            %li.recent-group= group_date
           %li
             %a.tree-menu{"data-wiki-id" => "#{recent_link.id}", href: "javascript:void(0);"}= recent_link.title

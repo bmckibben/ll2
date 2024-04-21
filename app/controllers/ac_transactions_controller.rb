@@ -14,6 +14,7 @@ class AcTransactionsController < InheritedResources::Base
   def new
     @ac_transaction = AcTransaction.new
     @ac_transaction.date = Time.now
+    @ac_transaction.ac_transaction_status_id = 2
     unless params["schedule_id"].nil?
       scheduled = AcSchedule.find(params["schedule_id"])
       @ac_transaction.ac_schedule_id = scheduled.id
@@ -24,7 +25,6 @@ class AcTransactionsController < InheritedResources::Base
       @ac_transaction.date = scheduled.next_date
       @ac_transaction.credit = scheduled.credit
       @ac_transaction.debit = scheduled.debit
-      @ac_transaction.ac_transaction_status_id = 2
       @ac_transaction.description = scheduled.description
       @ac_transaction.schedule_date = @ac_transaction.date
     end
