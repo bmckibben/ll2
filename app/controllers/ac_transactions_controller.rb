@@ -85,6 +85,16 @@ class AcTransactionsController < InheritedResources::Base
     @ac_transaction.update(ac_transaction_status_id: params[:status] )
     render json: nil, status: 200
   end
+
+  def reconcile
+    reconcile_status = AcTransactionStatus.where(name: "Reconciled").first.id
+    cleared_status = AcTransactionStatus.where(name: "Cleared").first.id
+    puts "~~~~~~~~#{reconcile_status}/#{cleared_status}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+    AcTransaction.where(ac_transaction_status_id:cleared_status).update(ac_transaction_status_id:reconcile_status)
+    puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+    redirect_to ac_transactions_path, notice: 'Cleared items have been marked reconciled.' 
+  end
+
   private
 
     def set_transaction

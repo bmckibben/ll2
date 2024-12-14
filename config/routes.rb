@@ -38,6 +38,7 @@ Rails.application.routes.draw do
   get 'wiki_tags/menu' => 'wiki_tags#menu'
   get "stories/download_json", to: "stories#download_json", as: :story_download_json
   get "ac_transactions/status_update", to: "ac_transactions#status_update", as: :ac_transaction_status_update
+  get "ac_transactions/reconcile", to: "ac_transactions#reconcile", as: :ac_transaction_reconcile
 
   resources :sections
   

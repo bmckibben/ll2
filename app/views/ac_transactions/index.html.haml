@@ -5,8 +5,10 @@
 
       %h1 Transactions
       .right
+        = link_to 'Reconcile Cleared', ac_transaction_reconcile_path, class:"btn btn-primary"
         = link_to 'Add Transaction', new_ac_transaction_path, class:"btn btn-primary"
         = link_to 'Schedule Transaction', new_ac_schedule_path, class:"btn btn-primary"  
+      %hr{style: "width:100%"}  
       .scrollbar-container      
         %table.table.table-striped
           %thead
