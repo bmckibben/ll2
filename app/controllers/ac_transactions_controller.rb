@@ -6,7 +6,8 @@ class AcTransactionsController < InheritedResources::Base
 
   def index
     @balance = @cleared = AcAccount.find(1).opening_balance
-    @ac_transactions = AcTransaction.all.order(:date, :created_at)
+    @ac_transactions = AcTransaction.all.includes(:ac_transaction_status).order("ac_transaction_status.status_code desc").order(:date, :created_at)
+
     @ac_schedules = AcSchedule.all
     @ac_schedules = @ac_schedules.sort_by {|schedule| schedule.next_date}
   end
