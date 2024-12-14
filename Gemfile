@@ -9,7 +9,7 @@ gem 'rails'
 gem 'pg'
 
 # Use Puma as the app server
-gem 'puma'
+gem 'puma', ">= 5.6.9"
 # Use SCSS for stylesheets
 gem 'sassc-rails'
 # Use terser-ruby as compressor for JavaScript assets
