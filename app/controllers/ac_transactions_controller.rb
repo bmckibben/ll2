@@ -6,7 +6,6 @@ class AcTransactionsController < InheritedResources::Base
 
   def index
     @hide_status = params["hide_status"] || "R"
-    binding.pry
     @balance = @cleared = AcAccount.find(1).opening_balance
     @ac_transactions = AcTransaction.all.includes(:ac_transaction_status).order("ac_transaction_status.status_code desc").order(:date, :created_at)
     @ac_schedules = AcSchedule.all
