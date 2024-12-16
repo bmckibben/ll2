@@ -5,6 +5,10 @@
 
       %h1 Transactions
       .right
+        - if @hide_status == "R"
+          = link_to 'Show Reconciled', ac_transactions_path(hide_status: "X"), class:"btn btn-primary"
+        - else
+          = link_to 'Hide Reconciled', ac_transactions_path(hide_status: "R"), class:"btn btn-primary"
         = link_to 'Reconcile Cleared', ac_transaction_reconcile_path, class:"btn btn-primary"
         = link_to 'Add Transaction', new_ac_transaction_path, class:"btn btn-primary"
         = link_to 'Schedule Transaction', new_ac_schedule_path, class:"btn btn-primary"  
@@ -29,7 +33,7 @@
             - @ac_transactions.each do |ac_transaction|
               - @balance += ((ac_transaction.credit || 0 ) - (ac_transaction.debit || 0))
               - @cleared += ((ac_transaction.credit || 0 ) - (ac_transaction.debit || 0)) if ac_transaction.ac_transaction_status.status_code.to_i > 2
-              - unless ac_transaction.ac_transaction_status.name[0,1] == 'R'
+              - unless ac_transaction.ac_transaction_status.name[0,1] == @hide_status
                 %tr
                   %td.right
                     = ac_transaction.check_number
