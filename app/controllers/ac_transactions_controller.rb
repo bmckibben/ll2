@@ -7,7 +7,8 @@ class AcTransactionsController < InheritedResources::Base
   def index
     @hide_status = params["hide_status"] || "R"
     @balance = @cleared = AcAccount.find(1).opening_balance
-    @ac_transactions = AcTransaction.where("date > ? ", Date.new(2025,1,1).to_s ).includes(:ac_transaction_status).order("ac_transaction_status.status_code desc").order(:date, :created_at)
+    filter_date = params["filter_date"] || AcAccount.find(1).opening_date.to_datetime-1.day
+    @ac_transactions = AcTransaction.where("date > ? ", filter_date.to_s).includes(:ac_transaction_status).order("ac_transaction_status.status_code desc").order(:date, :created_at)
     @ac_schedules = AcSchedule.all
     @ac_schedules = @ac_schedules.sort_by {|schedule| schedule.next_date}
   end
