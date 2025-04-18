@@ -1,4 +1,4 @@
-$("#snackbar").html('Thank you for your feedback.').fadeIn();
+$("#snackbar").html('<%= @message %>').fadeIn();
 
 setTimeout(function(){
 	$("#snackbar").fadeOut();
