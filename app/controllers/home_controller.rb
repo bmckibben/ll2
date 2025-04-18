@@ -9,7 +9,7 @@ class HomeController < ApplicationController
 
   def contact
 
-  	HomeMailer.send_contact_email(params[:email_name],params[:email_address],params[:email_message]).deliver
+  	HomeMailer.contact(params[:email_name],params[:email_address],params[:email_message]).deliver
       message = 'Your message is on the way.'
       type = 'notice'
         respond_to do |format|
