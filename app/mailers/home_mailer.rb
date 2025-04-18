@@ -8,6 +8,9 @@ class HomeMailer < ActionMailer::Base
     @email = email
     @message = message
     @name = name
-    mail subject: 'Email from Literallight', to: "ben@literallight.com", reply_to: @email, from: @email
+    mail subject: 'Email from Literallight', 
+      to: "ben@literallight.com", 
+      reply_to: @email, 
+      from: @email
   end  
 end
