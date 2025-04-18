@@ -8,18 +8,18 @@ class HomeController < ApplicationController
   end  
 
   def contact
-
-  	HomeMailer.contact(params[:email_name],params[:email_address],params[:email_message]).deliver
-      message = 'Your message is on the way.'
-      type = 'notice'
-        respond_to do |format|
+    #raise params
+  	HomeMailer.contact(params[:contact][:name],params[:contact][:email],params[:contact][:message]).deliver_now
+    @message = 'Your message is on the way.'
+      
+    respond_to do |format|
         format.html {
           redirect_to home_path
         }
         format.js {
-          render(locals: {message: message, type: type})
+          #render(locals: {message: message})
         }
-      end
+    end
   end	
 
   def mom
