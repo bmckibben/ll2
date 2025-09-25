@@ -15,11 +15,14 @@
             .col-md-4.col-sm-11
               = f.input :schedule_date, as: :date, html5: true
           .row
-            .col-md-4.col-sm-11
+            .col-md-8.col-sm-11
               = f.input :ui_payee, label: "Pay To", input_html: { list: 'payee_list', autocomplete: "off" }
               %datalist{id: 'payee_list'} 
                 - @ac_payees.each do |payee|
                   %option{value: payee.name}  
+            .col-md-4.col-sm-11
+              = f.input :ac_transaction_status_id, label: "Cleared 3"
+          .row
             .col-md-4.col-sm-11
               = f.input :ui_category, label:"Category", input_html: { list: 'category_list', autocomplete: "off" }  
               %datalist{id: 'category_list'} 
@@ -30,7 +33,7 @@
               %datalist{id: 'sub_category_list'} 
                 - @ac_sub_categories.each do |sub_category|
                   %option{value: sub_category.name} 
-   
+            .col-md-4.col-sm-11
           .row
             .col-md-4.col-sm-11
               = f.input :ac_schedule_id, as: :hidden
