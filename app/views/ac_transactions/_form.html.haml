@@ -34,17 +34,13 @@
                 - @ac_sub_categories.each do |sub_category|
                   %option{value: sub_category.name} 
             .col-md-4.col-sm-11
+              = f.input :description, label: "Memo"
           .row
             .col-md-4.col-sm-11
               = f.input :ac_schedule_id, as: :hidden
               = f.input :debit, label: "Debit"
             .col-md-4.col-sm-11 
               =f.input :credit, label: "Credit" 
-            .col-md-4.col-sm-11
-              = f.input :description, label: "Memo"
-          .row
-            .col-md-4.col-sm-11
-            .col-md-4.col-sm-11
             .col-md-4.col-sm-11
               = f.button :submit, "Save", class: "btn btn-primary"
               = link_to "Cancel", ac_transactions_path, class: "btn btn-danger"
