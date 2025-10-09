@@ -51,7 +51,7 @@ class AcTransactionsController < InheritedResources::Base
     sub_category = AcSubCategory.find_or_create_by(name: params[:ac_transaction][:ui_sub_category])
     sub_category.update(ac_category_id: category.id) if sub_category.ac_category_id.nil?
     @ac_transaction.ac_sub_category = sub_category
-    @ac_transaction.ac_transaction_status_id = 2
+    @ac_transaction.ac_transaction_status_id = params[:ac_transaction][:ac_transaction_status_id]
 
     respond_to do |format|    
       if @ac_transaction.save
