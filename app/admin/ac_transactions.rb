@@ -18,18 +18,18 @@ ActiveAdmin.register AcTransaction do
 		column :created_at
 		actions
 
-		csv do
-        	column :check_number
-			column :date
-			column :ac_payee
-			column :ac_category
-			column :ac_sub_category
-			column :debit
-			column :credit	
-        end
-		
 	end
 
+	csv do
+		column :check_number
+		column :date
+		column :ac_payee
+		column :ac_category
+		column :ac_sub_category
+		column :debit
+		column :credit	
+	end	
+	
   form do |f|
     f.inputs do
       f.input :ac_account
