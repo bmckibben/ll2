@@ -17,6 +17,17 @@ ActiveAdmin.register AcTransaction do
 		column :schedule_date
 		column :created_at
 		actions
+
+		csv do
+        	column :check_number
+			column :date
+			column :ac_payee
+			column :ac_category
+			column :ac_sub_category
+			column :debit
+			column :credit	
+        end
+		
 	end
 
   form do |f|
