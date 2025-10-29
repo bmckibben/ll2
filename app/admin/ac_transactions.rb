@@ -23,9 +23,9 @@ ActiveAdmin.register AcTransaction do
 	csv do
 		column :check_number
 		column :date
-		column :ac_payee
-		column :ac_category
-		column :ac_sub_category
+		column :payee { |ac_transaction| ac_transaction.ac_payee.name }
+		column :category { |ac_transaction| ac_transaction.ac_category.name }
+		column :sub_category { |ac_transaction| ac_transaction.ac_sub_category.name }
 		column :debit
 		column :credit	
 	end	
