@@ -21,7 +21,7 @@
                 - @ac_payees.each do |payee|
                   %option{value: payee.name}  
             .col-md-4.col-sm-11
-              = f.input :ac_transaction_status_id, label: "Cleared 3"
+              = f.input :ac_transaction_status_id, as: :radio_buttons, label: "Status",  collection: [["Pending", 2],["Cleared",3],["Reconciled",4]]
           .row
             .col-md-4.col-sm-11
               = f.input :ui_category, label:"Category", input_html: { list: 'category_list', autocomplete: "off" }  
